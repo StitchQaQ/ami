@@ -2,6 +2,8 @@
 date = '2025-02-13T10:20:34+08:00'
 draft = false
 title = 'Go语言实战笔记'
+lastmod = '2025-10-30T15:30:00+08:00'
+categories = ["Golang"]
 toc = true
 +++
 

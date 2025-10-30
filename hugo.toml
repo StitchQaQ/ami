@@ -41,7 +41,7 @@ lastUpdated = "2006-01-02 15:04"
 # 侧边栏设置
 [params.sidebar]
 emoji = "👋"
-subtitle = "简单记录生活点滴，分享技术学习心得"
+subtitle = "不要傻笑"
 [params.sidebar.avatar]
 enabled = true
 local = true
