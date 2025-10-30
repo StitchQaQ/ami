@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>算法 on Heyuuuu</title>
+        <link>https://heyuuuu77.github.io/tags/%E7%AE%97%E6%B3%95/</link>
+        <description>Recent content in 算法 on Heyuuuu</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>© 2024-2025 Heyuuuu</copyright>
+        <lastBuildDate>Tue, 18 Mar 2025 09:46:23 +0800</lastBuildDate><atom:link href="https://heyuuuu77.github.io/tags/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>LeetCode 刷题记录</title>
+        <link>https://heyuuuu77.github.io/posts/leecode/</link>
+        <pubDate>Tue, 18 Mar 2025 09:46:23 +0800</pubDate>
+        
+        <guid>https://heyuuuu77.github.io/posts/leecode/</guid>
+        <description>&lt;h3 id=&#34;小镇法官&#34;&gt;小镇法官
+&lt;/h3&gt;&lt;h5 id=&#34;题干&#34;&gt;题干
+&lt;/h5&gt;&lt;p&gt;小镇有 n 个人， 其中有一个人是是小镇法官。如果法官存在，那么：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;他不信任任何人&lt;/li&gt;
+&lt;li&gt;每个人（除了他自己）都信任他&lt;/li&gt;
+&lt;li&gt;同时满足 1 和 2&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;给定一个trust数组。其中 trust[i] = [ai, bi] 表示编号为 ai 的人信任编号为 bi 的人
+如果小镇法官存在并确认身份，返回法官编号，否则返回 -1&lt;/p&gt;
+&lt;h5 id=&#34;题解思路&#34;&gt;题解思路
+&lt;/h5&gt;&lt;p&gt;如果使用图解的思路就很好接这个题目
+&lt;img src=&#34;https://heyuuuu77.github.io/images/judge.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;小镇法官&#34;
+	
+	
+&gt;
+引入两个概念就能很好的抽象这个题，对于小镇的某个人而言，别人信任我，表示入度，我信任别人表示出度。 因此，寻找小镇法官的题目可以抽象成， 法官的入度是 n-1，法官的出度是0.&lt;/p&gt;
+&lt;h5 id=&#34;code&#34;&gt;code
+&lt;/h5&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python3&#34; data-lang=&#34;python3&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;collections&lt;/span&gt; &lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Counter&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;findJudge&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;trust&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;list&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;list&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))):&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;outDegree&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Counter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;start&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;start&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;_&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;trust&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;inDegree&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Counter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;end&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;_&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;end&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;trust&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;next&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;((&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;range&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;outDegree&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;and&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;inDegree&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h4 id=&#34;1348推文计数&#34;&gt;1348.推文计数
+&lt;/h4&gt;&lt;h5 id=&#34;题目&#34;&gt;题目
+&lt;/h5&gt;&lt;p&gt;一家社交媒体公司正试图通过分析特定时间段内出现的推文数量来监控其网站上的活动。这些时间段可以根据特定的频率（ 每分钟 、每小时 或 每一天 ）划分为更小的 时间段 。&lt;/p&gt;
+&lt;p&gt;例如，周期 [10,10000] （以 秒 为单位）将被划分为以下频率的 时间块 :&lt;/p&gt;
+&lt;p&gt;每 分钟 (60秒 块)： [10,69], [70,129], [130,189], &amp;hellip;, [9970,10000]
+每 小时 (3600秒 块)：[10,3609], [3610,7209], [7210,10000]
+每 天 (86400秒 块)： [10,10000]
+注意，最后一个块可能比指定频率的块大小更短，并且总是以时间段的结束时间结束(在上面的示例中为 10000 )。&lt;/p&gt;
+&lt;p&gt;设计和实现一个API来帮助公司进行分析。&lt;/p&gt;
+&lt;p&gt;实现 TweetCounts 类:&lt;/p&gt;
+&lt;p&gt;TweetCounts() 初始化 TweetCounts 对象。
+存储记录时间的 tweetName (以秒为单位)。
+List&lt;integer&gt; getTweetCountsPerFrequency(String freq, String tweetName, int startTime, int endTime) 返回一个整数列表，表示给定时间 [startTime, endTime] （单位秒）和频率频率中，每个 时间块 中带有 tweetName 的 tweet 的数量。
+freq 是 “minute” 、 “hour” 或 “day” 中的一个，分别表示 每分钟 、 每小时 或 每一天 的频率。&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>面试题汇总</title>
+        <link>https://heyuuuu77.github.io/posts/interview/</link>
+        <pubDate>Sat, 08 Feb 2025 16:55:54 +0800</pubDate>
+        
+        <guid>https://heyuuuu77.github.io/posts/interview/</guid>
+        <description>&lt;!-- ### 记录一下面试 --&gt;
+&lt;!-- ##### 面试莉莉丝 -- 失败 --&gt;
+&lt;p&gt;&lt;code&gt;失败理由:&lt;/code&gt; 各方面还不错，但是有更合适的人选。&lt;/p&gt;
+&lt;p&gt;知道这只是那边的比较委婉的表达。 一面总体来说没聊什么技术问题。聊了一些业务相关的。
+比较意想不到的提问是： 如果我是业务方，我会比较看重哪些指标。 这个问题我是比较错愕的，我面试的是技术开发岗位，一般负责的是具体的功能落地等相关技术更多。
+倒也不是完全不关心业务，只是有些太偏向业务理解了。更多的是像面试数据分析师/市场投放业务相关的岗位。
+个人理解是看重哪些指标是要看具体的目的，整体看一段时间内的广告情况可能会比较看重ROI。看某些特定的广告效果，可能会看CPI，CPM这些指标。&lt;/p&gt;
+&lt;p&gt;一面总体比较无奈，用的编程语言是Python，都没有到比较深入的技术问题。大多是一些比较意识流的理解。 准备的很多知识也没用上，不过这些都是积累，用不上也还是我自己的知识。感觉好可惜，非常喜欢莉莉丝这家公司。
+很重视这次面试，为此还专门请了半天假在家面试。还在试用期，扣了半天的工资。唉，果然期待越高，失败之后越难过。有点傻&lt;/p&gt;
+&lt;p&gt;唉。 后面波克城市有类似的岗位。简历送到用人部门过leader筛选了。希望能有反馈。&lt;/p&gt;
+&lt;p&gt;心情：非常有挫败感 💔
+&amp;mdash;- 记录于 2025-02-08 16:55.&lt;/p&gt;
+&lt;h1 id=&#34;2025-06-11-面试知识点汇总&#34;&gt;2025-06-11 面试知识点汇总
+&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

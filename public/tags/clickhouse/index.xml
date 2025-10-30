@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>ClickHouse on Heyuuuu</title>
+        <link>https://heyuuuu77.github.io/tags/clickhouse/</link>
+        <description>Recent content in ClickHouse on Heyuuuu</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>© 2024-2025 Heyuuuu</copyright>
+        <lastBuildDate>Mon, 24 Mar 2025 09:34:08 +0800</lastBuildDate><atom:link href="https://heyuuuu77.github.io/tags/clickhouse/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>ClickHouse 性能之巅</title>
+        <link>https://heyuuuu77.github.io/posts/clickhouse%E6%80%A7%E8%83%BD%E4%B9%8B%E5%B7%85/</link>
+        <pubDate>Mon, 24 Mar 2025 09:34:08 +0800</pubDate>
+        
+        <guid>https://heyuuuu77.github.io/posts/clickhouse%E6%80%A7%E8%83%BD%E4%B9%8B%E5%B7%85/</guid>
+        <description>&lt;h3 id=&#34;day1&#34;&gt;Day1
+&lt;/h3&gt;&lt;h4 id=&#34;oltp--olap&#34;&gt;OLTP &amp;amp; OLAP
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;OLTP, OnLine Transaction Process 联机事务处理 (MySQL, PostgreSQL, Oracle)
+OLTP使用的是高反式的表。好处是数据结构不容易，事务处理速度快&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;OLAP, OnLine Analyse Process 联机分析处理(Hive, HBase, ClickHouse)
+OLAP数据库被称为数据仓库(数仓), 它是反范式的。数据冗余度很高，正因为如此。它被用做数据分析，因为单个宽表就包含了很多字段，不需要进行连表(JOIN)查询。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;第零范式&#34;&gt;第零范式
+&lt;/h4&gt;&lt;p&gt;不遵循第一范式，都被称之为第零范式，即字段中可以存储json或者文档&lt;/p&gt;
+&lt;h4 id=&#34;第一范式&#34;&gt;第一范式
+&lt;/h4&gt;&lt;p&gt;指数据表中的每个属性都不可再拆分。&lt;/p&gt;
+&lt;h3 id=&#34;day2&#34;&gt;Day2
+&lt;/h3&gt;</description>
+        </item>
+        
+    </channel>
+</rss>

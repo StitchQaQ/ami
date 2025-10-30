@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>UV on Heyuuuu</title>
+        <link>https://heyuuuu77.github.io/tags/uv/</link>
+        <description>Recent content in UV on Heyuuuu</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>© 2024-2025 Heyuuuu</copyright>
+        <lastBuildDate>Mon, 24 Mar 2025 11:43:50 +0800</lastBuildDate><atom:link href="https://heyuuuu77.github.io/tags/uv/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Python 版本管理工具 UV</title>
+        <link>https://heyuuuu77.github.io/posts/python_uv/</link>
+        <pubDate>Mon, 24 Mar 2025 11:43:50 +0800</pubDate>
+        
+        <guid>https://heyuuuu77.github.io/posts/python_uv/</guid>
+        <description>&lt;h2 id=&#34;uv&#34;&gt;UV
+&lt;/h2&gt;&lt;p&gt;官网&lt;a class=&#34;link&#34; href=&#34;https://docs.astral.sh/uv/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;地址&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;一个很好用的python项目管理工具，以下是一些常见命令：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;uv init [example]  可以初始化项目,会自动创建example floder&lt;/li&gt;
+&lt;li&gt;uv install python [version] 可以安装python版本。&lt;/li&gt;
+&lt;li&gt;uv install 即可根据 uv.lock 文件安装依赖&lt;/li&gt;
+&lt;li&gt;uv python list 显示 python 版本&lt;/li&gt;
+&lt;li&gt;uv venv &amp;ndash;python 3.12.0  可以创建python的虚拟环境&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

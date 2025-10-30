@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>哈希表 on Heyuuuu</title>
+        <link>https://heyuuuu77.github.io/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/</link>
+        <description>Recent content in 哈希表 on Heyuuuu</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>© 2024-2025 Heyuuuu</copyright>
+        <lastBuildDate>Fri, 06 Jun 2025 15:53:55 +0800</lastBuildDate><atom:link href="https://heyuuuu77.github.io/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>树与哈希表</title>
+        <link>https://heyuuuu77.github.io/posts/tree/</link>
+        <pubDate>Fri, 06 Jun 2025 15:53:55 +0800</pubDate>
+        
+        <guid>https://heyuuuu77.github.io/posts/tree/</guid>
+        <description>&lt;h3 id=&#34;哈希冲突的原因以及解决办法&#34;&gt;哈希冲突的原因以及解决办法
+&lt;/h3&gt;&lt;p&gt;hash算法是一种数据压缩方式，由于算法产生的哈希值的数量是有限的，所以当数据量大时就会出现哈希值不够用的情况，多个数据通过算法的出了相同的哈希值。从而产生了冲突。&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

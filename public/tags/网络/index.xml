@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>网络 on Heyuuuu</title>
+        <link>https://heyuuuu77.github.io/tags/%E7%BD%91%E7%BB%9C/</link>
+        <description>Recent content in 网络 on Heyuuuu</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>© 2024-2025 Heyuuuu</copyright>
+        <lastBuildDate>Wed, 26 Mar 2025 17:17:34 +0800</lastBuildDate><atom:link href="https://heyuuuu77.github.io/tags/%E7%BD%91%E7%BB%9C/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>TCP 与 UDP 协议</title>
+        <link>https://heyuuuu77.github.io/posts/tcp_udp/</link>
+        <pubDate>Wed, 26 Mar 2025 17:17:34 +0800</pubDate>
+        
+        <guid>https://heyuuuu77.github.io/posts/tcp_udp/</guid>
+        <description>&lt;p&gt;TCP/IP是一个协议簇，tcp协议(传输控制协议)，udp协议(用户数据协议)都包含在其中，还有http(超文本传输协议), ftp(文本传输协议), telnet(远程登录协议)等&lt;/p&gt;
+&lt;p&gt;先说一下TCP/IP协议的4层协议模型，至上向下依次是：应用层,传输层，网络层，网络接口层。
+扩展成 OSI协议的7层协议模型，是把 应用层拆分成应用层，会话层，表示层。 网络接口层拆分为 数据链路层，物理层&lt;/p&gt;
+&lt;p&gt;tcp协议可以理解成可靠数据传输协议，面向连接的协议。 建立tcp连接需要3次握手，断开需要4次挥手。
+udp不需要提前建立连接，是面向无连接的协议，只顾往网络上传输，接收端自己从消息队列中获取，只是尽可能发送。&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

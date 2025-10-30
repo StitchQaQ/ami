@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Hugo on Heyuuuu</title>
+        <link>https://heyuuuu77.github.io/tags/hugo/</link>
+        <description>Recent content in Hugo on Heyuuuu</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>© 2024-2025 Heyuuuu</copyright>
+        <lastBuildDate>Sat, 08 Feb 2025 17:06:08 +0800</lastBuildDate><atom:link href="https://heyuuuu77.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Hugo 静态博客搭建</title>
+        <link>https://heyuuuu77.github.io/posts/hugo/</link>
+        <pubDate>Sat, 08 Feb 2025 17:06:08 +0800</pubDate>
+        
+        <guid>https://heyuuuu77.github.io/posts/hugo/</guid>
+        <description>&lt;p&gt;使用Hugo搭建 github page越到的坑。 首先 hugo 命令会生成静态文件。
+本地查看的时候执行的命令是 &lt;code&gt;hugo server&lt;/code&gt;。 这个时候，草稿是不会暂时出来的。如果需要暂时草稿， 需要加上参数 &lt;code&gt;-D&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;创建新的文章的命令是: &lt;code&gt;hugo new posts/your-post-name.md&lt;/code&gt;. 注意这个时候自动生成的 markdown文件中的 draft 默认为true，表示当前是草稿模式。
+如果要可以见，需要将其设置成false。&lt;/p&gt;
+&lt;p&gt;接下来如果本地看了没问题，重点是需要关闭本地服务, 即&lt;code&gt;hugo server&lt;/code&gt; 打开的服务，并重新执行&lt;code&gt;hugo&lt;/code&gt;。
+不这样做，hugo会将public下的静态文件全部编译成本地。 这时候提交到github，静态文件的跳转链接会乱掉。全部指向本地链接。&lt;/p&gt;
+&lt;p&gt;提交至github page时，不用把hugo项目全部提交上去，而是进入到hugo项目的public 路径下，执行git init， 然后添加 remote。 在提交就OK了&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

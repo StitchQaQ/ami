@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>分布式系统 on Heyuuuu</title>
+        <link>https://heyuuuu77.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/</link>
+        <description>Recent content in 分布式系统 on Heyuuuu</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>© 2024-2025 Heyuuuu</copyright>
+        <lastBuildDate>Fri, 21 Feb 2025 08:46:57 +0800</lastBuildDate><atom:link href="https://heyuuuu77.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>分布式系统基础</title>
+        <link>https://heyuuuu77.github.io/posts/distributed_system/</link>
+        <pubDate>Fri, 21 Feb 2025 08:46:57 +0800</pubDate>
+        
+        <guid>https://heyuuuu77.github.io/posts/distributed_system/</guid>
+        <description>&lt;h3 id=&#34;名词解释&#34;&gt;名词解释
+&lt;/h3&gt;&lt;h4 id=&#34;cap理论&#34;&gt;CAP理论
+&lt;/h4&gt;&lt;p&gt;该理论指出，一个分布式系统不可能同时满足一下三个特性:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;一致性(Consistency): 所有节点同一时间看到的数据是相同的。也就是说，当一个数据更新操作在系统的某个节点上执行成功后，在后续的任何节点上进行数据读取操作时，都能获取到更新后的值。&lt;/li&gt;
+&lt;li&gt;可用性(Availability): 系统中的每一个非故障节点都能在合理的时间内响应客户端的请求。即无论何时，客户端发起的请求都能得到响应，不会出现系统不可用的情况。&lt;/li&gt;
+&lt;li&gt;分区容错性(Partition tolerance): 系统在遇到任何网络分区故障时，仍然能够保证对外提供满足一致性或可用性的服务。网络分区是指由于网络问题导致部分节点之间无法通信。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;理解&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;在分布式系统中，由于网络的不确定性，分区容错性是必须要考虑的因素，也就是 P 是必然存在的。因此，在实际应用中，通常需要在一致性（C）和可用性（A）之间做出权衡&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;CP 系统&lt;/em&gt;：优先保证一致性和分区容错性，牺牲部分可用性。例如，ZooKeeper 就是一个典型的 CP 系统，当发生网络分区时，为了保证数据的一致性，系统可能会暂时不可用，直到分区问题解决。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;AP 系统&lt;/em&gt;：优先保证可用性和分区容错性，牺牲部分一致性。比如，Amazon 的 Dynamo 系统，它允许在不同节点上的数据存在短暂的不一致，但保证系统始终可以响应客户端的请求。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;base理论&#34;&gt;BASE理论
+&lt;/h4&gt;&lt;p&gt;&lt;em&gt;定义&lt;/em&gt;
+是对 CAP 理论中 AP 方案的一个扩展和延伸，它的核心思想是即使无法做到强一致性，但每个应用都可以根据自身的业务特点，采用适当的方式来使系统达到最终一致性。BASE 是三个短语的缩写：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;基本可用（Basically Available）：指分布式系统在出现故障时，允许损失部分可用性，即保证核心功能可用，但可能会出现响应时间延长、服务降级等情况。例如，在电商大促期间，系统可能会对一些非核心业务功能进行限流，以保证核心的交易功能正常运行。&lt;/li&gt;
+&lt;li&gt;软状态（Soft state）：允许系统中的数据存在中间状态，并且这种中间状态不会影响系统的整体可用性。也就是说，系统中的数据可以在一段时间内处于不一致的状态。&lt;/li&gt;
+&lt;li&gt;最终一致性（Eventual consistency）：系统中的所有数据副本，在经过一段时间的同步后，最终能够达到一致的状态。最终一致性是 BASE 理论的核心，它强调的是数据在一段时间后会达到一致，而不是实时一致。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;分布式框架&#34;&gt;分布式框架
+&lt;/h3&gt;&lt;h4 id=&#34;spring-cloud&#34;&gt;Spring Cloud
+&lt;/h4&gt;&lt;h4 id=&#34;dubbo&#34;&gt;Dubbo
+&lt;/h4&gt;&lt;h4 id=&#34;grpc&#34;&gt;gRPC
+&lt;/h4&gt;&lt;p&gt;高性能远程过程调用框架。流式传输，支持四种流式传输模式：客户端流式，服务器流式，双向流失，RPC非流式。
+protobuf 序列化协议，跨语言，Protobuf 编译器可以根据定义文件自动生成不同语言的客户端和服务器代码，减少了手动编写代码的工作量。&lt;/p&gt;
+&lt;h4 id=&#34;etcd&#34;&gt;etcd
+&lt;/h4&gt;&lt;p&gt;高可用的分布式键值存储系统，可用于配置共享和服务发现&lt;/p&gt;
+&lt;h4 id=&#34;如何搭建一个支持高并发的系统&#34;&gt;如何搭建一个支持高并发的系统
+&lt;/h4&gt;&lt;p&gt;首先从多方面去考虑，&lt;/p&gt;
+&lt;h5 id=&#34;分布式选型&#34;&gt;分布式选型
+&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;横向扩展: K8S部署多个服务示例，Nginx负载均衡，K8S HPA可以自动弹性扩缩容。&lt;/li&gt;
+&lt;li&gt;服务拆分: 微服务拆分&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&#34;主流的rpc框架&#34;&gt;主流的RPC框架
+&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Apache Dubbo
+阿里开源&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;gRPC
+google 开源。 protobuf支持&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&#34;分布式计算框架&#34;&gt;分布式计算框架
+&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Hadoop MapReduce
+日志分析、ETL等离线任务。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Apache Spark
+实施分析，迭代计算&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Apache Flink&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&#34;分布式存储&#34;&gt;分布式存储
+&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;etcd
+高可用的分布式键值存储系统，可用于配置共享和服务发现&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&#34;消息队列&#34;&gt;消息队列
+&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;k8s cronJob
+基于K8s的定时任务管理，与容器化部署无缝集成&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Apache DolphinScheduler
+企业级复杂任务流编排&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

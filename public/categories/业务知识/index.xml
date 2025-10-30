@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>业务知识 on Heyuuuu</title>
+        <link>https://heyuuuu77.github.io/categories/%E4%B8%9A%E5%8A%A1%E7%9F%A5%E8%AF%86/</link>
+        <description>Recent content in 业务知识 on Heyuuuu</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>© 2024-2025 Heyuuuu</copyright>
+        <lastBuildDate>Mon, 14 Apr 2025 09:53:08 +0800</lastBuildDate><atom:link href="https://heyuuuu77.github.io/categories/%E4%B8%9A%E5%8A%A1%E7%9F%A5%E8%AF%86/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>广告系统基础</title>
+        <link>https://heyuuuu77.github.io/posts/advertiser/</link>
+        <pubDate>Mon, 14 Apr 2025 09:53:08 +0800</pubDate>
+        
+        <guid>https://heyuuuu77.github.io/posts/advertiser/</guid>
+        <description>&lt;h4 id=&#34;广告的计费模式有哪几种&#34;&gt;广告的计费模式有哪几种
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;CPM (Cost Per Mile)千次展示计费&lt;/li&gt;
+&lt;li&gt;CPC (Cost Per Click) 点击收费&lt;/li&gt;
+&lt;li&gt;CPA (Cost Per Action) 行动收费 广告主在用户完成某个特定行为才会支付费用&lt;/li&gt;
+&lt;li&gt;CTP (Cost Per Time) 按时长收费&lt;/li&gt;
+&lt;li&gt;CPI (Cost Per Install) 按安装收费等&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;现代广告系统架构&#34;&gt;现代广告系统架构
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;广告投放平台（DSP, Demand-Side Platform） 广告主通过DSP进行投放，DSP负责竞价，定向，优化等功能&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;供应方平台（SSP, Supply-Side Platform） 媒体方通过SSP管理广告库存，广告库存就是广告位。如果自己开发一个app，想接广告。不需要自己找广告主，直接把广告位卖给SSP就行&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;广告交易市场(Ad Exchange), 一个开发的广告竞价平台，链接DSP和SSP。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;数据管理平台(DMP, Data Managerment Platform), 收集，分析用户数据，提高广告定向能力等&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;广告监测平台(Ad Monitor), 监测广告投放效果，比如广告投放的曝光量，点击量，转化等，归因分析。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
