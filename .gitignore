@@ -1,1 +1,21 @@
-public/*
+# Hugo 构建产物
+resources/_gen/
+
+# Hugo 锁文件
+.hugo_build.lock
+
+# 操作系统文件
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE 文件
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
