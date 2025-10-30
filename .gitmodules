@@ -1,6 +1,0 @@
-[submodule "public"]
-	path = public
-	url = git@github.com:heyuuuu77/heyuuuu77.github.io.git
-[submodule "themes/stack"]
-	path = themes/stack
-	url = https://github.com/CaiJimmy/hugo-theme-stack.git
