@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Python on Heyuuuu</title>
-        <link>https://heyuuuu77.github.io/tags/python/</link>
+        <link>https://stitchqaq.github.io/tags/python/</link>
         <description>Recent content in Python on Heyuuuu</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>© 2024-2025 Heyuuuu</copyright>
-        <lastBuildDate>Mon, 24 Mar 2025 11:43:50 +0800</lastBuildDate><atom:link href="https://heyuuuu77.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 24 Mar 2025 11:43:50 +0800</lastBuildDate><atom:link href="https://stitchqaq.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Python 版本管理工具 UV</title>
-        <link>https://heyuuuu77.github.io/posts/python_uv/</link>
+        <link>https://stitchqaq.github.io/posts/python_uv/</link>
         <pubDate>Mon, 24 Mar 2025 11:43:50 +0800</pubDate>
         
-        <guid>https://heyuuuu77.github.io/posts/python_uv/</guid>
+        <guid>https://stitchqaq.github.io/posts/python_uv/</guid>
         <description>&lt;h2 id=&#34;uv&#34;&gt;UV
 &lt;/h2&gt;&lt;p&gt;官网&lt;a class=&#34;link&#34; href=&#34;https://docs.astral.sh/uv/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;地址&lt;/a&gt;&lt;/p&gt;
@@ -28,10 +28,10 @@
         </item>
         <item>
         <title>Django 常见问题</title>
-        <link>https://heyuuuu77.github.io/posts/django/</link>
+        <link>https://stitchqaq.github.io/posts/django/</link>
         <pubDate>Wed, 05 Feb 2025 11:09:45 +0800</pubDate>
         
-        <guid>https://heyuuuu77.github.io/posts/django/</guid>
+        <guid>https://stitchqaq.github.io/posts/django/</guid>
         <description>&lt;h4 id=&#34;什么是orm&#34;&gt;什么是ORM
 &lt;/h4&gt;&lt;p&gt;ORM 即对象关系映射，它将数据库中的表映射为 Python 类，将表中的记录映射为类的实例，通过操作类和实例来操作数据库。优点包括提高开发效率、可移植性强、安全性高（自动处理 SQL 注入）等。&lt;/p&gt;
 &lt;h4 id=&#34;什么是-n1问题&#34;&gt;什么是 N+1问题
@@ -82,10 +82,10 @@
         </item>
         <item>
         <title>Python 核心知识点</title>
-        <link>https://heyuuuu77.github.io/posts/python/</link>
+        <link>https://stitchqaq.github.io/posts/python/</link>
         <pubDate>Wed, 15 Jan 2025 11:30:03 +0000</pubDate>
         
-        <guid>https://heyuuuu77.github.io/posts/python/</guid>
+        <guid>https://stitchqaq.github.io/posts/python/</guid>
         <description>&lt;h4 id=&#34;python的数据类型&#34;&gt;Python的数据类型
 &lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;int: 整型&lt;/li&gt;

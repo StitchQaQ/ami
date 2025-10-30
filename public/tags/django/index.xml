@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Django on Heyuuuu</title>
-        <link>https://heyuuuu77.github.io/tags/django/</link>
+        <link>https://stitchqaq.github.io/tags/django/</link>
         <description>Recent content in Django on Heyuuuu</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>© 2024-2025 Heyuuuu</copyright>
-        <lastBuildDate>Wed, 05 Feb 2025 11:09:45 +0800</lastBuildDate><atom:link href="https://heyuuuu77.github.io/tags/django/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 05 Feb 2025 11:09:45 +0800</lastBuildDate><atom:link href="https://stitchqaq.github.io/tags/django/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Django 常见问题</title>
-        <link>https://heyuuuu77.github.io/posts/django/</link>
+        <link>https://stitchqaq.github.io/posts/django/</link>
         <pubDate>Wed, 05 Feb 2025 11:09:45 +0800</pubDate>
         
-        <guid>https://heyuuuu77.github.io/posts/django/</guid>
+        <guid>https://stitchqaq.github.io/posts/django/</guid>
         <description>&lt;h4 id=&#34;什么是orm&#34;&gt;什么是ORM
 &lt;/h4&gt;&lt;p&gt;ORM 即对象关系映射，它将数据库中的表映射为 Python 类，将表中的记录映射为类的实例，通过操作类和实例来操作数据库。优点包括提高开发效率、可移植性强、安全性高（自动处理 SQL 注入）等。&lt;/p&gt;
 &lt;h4 id=&#34;什么是-n1问题&#34;&gt;什么是 N+1问题

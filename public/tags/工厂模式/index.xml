@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>工厂模式 on Heyuuuu</title>
-        <link>https://heyuuuu77.github.io/tags/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</link>
+        <link>https://stitchqaq.github.io/tags/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</link>
         <description>Recent content in 工厂模式 on Heyuuuu</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>© 2024-2025 Heyuuuu</copyright>
-        <lastBuildDate>Wed, 05 Feb 2025 10:00:19 +0800</lastBuildDate><atom:link href="https://heyuuuu77.github.io/tags/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 05 Feb 2025 10:00:19 +0800</lastBuildDate><atom:link href="https://stitchqaq.github.io/tags/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>设计模式详解</title>
-        <link>https://heyuuuu77.github.io/posts/design_pattern/</link>
+        <link>https://stitchqaq.github.io/posts/design_pattern/</link>
         <pubDate>Wed, 05 Feb 2025 10:00:19 +0800</pubDate>
         
-        <guid>https://heyuuuu77.github.io/posts/design_pattern/</guid>
+        <guid>https://stitchqaq.github.io/posts/design_pattern/</guid>
         <description>&lt;p&gt;设计模式是软件开发中针对各种反复出现的问题归纳出的通用的解决方案，总共有23种设计模式，分别分成创建型，结构性和行为型三大类&lt;/p&gt;
 &lt;h4 id=&#34;创建型&#34;&gt;创建型
 &lt;/h4&gt;&lt;ol&gt;

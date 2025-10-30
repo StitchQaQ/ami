@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>搜索引擎 on Heyuuuu</title>
-        <link>https://heyuuuu77.github.io/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/</link>
+        <link>https://stitchqaq.github.io/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/</link>
         <description>Recent content in 搜索引擎 on Heyuuuu</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>© 2024-2025 Heyuuuu</copyright>
-        <lastBuildDate>Wed, 30 Jul 2025 20:06:04 +0800</lastBuildDate><atom:link href="https://heyuuuu77.github.io/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 30 Jul 2025 20:06:04 +0800</lastBuildDate><atom:link href="https://stitchqaq.github.io/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Elasticsearch 快速入门</title>
-        <link>https://heyuuuu77.github.io/posts/elasticsearch/</link>
+        <link>https://stitchqaq.github.io/posts/elasticsearch/</link>
         <pubDate>Wed, 30 Jul 2025 20:06:04 +0800</pubDate>
         
-        <guid>https://heyuuuu77.github.io/posts/elasticsearch/</guid>
+        <guid>https://stitchqaq.github.io/posts/elasticsearch/</guid>
         <description>&lt;h3 id=&#34;start-elasticsearch-with-docker-localhost&#34;&gt;start elasticsearch with docker localhost
 &lt;/h3&gt;&lt;p&gt;执行&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;

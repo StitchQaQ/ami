@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Docker on Heyuuuu</title>
-        <link>https://heyuuuu77.github.io/tags/docker/</link>
+        <link>https://stitchqaq.github.io/tags/docker/</link>
         <description>Recent content in Docker on Heyuuuu</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>© 2024-2025 Heyuuuu</copyright>
-        <lastBuildDate>Wed, 17 Sep 2025 11:36:54 +0800</lastBuildDate><atom:link href="https://heyuuuu77.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 17 Sep 2025 11:36:54 +0800</lastBuildDate><atom:link href="https://stitchqaq.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Docker 使用踩坑记录</title>
-        <link>https://heyuuuu77.github.io/posts/docker/</link>
+        <link>https://stitchqaq.github.io/posts/docker/</link>
         <pubDate>Wed, 17 Sep 2025 11:36:54 +0800</pubDate>
         
-        <guid>https://heyuuuu77.github.io/posts/docker/</guid>
+        <guid>https://stitchqaq.github.io/posts/docker/</guid>
         <description>&lt;h4 id=&#34;上下文&#34;&gt;上下文
 &lt;/h4&gt;&lt;p&gt;线上一个小型服务，直接使用docker-compose 管理。 docker-compose up 的时候首先报错&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Posts on Heyuuuu</title>
-        <link>https://heyuuuu77.github.io/posts/</link>
+        <link>https://stitchqaq.github.io/posts/</link>
         <description>Recent content in Posts on Heyuuuu</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>© 2024-2025 Heyuuuu</copyright>
-        <lastBuildDate>Wed, 17 Sep 2025 11:36:54 +0800</lastBuildDate><atom:link href="https://heyuuuu77.github.io/posts/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 17 Sep 2025 11:36:54 +0800</lastBuildDate><atom:link href="https://stitchqaq.github.io/posts/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Docker 使用踩坑记录</title>
-        <link>https://heyuuuu77.github.io/posts/docker/</link>
+        <link>https://stitchqaq.github.io/posts/docker/</link>
         <pubDate>Wed, 17 Sep 2025 11:36:54 +0800</pubDate>
         
-        <guid>https://heyuuuu77.github.io/posts/docker/</guid>
+        <guid>https://stitchqaq.github.io/posts/docker/</guid>
         <description>&lt;h4 id=&#34;上下文&#34;&gt;上下文
 &lt;/h4&gt;&lt;p&gt;线上一个小型服务，直接使用docker-compose 管理。 docker-compose up 的时候首先报错&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -116,10 +116,10 @@
         </item>
         <item>
         <title>Elasticsearch 快速入门</title>
-        <link>https://heyuuuu77.github.io/posts/elasticsearch/</link>
+        <link>https://stitchqaq.github.io/posts/elasticsearch/</link>
         <pubDate>Wed, 30 Jul 2025 20:06:04 +0800</pubDate>
         
-        <guid>https://heyuuuu77.github.io/posts/elasticsearch/</guid>
+        <guid>https://stitchqaq.github.io/posts/elasticsearch/</guid>
         <description>&lt;h3 id=&#34;start-elasticsearch-with-docker-localhost&#34;&gt;start elasticsearch with docker localhost
 &lt;/h3&gt;&lt;p&gt;执行&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -1989,20 +1989,20 @@
         </item>
         <item>
         <title>树与哈希表</title>
-        <link>https://heyuuuu77.github.io/posts/tree/</link>
+        <link>https://stitchqaq.github.io/posts/tree/</link>
         <pubDate>Fri, 06 Jun 2025 15:53:55 +0800</pubDate>
         
-        <guid>https://heyuuuu77.github.io/posts/tree/</guid>
+        <guid>https://stitchqaq.github.io/posts/tree/</guid>
         <description>&lt;h3 id=&#34;哈希冲突的原因以及解决办法&#34;&gt;哈希冲突的原因以及解决办法
 &lt;/h3&gt;&lt;p&gt;hash算法是一种数据压缩方式，由于算法产生的哈希值的数量是有限的，所以当数据量大时就会出现哈希值不够用的情况，多个数据通过算法的出了相同的哈希值。从而产生了冲突。&lt;/p&gt;
 </description>
         </item>
         <item>
         <title>记录一次 curl 报错</title>
-        <link>https://heyuuuu77.github.io/posts/curl/</link>
+        <link>https://stitchqaq.github.io/posts/curl/</link>
         <pubDate>Tue, 03 Jun 2025 14:43:01 +0800</pubDate>
         
-        <guid>https://heyuuuu77.github.io/posts/curl/</guid>
+        <guid>https://stitchqaq.github.io/posts/curl/</guid>
         <description>&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
@@ -2053,10 +2053,10 @@
         </item>
         <item>
         <title>广告系统基础</title>
-        <link>https://heyuuuu77.github.io/posts/advertiser/</link>
+        <link>https://stitchqaq.github.io/posts/advertiser/</link>
         <pubDate>Mon, 14 Apr 2025 09:53:08 +0800</pubDate>
         
-        <guid>https://heyuuuu77.github.io/posts/advertiser/</guid>
+        <guid>https://stitchqaq.github.io/posts/advertiser/</guid>
         <description>&lt;h4 id=&#34;广告的计费模式有哪几种&#34;&gt;广告的计费模式有哪几种
 &lt;/h4&gt;&lt;ol&gt;
 &lt;li&gt;CPM (Cost Per Mile)千次展示计费&lt;/li&gt;
@@ -2087,10 +2087,10 @@
         </item>
         <item>
         <title>TCP 与 UDP 协议</title>
-        <link>https://heyuuuu77.github.io/posts/tcp_udp/</link>
+        <link>https://stitchqaq.github.io/posts/tcp_udp/</link>
         <pubDate>Wed, 26 Mar 2025 17:17:34 +0800</pubDate>
         
-        <guid>https://heyuuuu77.github.io/posts/tcp_udp/</guid>
+        <guid>https://stitchqaq.github.io/posts/tcp_udp/</guid>
         <description>&lt;p&gt;TCP/IP是一个协议簇，tcp协议(传输控制协议)，udp协议(用户数据协议)都包含在其中，还有http(超文本传输协议), ftp(文本传输协议), telnet(远程登录协议)等&lt;/p&gt;
 &lt;p&gt;先说一下TCP/IP协议的4层协议模型，至上向下依次是：应用层,传输层，网络层，网络接口层。
 扩展成 OSI协议的7层协议模型，是把 应用层拆分成应用层，会话层，表示层。 网络接口层拆分为 数据链路层，物理层&lt;/p&gt;
@@ -2100,10 +2100,10 @@ udp不需要提前建立连接，是面向无连接的协议，只顾往网络�
         </item>
         <item>
         <title>Python 版本管理工具 UV</title>
-        <link>https://heyuuuu77.github.io/posts/python_uv/</link>
+        <link>https://stitchqaq.github.io/posts/python_uv/</link>
         <pubDate>Mon, 24 Mar 2025 11:43:50 +0800</pubDate>
         
-        <guid>https://heyuuuu77.github.io/posts/python_uv/</guid>
+        <guid>https://stitchqaq.github.io/posts/python_uv/</guid>
         <description>&lt;h2 id=&#34;uv&#34;&gt;UV
 &lt;/h2&gt;&lt;p&gt;官网&lt;a class=&#34;link&#34; href=&#34;https://docs.astral.sh/uv/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;地址&lt;/a&gt;&lt;/p&gt;
@@ -2119,10 +2119,10 @@ udp不需要提前建立连接，是面向无连接的协议，只顾往网络�
         </item>
         <item>
         <title>ClickHouse 性能之巅</title>
-        <link>https://heyuuuu77.github.io/posts/clickhouse%E6%80%A7%E8%83%BD%E4%B9%8B%E5%B7%85/</link>
+        <link>https://stitchqaq.github.io/posts/clickhouse%E6%80%A7%E8%83%BD%E4%B9%8B%E5%B7%85/</link>
         <pubDate>Mon, 24 Mar 2025 09:34:08 +0800</pubDate>
         
-        <guid>https://heyuuuu77.github.io/posts/clickhouse%E6%80%A7%E8%83%BD%E4%B9%8B%E5%B7%85/</guid>
+        <guid>https://stitchqaq.github.io/posts/clickhouse%E6%80%A7%E8%83%BD%E4%B9%8B%E5%B7%85/</guid>
         <description>&lt;h3 id=&#34;day1&#34;&gt;Day1
 &lt;/h3&gt;&lt;h4 id=&#34;oltp--olap&#34;&gt;OLTP &amp;amp; OLAP
 &lt;/h4&gt;&lt;ul&gt;
@@ -2144,10 +2144,10 @@ OLAP数据库被称为数据仓库(数仓), 它是反范式的。数据冗余度
         </item>
         <item>
         <title>LeetCode 刷题记录</title>
-        <link>https://heyuuuu77.github.io/posts/leecode/</link>
+        <link>https://stitchqaq.github.io/posts/leecode/</link>
         <pubDate>Tue, 18 Mar 2025 09:46:23 +0800</pubDate>
         
-        <guid>https://heyuuuu77.github.io/posts/leecode/</guid>
+        <guid>https://stitchqaq.github.io/posts/leecode/</guid>
         <description>&lt;h3 id=&#34;小镇法官&#34;&gt;小镇法官
 &lt;/h3&gt;&lt;h5 id=&#34;题干&#34;&gt;题干
 &lt;/h5&gt;&lt;p&gt;小镇有 n 个人， 其中有一个人是是小镇法官。如果法官存在，那么：&lt;/p&gt;
@@ -2160,7 +2160,7 @@ OLAP数据库被称为数据仓库(数仓), 它是反范式的。数据冗余度
 如果小镇法官存在并确认身份，返回法官编号，否则返回 -1&lt;/p&gt;
 &lt;h5 id=&#34;题解思路&#34;&gt;题解思路
 &lt;/h5&gt;&lt;p&gt;如果使用图解的思路就很好接这个题目
-&lt;img src=&#34;https://heyuuuu77.github.io/images/judge.jpg&#34;
+&lt;img src=&#34;https://stitchqaq.github.io/images/judge.jpg&#34;
 	
 	
 	
@@ -2210,10 +2210,10 @@ freq 是 “minute” 、 “hour” 或 “day” 中的一个，分别表示 �
         </item>
         <item>
         <title>分布式系统基础</title>
-        <link>https://heyuuuu77.github.io/posts/distributed_system/</link>
+        <link>https://stitchqaq.github.io/posts/distributed_system/</link>
         <pubDate>Fri, 21 Feb 2025 08:46:57 +0800</pubDate>
         
-        <guid>https://heyuuuu77.github.io/posts/distributed_system/</guid>
+        <guid>https://stitchqaq.github.io/posts/distributed_system/</guid>
         <description>&lt;h3 id=&#34;名词解释&#34;&gt;名词解释
 &lt;/h3&gt;&lt;h4 id=&#34;cap理论&#34;&gt;CAP理论
 &lt;/h4&gt;&lt;p&gt;该理论指出，一个分布式系统不可能同时满足一下三个特性:&lt;/p&gt;
@@ -2300,10 +2300,10 @@ google 开源。 protobuf支持&lt;/p&gt;
         </item>
         <item>
         <title>《设计模式之美》读书笔记</title>
-        <link>https://heyuuuu77.github.io/posts/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%BE%8E/</link>
+        <link>https://stitchqaq.github.io/posts/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%BE%8E/</link>
         <pubDate>Fri, 14 Feb 2025 09:32:22 +0800</pubDate>
         
-        <guid>https://heyuuuu77.github.io/posts/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%BE%8E/</guid>
+        <guid>https://stitchqaq.github.io/posts/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%BE%8E/</guid>
         <description>&lt;h4 id=&#34;面向对象&#34;&gt;面向对象
 &lt;/h4&gt;&lt;p&gt;面向对象编程是因为其具有丰富的特性(封装，抽象，继承，多态)，可以实现很多复杂的设计思路。&lt;/p&gt;
 &lt;h4 id=&#34;设计原则&#34;&gt;设计原则
@@ -2359,7 +2359,7 @@ google 开源。 protobuf支持&lt;/p&gt;
 &lt;/h4&gt;&lt;p&gt;为了避免过度设计，程序初期不应该运用太复杂的设计模式，保留很多扩展性插槽。但是后期业务逻辑复杂度变高，就要不断的去重构，优化自身的代码。
 可以分成两部分，
 大重构是整体结构，设计模式的替换之类的重构。小重构包括函数重命名，逻辑优化之类的小规模低层次的优化。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://heyuuuu77.github.io/images/design_pattern.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://stitchqaq.github.io/images/design_pattern.jpg&#34;
 	
 	
 	
@@ -2395,7 +2395,7 @@ google 开源。 protobuf支持&lt;/p&gt;
 &lt;li&gt;Vistor: 观察者模式。 表示一个作用于某对象结构中的各元素操作。 它使你可以在不改变各元素的类的前提下定义作用于这些元素的新操作。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;创建型模式与对象的创建有关；结构型模式处理类或对象的组合；行为型模式对类或对象怎么交互和怎么分配职责进行描述。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://heyuuuu77.github.io/images/dp_category.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://stitchqaq.github.io/images/dp_category.jpg&#34;
 	
 	
 	
@@ -2550,10 +2550,10 @@ google 开源。 protobuf支持&lt;/p&gt;
         </item>
         <item>
         <title>Go语言实战笔记</title>
-        <link>https://heyuuuu77.github.io/posts/go/</link>
+        <link>https://stitchqaq.github.io/posts/go/</link>
         <pubDate>Thu, 13 Feb 2025 10:20:34 +0800</pubDate>
         
-        <guid>https://heyuuuu77.github.io/posts/go/</guid>
+        <guid>https://stitchqaq.github.io/posts/go/</guid>
         <description>&lt;blockquote&gt;
 &lt;p&gt;💡 本文记录 Go 语言学习过程中的核心概念和最佳实践，涵盖并发编程、数据结构、指针操作等关键知识点。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;引用类型&#34;&gt;引用类型
@@ -2811,10 +2811,10 @@ google 开源。 protobuf支持&lt;/p&gt;
         </item>
         <item>
         <title>Kafka 入门指南</title>
-        <link>https://heyuuuu77.github.io/posts/kafka/</link>
+        <link>https://stitchqaq.github.io/posts/kafka/</link>
         <pubDate>Wed, 12 Feb 2025 19:36:38 +0800</pubDate>
         
-        <guid>https://heyuuuu77.github.io/posts/kafka/</guid>
+        <guid>https://stitchqaq.github.io/posts/kafka/</guid>
         <description>&lt;h4 id=&#34;kafka&#34;&gt;Kafka
 &lt;/h4&gt;&lt;p&gt;分布式的消息引擎系统&lt;/p&gt;
 &lt;h4 id=&#34;名词解释&#34;&gt;名词解释
@@ -2845,10 +2845,10 @@ google 开源。 protobuf支持&lt;/p&gt;
         </item>
         <item>
         <title>Hugo 静态博客搭建</title>
-        <link>https://heyuuuu77.github.io/posts/hugo/</link>
+        <link>https://stitchqaq.github.io/posts/hugo/</link>
         <pubDate>Sat, 08 Feb 2025 17:06:08 +0800</pubDate>
         
-        <guid>https://heyuuuu77.github.io/posts/hugo/</guid>
+        <guid>https://stitchqaq.github.io/posts/hugo/</guid>
         <description>&lt;p&gt;使用Hugo搭建 github page越到的坑。 首先 hugo 命令会生成静态文件。
 本地查看的时候执行的命令是 &lt;code&gt;hugo server&lt;/code&gt;。 这个时候，草稿是不会暂时出来的。如果需要暂时草稿， 需要加上参数 &lt;code&gt;-D&lt;/code&gt;。&lt;/p&gt;
 &lt;p&gt;创建新的文章的命令是: &lt;code&gt;hugo new posts/your-post-name.md&lt;/code&gt;. 注意这个时候自动生成的 markdown文件中的 draft 默认为true，表示当前是草稿模式。
@@ -2860,10 +2860,10 @@ google 开源。 protobuf支持&lt;/p&gt;
         </item>
         <item>
         <title>面试题汇总</title>
-        <link>https://heyuuuu77.github.io/posts/interview/</link>
+        <link>https://stitchqaq.github.io/posts/interview/</link>
         <pubDate>Sat, 08 Feb 2025 16:55:54 +0800</pubDate>
         
-        <guid>https://heyuuuu77.github.io/posts/interview/</guid>
+        <guid>https://stitchqaq.github.io/posts/interview/</guid>
         <description>&lt;!-- ### 记录一下面试 --&gt;
 &lt;!-- ##### 面试莉莉丝 -- 失败 --&gt;
 &lt;p&gt;&lt;code&gt;失败理由:&lt;/code&gt; 各方面还不错，但是有更合适的人选。&lt;/p&gt;
@@ -2884,10 +2884,10 @@ google 开源。 protobuf支持&lt;/p&gt;
         </item>
         <item>
         <title>Django 常见问题</title>
-        <link>https://heyuuuu77.github.io/posts/django/</link>
+        <link>https://stitchqaq.github.io/posts/django/</link>
         <pubDate>Wed, 05 Feb 2025 11:09:45 +0800</pubDate>
         
-        <guid>https://heyuuuu77.github.io/posts/django/</guid>
+        <guid>https://stitchqaq.github.io/posts/django/</guid>
         <description>&lt;h4 id=&#34;什么是orm&#34;&gt;什么是ORM
 &lt;/h4&gt;&lt;p&gt;ORM 即对象关系映射，它将数据库中的表映射为 Python 类，将表中的记录映射为类的实例，通过操作类和实例来操作数据库。优点包括提高开发效率、可移植性强、安全性高（自动处理 SQL 注入）等。&lt;/p&gt;
 &lt;h4 id=&#34;什么是-n1问题&#34;&gt;什么是 N+1问题
@@ -2938,10 +2938,10 @@ google 开源。 protobuf支持&lt;/p&gt;
         </item>
         <item>
         <title>设计模式详解</title>
-        <link>https://heyuuuu77.github.io/posts/design_pattern/</link>
+        <link>https://stitchqaq.github.io/posts/design_pattern/</link>
         <pubDate>Wed, 05 Feb 2025 10:00:19 +0800</pubDate>
         
-        <guid>https://heyuuuu77.github.io/posts/design_pattern/</guid>
+        <guid>https://stitchqaq.github.io/posts/design_pattern/</guid>
         <description>&lt;p&gt;设计模式是软件开发中针对各种反复出现的问题归纳出的通用的解决方案，总共有23种设计模式，分别分成创建型，结构性和行为型三大类&lt;/p&gt;
 &lt;h4 id=&#34;创建型&#34;&gt;创建型
 &lt;/h4&gt;&lt;ol&gt;
@@ -3692,10 +3692,10 @@ Python中的实现方式是通过__new__魔术方法实现。&lt;/li&gt;
         </item>
         <item>
         <title>Redis 核心知识</title>
-        <link>https://heyuuuu77.github.io/posts/redis/</link>
+        <link>https://stitchqaq.github.io/posts/redis/</link>
         <pubDate>Wed, 05 Feb 2025 09:39:00 +0800</pubDate>
         
-        <guid>https://heyuuuu77.github.io/posts/redis/</guid>
+        <guid>https://stitchqaq.github.io/posts/redis/</guid>
         <description>&lt;h4 id=&#34;数据类型&#34;&gt;数据类型
 &lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;
@@ -3802,10 +3802,10 @@ SADD SMEMBERS SREM SISMEMBER SCARD 等
         </item>
         <item>
         <title>Python 核心知识点</title>
-        <link>https://heyuuuu77.github.io/posts/python/</link>
+        <link>https://stitchqaq.github.io/posts/python/</link>
         <pubDate>Wed, 15 Jan 2025 11:30:03 +0000</pubDate>
         
-        <guid>https://heyuuuu77.github.io/posts/python/</guid>
+        <guid>https://stitchqaq.github.io/posts/python/</guid>
         <description>&lt;h4 id=&#34;python的数据类型&#34;&gt;Python的数据类型
 &lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;int: 整型&lt;/li&gt;
@@ -3989,11 +3989,11 @@ GIL锁通过限制同一时刻只有一个线程执行Python代码，避免多�
         </item>
         <item>
         <title>我的歌单</title>
-        <link>https://heyuuuu77.github.io/posts/music_list/</link>
+        <link>https://stitchqaq.github.io/posts/music_list/</link>
         <pubDate>Wed, 15 Jan 2025 11:30:03 +0000</pubDate>
         
-        <guid>https://heyuuuu77.github.io/posts/music_list/</guid>
-        <description>&lt;img src="https://heyuuuu77.github.io/images/tabudong.jpg" alt="Featured image of post 我的歌单" /&gt;&lt;h4 id=&#34;四级标题&#34;&gt;四级标题
+        <guid>https://stitchqaq.github.io/posts/music_list/</guid>
+        <description>&lt;img src="https://stitchqaq.github.io/images/tabudong.jpg" alt="Featured image of post 我的歌单" /&gt;&lt;h4 id=&#34;四级标题&#34;&gt;四级标题
 &lt;/h4&gt;&lt;h5 id=&#34;五级标题&#34;&gt;五级标题
 &lt;/h5&gt;&lt;p&gt;一年多了。&lt;/p&gt;
 </description>
