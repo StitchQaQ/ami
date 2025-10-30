@@ -39,7 +39,7 @@ subtitle = "简单记录生活点滴，分享技术学习心得"
 [params.sidebar.avatar]
 enabled = true
 local = true
-src = "img/avatar.png"
+src = "img/avatar.jpg"
 
 # 文章设置
 [params.article]
