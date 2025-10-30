@@ -6,6 +6,12 @@ copyright = "© 2024-2025 Heyuuuu"
 DefaultContentLanguage = "zh-cn"
 hasCJKLanguage = true
 
+# Front Matter 日期配置（优先使用更新时间排序）
+[frontmatter]
+date = ["lastmod", "date", "publishDate"]
+lastmod = [":git", "lastmod", "date", "publishDate"]
+publishDate = ["publishDate", "date"]
+
 # 分页设置
 [pagination]
 pagerSize = 10
