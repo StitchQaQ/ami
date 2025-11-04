@@ -1,0 +1,773 @@
+<!doctype html><html lang=zh-cn dir=ltr><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><meta name=description content="深入理解 Linux 文本处理工具 grep、awk、sed、jq 的实用技巧"><title>Linux 文本处理四大神器：grep、awk、sed、jq</title>
+<link rel=canonical href=https://stitchqaq.github.io/posts/linux/><link rel=stylesheet href=/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css><meta property='og:title' content="Linux 文本处理四大神器：grep、awk、sed、jq"><meta property='og:description' content="深入理解 Linux 文本处理工具 grep、awk、sed、jq 的实用技巧"><meta property='og:url' content='https://stitchqaq.github.io/posts/linux/'><meta property='og:site_name' content='Heyuuuu'><meta property='og:type' content='article'><meta property='article:section' content='Posts'><meta property='article:tag' content='Linux'><meta property='article:tag' content='命令行'><meta property='article:tag' content='文本处理'><meta property='article:published_time' content='2025-10-30T17:30:00+08:00'><meta property='article:modified_time' content='2025-10-30T17:30:00+08:00'><meta name=twitter:title content="Linux 文本处理四大神器：grep、awk、sed、jq"><meta name=twitter:description content="深入理解 Linux 文本处理工具 grep、awk、sed、jq 的实用技巧"><link rel="shortcut icon" href=/favicon.ico></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label=切换菜单>
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/img/avatar_hu_21945a193e0ed1f7.jpg width=300 height=300 class=site-logo loading=lazy alt=Avatar>
+</a><span class=emoji>👋</span></figure><div class=site-meta><h1 class=site-name><a href=/>Heyuuuu</a></h1><h2 class=site-description>不要傻笑</h2></div></header><ol class=menu-social><li><a href=https://github.com/heyuuuu77 target=_blank title=GitHub rel=me><svg class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li><li><a href=/index.xml target=_blank title=RSS rel=me><svg class="icon icon-tabler icon-tabler-rss" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="5" cy="19" r="1"/><path d="M4 4a16 16 0 0116 16"/><path d="M4 11a9 9 0 019 9"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/><svg class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
+<span>首页</span></a></li><li><a href=/posts/><span>文章</span></a></li><li><a href=/categories/><svg class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg>
+<span>分类</span></a></li><li><a href=/tags/><svg class="icon icon-tabler icon-tabler-tag" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11 3l9 9a1.5 1.5.0 010 2l-6 6a1.5 1.5.0 01-2 0L3 11V7a4 4 0 014-4h4"/><circle cx="9" cy="9" r="2"/></svg>
+<span>标签</span></a></li><li><a href=/archives/><svg class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<span>归档</span></a></li><li><a href=/search/><svg class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+<span>搜索</span></a></li><li class=menu-bottom-section><ol class=menu><li id=dark-mode-toggle><svg class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<svg class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<span>暗色模式</span></li></ol></li></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">目录</h2><div class=widget--toc><nav id=TableOfContents><ol><li><a href=#-概述>📚 概述</a></li><li><a href=#1-grep---文本搜索神器>1. grep - 文本搜索神器</a><ol><li><a href=#-核心功能>🎯 核心功能</a></li><li><a href=#-基础用法>📖 基础用法</a></li><li><a href=#-常用选项>💡 常用选项</a></li><li><a href=#-实战案例>🔥 实战案例</a><ol><li><a href=#案例-1日志分析>案例 1：日志分析</a></li><li><a href=#案例-2代码搜索>案例 2：代码搜索</a></li><li><a href=#案例-3系统运维>案例 3：系统运维</a></li></ol></li><li><a href=#-高级技巧>🚀 高级技巧</a></li></ol></li><li><a href=#2-awk---数据处理专家>2. awk - 数据处理专家</a><ol><li><a href=#-核心功能-1>🎯 核心功能</a></li><li><a href=#-基础语法>📖 基础语法</a></li><li><a href=#-内置变量>💡 内置变量</a></li><li><a href=#-实战案例-1>🔥 实战案例</a><ol><li><a href=#案例-1日志分析-1>案例 1：日志分析</a></li><li><a href=#案例-2csv-数据处理>案例 2：CSV 数据处理</a></li><li><a href=#案例-3系统监控>案例 3：系统监控</a></li></ol></li><li><a href=#-高级技巧-1>🚀 高级技巧</a></li></ol></li><li><a href=#3-sed---流编辑器>3. sed - 流编辑器</a><ol><li><a href=#-核心功能-2>🎯 核心功能</a></li><li><a href=#-基础语法-1>📖 基础语法</a></li><li><a href=#-常用命令>💡 常用命令</a></li><li><a href=#-实战案例-2>🔥 实战案例</a><ol><li><a href=#案例-1文本替换>案例 1：文本替换</a></li><li><a href=#案例-2删除操作>案例 2：删除操作</a></li><li><a href=#案例-3插入和追加>案例 3：插入和追加</a></li><li><a href=#案例-4配置文件修改>案例 4：配置文件修改</a></li></ol></li><li><a href=#-高级技巧-2>🚀 高级技巧</a></li></ol></li><li><a href=#4-jq---json-处理利器>4. jq - JSON 处理利器</a><ol><li><a href=#-核心功能-3>🎯 核心功能</a></li><li><a href=#-基础语法-2>📖 基础语法</a></li><li><a href=#-常用过滤器>💡 常用过滤器</a></li><li><a href=#-实战案例-3>🔥 实战案例</a><ol><li><a href=#案例-1基本查询>案例 1：基本查询</a></li><li><a href=#案例-2过滤和筛选>案例 2：过滤和筛选</a></li><li><a href=#案例-3数组操作>案例 3：数组操作</a></li><li><a href=#案例-4api-响应处理>案例 4：API 响应处理</a></li><li><a href=#案例-5数据转换>案例 5：数据转换</a></li></ol></li><li><a href=#-高级技巧-3>🚀 高级技巧</a></li></ol></li><li><a href=#5-组合使用技巧>5. 组合使用技巧</a><ol><li><a href=#-管道组合>🔗 管道组合</a></li><li><a href=#-实用脚本示例>📝 实用脚本示例</a><ol><li><a href=#日志分析脚本>日志分析脚本</a></li><li><a href=#json数据处理脚本>JSON数据处理脚本</a></li></ol></li></ol></li><li><a href=#6-常见问题和技巧>6. 常见问题和技巧</a><ol><li><a href=#-qa>❓ Q&amp;A</a></li><li><a href=#-性能优化技巧>💡 性能优化技巧</a></li></ol></li><li><a href=#7-学习资源>7. 学习资源</a><ol><li><a href=#-推荐阅读>📚 推荐阅读</a></li><li><a href=#-在线工具>🔗 在线工具</a></li><li><a href=#-练习建议>💻 练习建议</a></li></ol></li><li><a href=#-总结>📝 总结</a></li></ol></nav></div></section></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/%E5%B7%A5%E5%85%B7/>工具</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/posts/linux/>Linux 文本处理四大神器：grep、awk、sed、jq</a></h2><h3 class=article-subtitle>深入理解 Linux 文本处理工具 grep、awk、sed、jq 的实用技巧</h3></div><footer class=article-time><div><svg class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>2025-10-30</time></div><div><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>阅读时长: 9 分钟</time></div></footer></div></header><section class=article-content><h2 id=-概述>📚 概述</h2><p>在 Linux 系统中，文本处理是日常运维和开发的核心技能。掌握这四大神器，能让你的工作效率提升 10 倍！</p><ul><li><strong>grep</strong>：&ldquo;搜索高手&rdquo;，用于查找文本中的匹配模式</li><li><strong>awk</strong>：&ldquo;数据专家&rdquo;，用于从结构化文本中提取信息并计算</li><li><strong>sed</strong>：&ldquo;流编辑器&rdquo;，用于批量修改文本内容</li><li><strong>jq</strong>：&ldquo;JSON 利器&rdquo;，用于过滤和转换 JSON 数据</li></ul><hr><h2 id=1-grep---文本搜索神器>1. grep - 文本搜索神器</h2><h3 id=-核心功能>🎯 核心功能</h3><p><code>grep</code> (Global Regular Expression Print) 用于在文件中搜索匹配指定模式的行。</p><h3 id=-基础用法>📖 基础用法</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 基本语法</span>
+</span></span><span class=line><span class=cl>grep <span class=o>[</span>选项<span class=o>]</span> 模式 文件名
+</span></span></code></pre></td></tr></table></div></div><h3 id=-常用选项>💡 常用选项</h3><div class=table-wrapper><table><thead><tr><th>选项</th><th>说明</th><th>示例</th></tr></thead><tbody><tr><td><code>-i</code></td><td>忽略大小写</td><td><code>grep -i "error" log.txt</code></td></tr><tr><td><code>-n</code></td><td>显示行号</td><td><code>grep -n "ERROR" log.txt</code></td></tr><tr><td><code>-v</code></td><td>反向匹配（不包含）</td><td><code>grep -v "DEBUG" log.txt</code></td></tr><tr><td><code>-r</code></td><td>递归搜索目录</td><td><code>grep -r "TODO" ./src</code></td></tr><tr><td><code>-c</code></td><td>统计匹配行数</td><td><code>grep -c "ERROR" log.txt</code></td></tr><tr><td><code>-l</code></td><td>只显示文件名</td><td><code>grep -l "config" *.conf</code></td></tr><tr><td><code>-A n</code></td><td>显示匹配行及后n行</td><td><code>grep -A 3 "ERROR" log.txt</code></td></tr><tr><td><code>-B n</code></td><td>显示匹配行及前n行</td><td><code>grep -B 2 "ERROR" log.txt</code></td></tr><tr><td><code>-C n</code></td><td>显示匹配行及前后n行</td><td><code>grep -C 2 "ERROR" log.txt</code></td></tr><tr><td><code>-E</code></td><td>使用扩展正则表达式</td><td>`grep -E &ldquo;error</td></tr></tbody></table></div><h3 id=-实战案例>🔥 实战案例</h3><h4 id=案例-1日志分析>案例 1：日志分析</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 查找所有错误日志</span>
+</span></span><span class=line><span class=cl>grep <span class=s2>&#34;ERROR&#34;</span> server.log
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 查找错误和警告（不区分大小写）</span>
+</span></span><span class=line><span class=cl>grep -i -E <span class=s2>&#34;error|warning&#34;</span> server.log
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 统计今天的错误数量</span>
+</span></span><span class=line><span class=cl>grep <span class=s2>&#34;2025-10-30.*ERROR&#34;</span> server.log <span class=p>|</span> wc -l
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 查找错误并显示前后3行上下文</span>
+</span></span><span class=line><span class=cl>grep -C <span class=m>3</span> <span class=s2>&#34;ERROR&#34;</span> server.log
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 查找包含特定IP的访问记录</span>
+</span></span><span class=line><span class=cl>grep <span class=s2>&#34;192.168.1.100&#34;</span> access.log
+</span></span></code></pre></td></tr></table></div></div><h4 id=案例-2代码搜索>案例 2：代码搜索</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 在所有Python文件中查找TODO注释</span>
+</span></span><span class=line><span class=cl>grep -rn <span class=s2>&#34;TODO&#34;</span> --include<span class=o>=</span><span class=s2>&#34;*.py&#34;</span> .
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 查找函数定义</span>
+</span></span><span class=line><span class=cl>grep -rn <span class=s2>&#34;def.*login&#34;</span> --include<span class=o>=</span><span class=s2>&#34;*.py&#34;</span> .
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 排除某些目录</span>
+</span></span><span class=line><span class=cl>grep -r <span class=s2>&#34;import&#34;</span> --exclude-dir<span class=o>={</span>venv,node_modules<span class=o>}</span> .
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 查找空行</span>
+</span></span><span class=line><span class=cl>grep -n <span class=s2>&#34;^</span>$<span class=s2>&#34;</span> config.py
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 查找以特定字符开头的行</span>
+</span></span><span class=line><span class=cl>grep <span class=s2>&#34;^class &#34;</span> models.py
+</span></span></code></pre></td></tr></table></div></div><h4 id=案例-3系统运维>案例 3：系统运维</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 查找正在运行的进程</span>
+</span></span><span class=line><span class=cl>ps aux <span class=p>|</span> grep python
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 查找某个端口被哪个进程占用</span>
+</span></span><span class=line><span class=cl>netstat -tulnp <span class=p>|</span> grep :8080
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 查看活跃的SSH连接</span>
+</span></span><span class=line><span class=cl>who <span class=p>|</span> grep pts
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 查找大文件</span>
+</span></span><span class=line><span class=cl>ls -lh <span class=p>|</span> grep <span class=s2>&#34;G\|M&#34;</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=-高级技巧>🚀 高级技巧</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 使用正则表达式匹配邮箱</span>
+</span></span><span class=line><span class=cl>grep -E <span class=s2>&#34;[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}&#34;</span> contacts.txt
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 匹配IP地址</span>
+</span></span><span class=line><span class=cl>grep -E <span class=s2>&#34;\b([0-9]{1,3}\.){3}[0-9]{1,3}\b&#34;</span> network.log
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 多个模式匹配（OR）</span>
+</span></span><span class=line><span class=cl>grep -E <span class=s2>&#34;error|fail|exception&#34;</span> app.log
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 排除多个模式</span>
+</span></span><span class=line><span class=cl>grep -v -E <span class=s2>&#34;DEBUG|INFO&#34;</span> app.log
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 统计每个错误类型的数量</span>
+</span></span><span class=line><span class=cl>grep -o <span class=s2>&#34;ERROR: [^:]*&#34;</span> log.txt <span class=p>|</span> sort <span class=p>|</span> uniq -c
+</span></span></code></pre></td></tr></table></div></div><hr><h2 id=2-awk---数据处理专家>2. awk - 数据处理专家</h2><h3 id=-核心功能-1>🎯 核心功能</h3><p><code>awk</code> 是一个强大的文本分析工具，特别擅长处理格式化的文本数据（如CSV、日志等）。</p><h3 id=-基础语法>📖 基础语法</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>awk <span class=s1>&#39;pattern { action }&#39;</span> 文件名
+</span></span></code></pre></td></tr></table></div></div><h3 id=-内置变量>💡 内置变量</h3><div class=table-wrapper><table><thead><tr><th>变量</th><th>说明</th></tr></thead><tbody><tr><td><code>$0</code></td><td>当前整行</td></tr><tr><td><code>$1, $2, $3...</code></td><td>第1列、第2列、第3列&mldr;</td></tr><tr><td><code>NR</code></td><td>当前行号</td></tr><tr><td><code>NF</code></td><td>当前行的字段数</td></tr><tr><td><code>FS</code></td><td>字段分隔符（默认空格）</td></tr><tr><td><code>OFS</code></td><td>输出字段分隔符</td></tr></tbody></table></div><h3 id=-实战案例-1>🔥 实战案例</h3><h4 id=案例-1日志分析-1>案例 1：日志分析</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 打印日志的第1列和第5列</span>
+</span></span><span class=line><span class=cl>awk <span class=s1>&#39;{print $1, $5}&#39;</span> access.log
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 打印行号和内容</span>
+</span></span><span class=line><span class=cl>awk <span class=s1>&#39;{print NR, $0}&#39;</span> file.txt
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 统计访问日志中的状态码分布</span>
+</span></span><span class=line><span class=cl>awk <span class=s1>&#39;{print $9}&#39;</span> access.log <span class=p>|</span> sort <span class=p>|</span> uniq -c <span class=p>|</span> sort -rn
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 计算响应时间的平均值（假设在第10列）</span>
+</span></span><span class=line><span class=cl>awk <span class=s1>&#39;{sum+=$10; count++} END {print &#34;平均响应时间:&#34;, sum/count}&#39;</span> access.log
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 筛选响应时间大于1秒的请求</span>
+</span></span><span class=line><span class=cl>awk <span class=s1>&#39;$10 &gt; 1 {print $0}&#39;</span> access.log
+</span></span></code></pre></td></tr></table></div></div><h4 id=案例-2csv-数据处理>案例 2：CSV 数据处理</h4><p>假设有一个 <code>employees.csv</code> 文件：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-csv data-lang=csv><span class=line><span class=cl><span class=s>name</span><span class=p>,</span><span class=s>age</span><span class=p>,</span><span class=s>salary</span><span class=p>,</span><span class=s>department</span><span class=p>
+</span></span></span><span class=line><span class=cl><span class=p></span><span class=s>Alice</span><span class=p>,</span><span class=s>28</span><span class=p>,</span><span class=s>5000</span><span class=p>,</span><span class=s>IT</span><span class=p>
+</span></span></span><span class=line><span class=cl><span class=p></span><span class=s>Bob</span><span class=p>,</span><span class=s>35</span><span class=p>,</span><span class=s>6000</span><span class=p>,</span><span class=s>HR</span><span class=p>
+</span></span></span><span class=line><span class=cl><span class=p></span><span class=s>Charlie</span><span class=p>,</span><span class=s>32</span><span class=p>,</span><span class=s>5500</span><span class=p>,</span><span class=s>IT</span><span class=p>
+</span></span></span><span class=line><span class=cl><span class=p></span><span class=s>David</span><span class=p>,</span><span class=s>29</span><span class=p>,</span><span class=s>4800</span><span class=p>,</span><span class=s>Finance</span><span class=p>
+</span></span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 使用逗号作为分隔符</span>
+</span></span><span class=line><span class=cl>awk -F<span class=s1>&#39;,&#39;</span> <span class=s1>&#39;{print $1, $3}&#39;</span> employees.csv
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 跳过表头，只处理数据行</span>
+</span></span><span class=line><span class=cl>awk -F<span class=s1>&#39;,&#39;</span> <span class=s1>&#39;NR&gt;1 {print $1, $3}&#39;</span> employees.csv
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 计算IT部门的平均工资</span>
+</span></span><span class=line><span class=cl>awk -F<span class=s1>&#39;,&#39;</span> <span class=s1>&#39;NR&gt;1 &amp;&amp; $4==&#34;IT&#34; {sum+=$3; count++} END {print &#34;IT平均工资:&#34;, sum/count}&#39;</span> employees.csv
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 筛选工资大于5000的员工</span>
+</span></span><span class=line><span class=cl>awk -F<span class=s1>&#39;,&#39;</span> <span class=s1>&#39;NR&gt;1 &amp;&amp; $3&gt;5000 {print $1, $3}&#39;</span> employees.csv
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 格式化输出</span>
+</span></span><span class=line><span class=cl>awk -F<span class=s1>&#39;,&#39;</span> <span class=s1>&#39;NR&gt;1 {printf &#34;%-10s %5d %10s\n&#34;, $1, $2, $4}&#39;</span> employees.csv
+</span></span></code></pre></td></tr></table></div></div><h4 id=案例-3系统监控>案例 3：系统监控</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 显示CPU使用率最高的10个进程</span>
+</span></span><span class=line><span class=cl>ps aux <span class=p>|</span> awk <span class=s1>&#39;NR&gt;1 {print $11, $3}&#39;</span> <span class=p>|</span> sort -k2 -rn <span class=p>|</span> head -10
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 统计内存使用情况</span>
+</span></span><span class=line><span class=cl>free -m <span class=p>|</span> awk <span class=s1>&#39;NR==2 {printf &#34;内存使用率: %.2f%%\n&#34;, $3/$2*100}&#39;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 分析磁盘使用情况</span>
+</span></span><span class=line><span class=cl>df -h <span class=p>|</span> awk <span class=s1>&#39;NR&gt;1 {if($5+0 &gt; 80) print $1, $5, &#34;磁盘空间不足!&#34;}&#39;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 统计网络连接状态</span>
+</span></span><span class=line><span class=cl>netstat -an <span class=p>|</span> awk <span class=s1>&#39;/^tcp/ {state[$6]++} END {for(i in state) print i, state[i]}&#39;</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=-高级技巧-1>🚀 高级技巧</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 使用条件判断</span>
+</span></span><span class=line><span class=cl>awk <span class=s1>&#39;{if($3 &gt; 5000) print $1, &#34;高薪&#34;; else print $1, &#34;普通&#34;}&#39;</span> employees.csv
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 使用循环</span>
+</span></span><span class=line><span class=cl>awk <span class=s1>&#39;{for(i=1; i&lt;=NF; i++) print $i}&#39;</span> file.txt
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 使用数组统计</span>
+</span></span><span class=line><span class=cl>awk <span class=s1>&#39;{count[$1]++} END {for(ip in count) print ip, count[ip]}&#39;</span> access.log
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 多分隔符</span>
+</span></span><span class=line><span class=cl>awk -F<span class=s1>&#39;[,:]&#39;</span> <span class=s1>&#39;{print $1, $3}&#39;</span> data.txt
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 自定义输出分隔符</span>
+</span></span><span class=line><span class=cl>awk <span class=s1>&#39;BEGIN{OFS=&#34;|&#34;} {print $1, $2, $3}&#39;</span> file.txt
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 处理多个文件</span>
+</span></span><span class=line><span class=cl>awk <span class=s1>&#39;{print FILENAME, $0}&#39;</span> file1.txt file2.txt
+</span></span></code></pre></td></tr></table></div></div><hr><h2 id=3-sed---流编辑器>3. sed - 流编辑器</h2><h3 id=-核心功能-2>🎯 核心功能</h3><p><code>sed</code> (Stream Editor) 用于对文本进行批量替换、删除、插入等操作。</p><h3 id=-基础语法-1>📖 基础语法</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sed <span class=o>[</span>选项<span class=o>]</span> <span class=s1>&#39;命令&#39;</span> 文件名
+</span></span></code></pre></td></tr></table></div></div><h3 id=-常用命令>💡 常用命令</h3><div class=table-wrapper><table><thead><tr><th>命令</th><th>说明</th><th>示例</th></tr></thead><tbody><tr><td><code>s/old/new/</code></td><td>替换</td><td><code>sed 's/foo/bar/' file.txt</code></td></tr><tr><td><code>s/old/new/g</code></td><td>全局替换</td><td><code>sed 's/foo/bar/g' file.txt</code></td></tr><tr><td><code>d</code></td><td>删除行</td><td><code>sed '3d' file.txt</code></td></tr><tr><td><code>p</code></td><td>打印行</td><td><code>sed -n '1,5p' file.txt</code></td></tr><tr><td><code>a</code></td><td>追加行</td><td><code>sed '3a新行内容' file.txt</code></td></tr><tr><td><code>i</code></td><td>插入行</td><td><code>sed '3i新行内容' file.txt</code></td></tr><tr><td><code>c</code></td><td>替换整行</td><td><code>sed '3c新内容' file.txt</code></td></tr></tbody></table></div><h3 id=-实战案例-2>🔥 实战案例</h3><h4 id=案例-1文本替换>案例 1：文本替换</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 替换第一次出现的模式</span>
+</span></span><span class=line><span class=cl>sed <span class=s1>&#39;s/old/new/&#39;</span> file.txt
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 全局替换（每行所有匹配）</span>
+</span></span><span class=line><span class=cl>sed <span class=s1>&#39;s/old/new/g&#39;</span> file.txt
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 替换并保存到原文件</span>
+</span></span><span class=line><span class=cl>sed -i <span class=s1>&#39;s/old/new/g&#39;</span> file.txt
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 替换指定行</span>
+</span></span><span class=line><span class=cl>sed <span class=s1>&#39;3s/old/new/&#39;</span> file.txt
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 替换范围内的行</span>
+</span></span><span class=line><span class=cl>sed <span class=s1>&#39;1,10s/old/new/g&#39;</span> file.txt
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 大小写不敏感替换</span>
+</span></span><span class=line><span class=cl>sed <span class=s1>&#39;s/error/ERROR/gi&#39;</span> log.txt
+</span></span></code></pre></td></tr></table></div></div><h4 id=案例-2删除操作>案例 2：删除操作</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 删除第3行</span>
+</span></span><span class=line><span class=cl>sed <span class=s1>&#39;3d&#39;</span> file.txt
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 删除最后一行</span>
+</span></span><span class=line><span class=cl>sed <span class=s1>&#39;$d&#39;</span> file.txt
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 删除1到5行</span>
+</span></span><span class=line><span class=cl>sed <span class=s1>&#39;1,5d&#39;</span> file.txt
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 删除空行</span>
+</span></span><span class=line><span class=cl>sed <span class=s1>&#39;/^$/d&#39;</span> file.txt
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 删除包含特定文本的行</span>
+</span></span><span class=line><span class=cl>sed <span class=s1>&#39;/DEBUG/d&#39;</span> log.txt
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 删除以#开头的注释行</span>
+</span></span><span class=line><span class=cl>sed <span class=s1>&#39;/^#/d&#39;</span> config.txt
+</span></span></code></pre></td></tr></table></div></div><h4 id=案例-3插入和追加>案例 3：插入和追加</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 在第3行后追加内容</span>
+</span></span><span class=line><span class=cl>sed <span class=s1>&#39;3a这是新增的行&#39;</span> file.txt
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 在第3行前插入内容</span>
+</span></span><span class=line><span class=cl>sed <span class=s1>&#39;3i这是插入的行&#39;</span> file.txt
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 在匹配行后追加</span>
+</span></span><span class=line><span class=cl>sed <span class=s1>&#39;/pattern/a新行内容&#39;</span> file.txt
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 在文件开头插入</span>
+</span></span><span class=line><span class=cl>sed <span class=s1>&#39;1i文件头部&#39;</span> file.txt
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 在文件末尾追加</span>
+</span></span><span class=line><span class=cl>sed <span class=s1>&#39;$a文件尾部&#39;</span> file.txt
+</span></span></code></pre></td></tr></table></div></div><h4 id=案例-4配置文件修改>案例 4：配置文件修改</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 修改配置文件中的端口</span>
+</span></span><span class=line><span class=cl>sed -i <span class=s1>&#39;s/port=8080/port=9000/g&#39;</span> config.ini
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 注释掉某一行</span>
+</span></span><span class=line><span class=cl>sed -i <span class=s1>&#39;5s/^/#/&#39;</span> config.txt
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 取消注释</span>
+</span></span><span class=line><span class=cl>sed -i <span class=s1>&#39;s/^#//&#39;</span> config.txt
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 替换IP地址</span>
+</span></span><span class=line><span class=cl>sed -i <span class=s1>&#39;s/192\.168\.1\.100/192.168.1.200/g&#39;</span> network.conf
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 批量修改多个文件</span>
+</span></span><span class=line><span class=cl>sed -i <span class=s1>&#39;s/old/new/g&#39;</span> *.conf
+</span></span></code></pre></td></tr></table></div></div><h3 id=-高级技巧-2>🚀 高级技巧</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 使用正则表达式捕获组</span>
+</span></span><span class=line><span class=cl>sed <span class=s1>&#39;s/\(.*\)@\(.*\)/用户:\1 域名:\2/&#39;</span> emails.txt
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 多个替换操作</span>
+</span></span><span class=line><span class=cl>sed -e <span class=s1>&#39;s/foo/bar/g&#39;</span> -e <span class=s1>&#39;s/hello/hi/g&#39;</span> file.txt
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 使用不同的分隔符</span>
+</span></span><span class=line><span class=cl>sed <span class=s1>&#39;s|/usr/local|/opt|g&#39;</span> paths.txt
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 只打印匹配的行（-n 参数）</span>
+</span></span><span class=line><span class=cl>sed -n <span class=s1>&#39;/ERROR/p&#39;</span> log.txt
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 替换特定行号范围</span>
+</span></span><span class=line><span class=cl>sed <span class=s1>&#39;10,20s/old/new/g&#39;</span> file.txt
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 条件替换</span>
+</span></span><span class=line><span class=cl>sed <span class=s1>&#39;/pattern/s/old/new/g&#39;</span> file.txt
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 删除行尾空格</span>
+</span></span><span class=line><span class=cl>sed <span class=s1>&#39;s/[[:space:]]*$//&#39;</span> file.txt
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 每行前添加行号</span>
+</span></span><span class=line><span class=cl><span class=nv>sed</span> <span class=o>=</span> file.txt <span class=p>|</span> sed <span class=s1>&#39;N;s/\n/\t/&#39;</span>
+</span></span></code></pre></td></tr></table></div></div><hr><h2 id=4-jq---json-处理利器>4. jq - JSON 处理利器</h2><h3 id=-核心功能-3>🎯 核心功能</h3><p><code>jq</code> 是专门用于处理 JSON 数据的命令行工具，类似于 JSON 的 <code>grep</code>。</p><h3 id=-基础语法-2>📖 基础语法</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>jq <span class=o>[</span>选项<span class=o>]</span> <span class=s1>&#39;过滤器&#39;</span> 文件名
+</span></span></code></pre></td></tr></table></div></div><h3 id=-常用过滤器>💡 常用过滤器</h3><div class=table-wrapper><table><thead><tr><th>过滤器</th><th>说明</th><th>示例</th></tr></thead><tbody><tr><td><code>.</code></td><td>整个JSON</td><td><code>jq '.' data.json</code></td></tr><tr><td><code>.key</code></td><td>获取键值</td><td><code>jq '.name' data.json</code></td></tr><tr><td><code>.[]</code></td><td>数组元素</td><td><code>jq '.users[]' data.json</code></td></tr><tr><td><code>.[n]</code></td><td>第n个元素</td><td><code>jq '.[0]' array.json</code></td></tr><tr><td><code>.key.subkey</code></td><td>嵌套访问</td><td><code>jq '.user.name' data.json</code></td></tr></tbody></table></div><h3 id=-实战案例-3>🔥 实战案例</h3><h4 id=案例-1基本查询>案例 1：基本查询</h4><p>假设有一个 <code>users.json</code> 文件：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;users&#34;</span><span class=p>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span><span class=nt>&#34;id&#34;</span><span class=p>:</span> <span class=mi>1</span><span class=p>,</span> <span class=nt>&#34;name&#34;</span><span class=p>:</span> <span class=s2>&#34;Alice&#34;</span><span class=p>,</span> <span class=nt>&#34;age&#34;</span><span class=p>:</span> <span class=mi>28</span><span class=p>,</span> <span class=nt>&#34;city&#34;</span><span class=p>:</span> <span class=s2>&#34;Beijing&#34;</span><span class=p>},</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span><span class=nt>&#34;id&#34;</span><span class=p>:</span> <span class=mi>2</span><span class=p>,</span> <span class=nt>&#34;name&#34;</span><span class=p>:</span> <span class=s2>&#34;Bob&#34;</span><span class=p>,</span> <span class=nt>&#34;age&#34;</span><span class=p>:</span> <span class=mi>35</span><span class=p>,</span> <span class=nt>&#34;city&#34;</span><span class=p>:</span> <span class=s2>&#34;Shanghai&#34;</span><span class=p>},</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span><span class=nt>&#34;id&#34;</span><span class=p>:</span> <span class=mi>3</span><span class=p>,</span> <span class=nt>&#34;name&#34;</span><span class=p>:</span> <span class=s2>&#34;Charlie&#34;</span><span class=p>,</span> <span class=nt>&#34;age&#34;</span><span class=p>:</span> <span class=mi>32</span><span class=p>,</span> <span class=nt>&#34;city&#34;</span><span class=p>:</span> <span class=s2>&#34;Beijing&#34;</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 美化输出整个JSON</span>
+</span></span><span class=line><span class=cl>jq <span class=s1>&#39;.&#39;</span> users.json
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 获取所有用户</span>
+</span></span><span class=line><span class=cl>jq <span class=s1>&#39;.users&#39;</span> users.json
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 获取第一个用户</span>
+</span></span><span class=line><span class=cl>jq <span class=s1>&#39;.users[0]&#39;</span> users.json
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 获取所有用户的名字</span>
+</span></span><span class=line><span class=cl>jq <span class=s1>&#39;.users[].name&#39;</span> users.json
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 获取特定字段</span>
+</span></span><span class=line><span class=cl>jq <span class=s1>&#39;.users[] | {name, age}&#39;</span> users.json
+</span></span></code></pre></td></tr></table></div></div><h4 id=案例-2过滤和筛选>案例 2：过滤和筛选</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 筛选年龄大于30的用户</span>
+</span></span><span class=line><span class=cl>jq <span class=s1>&#39;.users[] | select(.age &gt; 30)&#39;</span> users.json
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 筛选来自北京的用户</span>
+</span></span><span class=line><span class=cl>jq <span class=s1>&#39;.users[] | select(.city == &#34;Beijing&#34;)&#39;</span> users.json
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 筛选并只显示名字</span>
+</span></span><span class=line><span class=cl>jq <span class=s1>&#39;.users[] | select(.age &gt; 30) | .name&#39;</span> users.json
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 多条件筛选</span>
+</span></span><span class=line><span class=cl>jq <span class=s1>&#39;.users[] | select(.age &gt; 25 and .city == &#34;Beijing&#34;)&#39;</span> users.json
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 排除某些条件</span>
+</span></span><span class=line><span class=cl>jq <span class=s1>&#39;.users[] | select(.city != &#34;Shanghai&#34;)&#39;</span> users.json
+</span></span></code></pre></td></tr></table></div></div><h4 id=案例-3数组操作>案例 3：数组操作</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 获取数组长度</span>
+</span></span><span class=line><span class=cl>jq <span class=s1>&#39;.users | length&#39;</span> users.json
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 获取前2个元素</span>
+</span></span><span class=line><span class=cl>jq <span class=s1>&#39;.users[:2]&#39;</span> users.json
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 排序（按年龄）</span>
+</span></span><span class=line><span class=cl>jq <span class=s1>&#39;.users | sort_by(.age)&#39;</span> users.json
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 反向排序</span>
+</span></span><span class=line><span class=cl>jq <span class=s1>&#39;.users | sort_by(.age) | reverse&#39;</span> users.json
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 去重</span>
+</span></span><span class=line><span class=cl>jq <span class=s1>&#39;.users | unique_by(.city)&#39;</span> users.json
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 分组统计</span>
+</span></span><span class=line><span class=cl>jq <span class=s1>&#39;.users | group_by(.city) | map({city: .[0].city, count: length})&#39;</span> users.json
+</span></span></code></pre></td></tr></table></div></div><h4 id=案例-4api-响应处理>案例 4：API 响应处理</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 从 API 获取数据并提取字段</span>
+</span></span><span class=line><span class=cl>curl -s <span class=s1>&#39;https://api.github.com/users/github&#39;</span> <span class=p>|</span> jq <span class=s1>&#39;.name, .public_repos&#39;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 提取数组中的特定字段</span>
+</span></span><span class=line><span class=cl>curl -s <span class=s1>&#39;https://api.github.com/users/github/repos&#39;</span> <span class=p>|</span> jq <span class=s1>&#39;.[].name&#39;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 统计 star 数最多的仓库</span>
+</span></span><span class=line><span class=cl>curl -s <span class=s1>&#39;https://api.github.com/users/github/repos&#39;</span> <span class=p>|</span> jq <span class=s1>&#39;sort_by(.stargazers_count) | reverse | .[0]&#39;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 格式化输出</span>
+</span></span><span class=line><span class=cl>curl -s <span class=s1>&#39;https://api.github.com/users/github/repos&#39;</span> <span class=p>|</span> jq <span class=s1>&#39;.[] | &#34;\(.name): \(.stargazers_count) stars&#34;&#39;</span>
+</span></span></code></pre></td></tr></table></div></div><h4 id=案例-5数据转换>案例 5：数据转换</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 构造新的JSON对象</span>
+</span></span><span class=line><span class=cl>jq <span class=s1>&#39;.users[] | {姓名: .name, 年龄: .age}&#39;</span> users.json
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 添加新字段</span>
+</span></span><span class=line><span class=cl>jq <span class=s1>&#39;.users[] | . + {status: &#34;active&#34;}&#39;</span> users.json
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 修改字段值</span>
+</span></span><span class=line><span class=cl>jq <span class=s1>&#39;.users[] | .age = .age + 1&#39;</span> users.json
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 重命名字段</span>
+</span></span><span class=line><span class=cl>jq <span class=s1>&#39;.users[] | {id, username: .name, years: .age}&#39;</span> users.json
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 合并对象</span>
+</span></span><span class=line><span class=cl>jq <span class=s1>&#39;. + {timestamp: &#34;2025-10-30&#34;}&#39;</span> data.json
+</span></span></code></pre></td></tr></table></div></div><h3 id=-高级技巧-3>🚀 高级技巧</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 条件判断</span>
+</span></span><span class=line><span class=cl>jq <span class=s1>&#39;.users[] | if .age &gt; 30 then &#34;老员工&#34; else &#34;新员工&#34; end&#39;</span> users.json
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 使用变量</span>
+</span></span><span class=line><span class=cl>jq --arg city <span class=s2>&#34;Beijing&#34;</span> <span class=s1>&#39;.users[] | select(.city == $city)&#39;</span> users.json
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 读取多个JSON文件</span>
+</span></span><span class=line><span class=cl>jq -s <span class=s1>&#39;.[0].users + .[1].users&#39;</span> file1.json file2.json
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 输出为CSV格式</span>
+</span></span><span class=line><span class=cl>jq -r <span class=s1>&#39;.users[] | [.name, .age, .city] | @csv&#39;</span> users.json
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 从CSV转JSON（需要配合其他工具）</span>
+</span></span><span class=line><span class=cl>jq -R -s <span class=s1>&#39;split(&#34;\n&#34;) | map(split(&#34;,&#34;))&#39;</span> data.csv
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 递归搜索</span>
+</span></span><span class=line><span class=cl>jq <span class=s1>&#39;.. | select(type == &#34;string&#34; and contains(&#34;Beijing&#34;))&#39;</span> users.json
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 错误处理</span>
+</span></span><span class=line><span class=cl>jq <span class=s1>&#39;.users[]? // &#34;默认值&#34;&#39;</span> users.json
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 复杂计算</span>
+</span></span><span class=line><span class=cl>jq <span class=s1>&#39;.users | map(.age) | add / length&#39;</span> users.json  <span class=c1># 计算平均年龄</span>
+</span></span></code></pre></td></tr></table></div></div><hr><h2 id=5-组合使用技巧>5. 组合使用技巧</h2><h3 id=-管道组合>🔗 管道组合</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># grep + awk: 提取错误日志的时间戳</span>
+</span></span><span class=line><span class=cl>grep <span class=s2>&#34;ERROR&#34;</span> log.txt <span class=p>|</span> awk <span class=s1>&#39;{print $1, $2}&#39;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># grep + sed: 查找并替换</span>
+</span></span><span class=line><span class=cl>grep -l <span class=s2>&#34;old_text&#34;</span> *.txt <span class=p>|</span> xargs sed -i <span class=s1>&#39;s/old_text/new_text/g&#39;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># awk + sort + uniq: 统计访问最多的IP</span>
+</span></span><span class=line><span class=cl>awk <span class=s1>&#39;{print $1}&#39;</span> access.log <span class=p>|</span> sort <span class=p>|</span> uniq -c <span class=p>|</span> sort -rn <span class=p>|</span> head -10
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># curl + jq: API数据提取</span>
+</span></span><span class=line><span class=cl>curl -s https://api.example.com/data <span class=p>|</span> jq <span class=s1>&#39;.results[] | select(.status == &#34;active&#34;)&#39;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># find + grep: 在项目中搜索特定代码</span>
+</span></span><span class=line><span class=cl>find . -name <span class=s2>&#34;*.py&#34;</span> -exec grep -l <span class=s2>&#34;def login&#34;</span> <span class=o>{}</span> <span class=se>\;</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=-实用脚本示例>📝 实用脚本示例</h3><h4 id=日志分析脚本>日志分析脚本</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=cp>#!/bin/bash
+</span></span></span><span class=line><span class=cl><span class=cp></span><span class=c1># 分析Nginx访问日志</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nv>LOG_FILE</span><span class=o>=</span><span class=s2>&#34;/var/log/nginx/access.log&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=s2>&#34;=== Nginx日志分析 ===&#34;</span>
+</span></span><span class=line><span class=cl><span class=nb>echo</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=s2>&#34;1. 访问最多的10个IP:&#34;</span>
+</span></span><span class=line><span class=cl>awk <span class=s1>&#39;{print $1}&#39;</span> <span class=nv>$LOG_FILE</span> <span class=p>|</span> sort <span class=p>|</span> uniq -c <span class=p>|</span> sort -rn <span class=p>|</span> head -10
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>echo</span>
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=s2>&#34;2. 访问最多的10个URL:&#34;</span>
+</span></span><span class=line><span class=cl>awk <span class=s1>&#39;{print $7}&#39;</span> <span class=nv>$LOG_FILE</span> <span class=p>|</span> sort <span class=p>|</span> uniq -c <span class=p>|</span> sort -rn <span class=p>|</span> head -10
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>echo</span>
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=s2>&#34;3. HTTP状态码分布:&#34;</span>
+</span></span><span class=line><span class=cl>awk <span class=s1>&#39;{print $9}&#39;</span> <span class=nv>$LOG_FILE</span> <span class=p>|</span> sort <span class=p>|</span> uniq -c <span class=p>|</span> sort -rn
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>echo</span>
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=s2>&#34;4. 平均响应时间:&#34;</span>
+</span></span><span class=line><span class=cl>awk <span class=s1>&#39;{sum+=$NF; count++} END {print sum/count &#34;秒&#34;}&#39;</span> <span class=nv>$LOG_FILE</span>
+</span></span></code></pre></td></tr></table></div></div><h4 id=json数据处理脚本>JSON数据处理脚本</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=cp>#!/bin/bash
+</span></span></span><span class=line><span class=cl><span class=cp></span><span class=c1># 处理GitHub API返回的仓库数据</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nv>USERNAME</span><span class=o>=</span><span class=s2>&#34;github&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=s2>&#34;获取 </span><span class=nv>$USERNAME</span><span class=s2> 的仓库信息...&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>curl -s <span class=s2>&#34;https://api.github.com/users/</span><span class=nv>$USERNAME</span><span class=s2>/repos&#34;</span> <span class=p>|</span> <span class=se>\
+</span></span></span><span class=line><span class=cl><span class=se></span>jq -r <span class=s1>&#39;.[] | &#34;\(.name) - \(.stargazers_count) stars - \(.language // &#34;Unknown&#34;)&#34;&#39;</span> <span class=p>|</span> <span class=se>\
+</span></span></span><span class=line><span class=cl><span class=se></span>column -t -s<span class=s1>&#39;-&#39;</span>
+</span></span></code></pre></td></tr></table></div></div><hr><h2 id=6-常见问题和技巧>6. 常见问题和技巧</h2><h3 id=-qa>❓ Q&amp;A</h3><p><strong>Q: grep、awk、sed 的区别？</strong></p><ul><li><strong>grep</strong>: 只是搜索，不修改文件</li><li><strong>awk</strong>: 主要用于数据提取和统计</li><li><strong>sed</strong>: 主要用于文本替换和编辑</li></ul><p><strong>Q: 什么时候用 awk，什么时候用 sed？</strong></p><ul><li>需要按列处理数据 → 用 <code>awk</code></li><li>需要替换文本内容 → 用 <code>sed</code></li><li>需要复杂计算 → 用 <code>awk</code></li><li>简单的行删除/插入 → 用 <code>sed</code></li></ul><p><strong>Q: jq 必须安装吗？</strong></p><p><code>jq</code> 需要单独安装：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># macOS</span>
+</span></span><span class=line><span class=cl>brew install jq
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Ubuntu/Debian</span>
+</span></span><span class=line><span class=cl>sudo apt install jq
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># CentOS/RHEL</span>
+</span></span><span class=line><span class=cl>sudo yum install jq
+</span></span></code></pre></td></tr></table></div></div><h3 id=-性能优化技巧>💡 性能优化技巧</h3><ol><li><strong>使用管道避免中间文件</strong></li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># ❌ 低效</span>
+</span></span><span class=line><span class=cl>grep <span class=s2>&#34;ERROR&#34;</span> log.txt &gt; temp.txt
+</span></span><span class=line><span class=cl>awk <span class=s1>&#39;{print $1}&#39;</span> temp.txt
+</span></span><span class=line><span class=cl>rm temp.txt
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># ✅ 高效</span>
+</span></span><span class=line><span class=cl>grep <span class=s2>&#34;ERROR&#34;</span> log.txt <span class=p>|</span> awk <span class=s1>&#39;{print $1}&#39;</span>
+</span></span></code></pre></td></tr></table></div></div><ol start=2><li><strong>合并多个 sed 操作</strong></li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># ❌ 多次读取文件</span>
+</span></span><span class=line><span class=cl>sed <span class=s1>&#39;s/foo/bar/g&#39;</span> file.txt <span class=p>|</span> sed <span class=s1>&#39;s/old/new/g&#39;</span> <span class=p>|</span> sed <span class=s1>&#39;s/a/b/g&#39;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># ✅ 一次完成</span>
+</span></span><span class=line><span class=cl>sed -e <span class=s1>&#39;s/foo/bar/g&#39;</span> -e <span class=s1>&#39;s/old/new/g&#39;</span> -e <span class=s1>&#39;s/a/b/g&#39;</span> file.txt
+</span></span></code></pre></td></tr></table></div></div><ol start=3><li><strong>使用 awk 替代多个管道</strong></li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># ❌ 多个命令</span>
+</span></span><span class=line><span class=cl>cat file.txt <span class=p>|</span> grep pattern <span class=p>|</span> cut -d<span class=s1>&#39; &#39;</span> -f1 <span class=p>|</span> sort <span class=p>|</span> uniq -c
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># ✅ 用 awk 一步完成</span>
+</span></span><span class=line><span class=cl>awk <span class=s1>&#39;/pattern/ {count[$1]++} END {for(i in count) print count[i], i}&#39;</span> file.txt
+</span></span></code></pre></td></tr></table></div></div><hr><h2 id=7-学习资源>7. 学习资源</h2><h3 id=-推荐阅读>📚 推荐阅读</h3><ul><li><strong>grep</strong>: <code>man grep</code> 或 <code>grep --help</code></li><li><strong>awk</strong>: 《The AWK Programming Language》</li><li><strong>sed</strong>: 《sed & awk》O&rsquo;Reilly</li><li><strong>jq</strong>: <a class=link href=https://jqlang.github.io/jq/ target=_blank rel=noopener>官方文档</a></li></ul><h3 id=-在线工具>🔗 在线工具</h3><ul><li><a class=link href=https://regex101.com/ target=_blank rel=noopener>Regex101</a> - 正则表达式测试</li><li><a class=link href=https://jqplay.org/ target=_blank rel=noopener>jq play</a> - jq 在线测试</li><li><a class=link href=https://explainshell.com/ target=_blank rel=noopener>ExplainShell</a> - 命令解释</li></ul><h3 id=-练习建议>💻 练习建议</h3><ol><li>每天处理实际的日志文件</li><li>尝试用一条命令完成复杂任务</li><li>编写自动化脚本</li><li>参与开源项目，阅读他人的脚本</li></ol><hr><h2 id=-总结>📝 总结</h2><p>掌握这四大工具，你就拥有了强大的文本处理能力：</p><ul><li>🔍 <strong>grep</strong> - 快速定位问题</li><li>📊 <strong>awk</strong> - 深入分析数据</li><li>✏️ <strong>sed</strong> - 批量修改配置</li><li>🎯 <strong>jq</strong> - 优雅处理JSON</li></ul><p>记住：<strong>实践是最好的老师！</strong> 从今天开始，用这些工具处理你的日常任务吧！</p></section><footer class=article-footer><section class=article-tags><a href=/tags/linux/>Linux</a>
+<a href=/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C/>命令行</a>
+<a href=/tags/%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86/>文本处理</a></section><section class=article-copyright><svg class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
+<span>Licensed under CC BY-NC-SA 4.0</span></section></footer></article><aside class=related-content--wrapper><h2 class=section-title>相关文章</h2><div class=related-content><div class="flex article-list--tile"><article><a href=/posts/curl/><div class=article-details><h2 class=article-title>记录一次 curl 报错</h2></div></a></article><article><a href=/posts/hugo/><div class=article-details><h2 class=article-title>Hugo 静态博客搭建</h2></div></a></article></div></div></aside><footer class=site-footer><section class=copyright>&copy;
+2024 -
+2025 © 2024-2025 Heyuuuu</section><section class=powerby>使用 <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> 构建<br>主题 <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.31.0>Stack</a></b> 由 <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a> 设计</section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js defer></script><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>
