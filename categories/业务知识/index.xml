@@ -7,37 +7,91 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>© 2024-2025 Heyuuuu</copyright>
-        <lastBuildDate>Mon, 14 Apr 2025 09:53:08 +0800</lastBuildDate><atom:link href="https://stitchqaq.github.io/categories/%E4%B8%9A%E5%8A%A1%E7%9F%A5%E8%AF%86/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 30 Oct 2025 18:00:00 +0800</lastBuildDate><atom:link href="https://stitchqaq.github.io/categories/%E4%B8%9A%E5%8A%A1%E7%9F%A5%E8%AF%86/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>广告系统基础</title>
         <link>https://stitchqaq.github.io/posts/advertiser/</link>
-        <pubDate>Mon, 14 Apr 2025 09:53:08 +0800</pubDate>
+        <pubDate>Thu, 30 Oct 2025 18:00:00 +0800</pubDate>
         
         <guid>https://stitchqaq.github.io/posts/advertiser/</guid>
         <description>&lt;h4 id=&#34;广告的计费模式有哪几种&#34;&gt;广告的计费模式有哪几种
 &lt;/h4&gt;&lt;ol&gt;
-&lt;li&gt;CPM (Cost Per Mile)千次展示计费&lt;/li&gt;
-&lt;li&gt;CPC (Cost Per Click) 点击收费&lt;/li&gt;
-&lt;li&gt;CPA (Cost Per Action) 行动收费 广告主在用户完成某个特定行为才会支付费用&lt;/li&gt;
-&lt;li&gt;CTP (Cost Per Time) 按时长收费&lt;/li&gt;
-&lt;li&gt;CPI (Cost Per Install) 按安装收费等&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;CPM&lt;/strong&gt; (Cost Per Mile) 千次展示计费&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;CPC&lt;/strong&gt; (Cost Per Click) 点击收费&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;CPA&lt;/strong&gt; (Cost Per Action) 行动收费 - &lt;strong&gt;广告主&lt;/strong&gt;在用户完成某个特定行为才会支付费用&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;CTP&lt;/strong&gt; (Cost Per Time) 按时长收费&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;CPI&lt;/strong&gt; (Cost Per Install) 按安装收费等&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h4 id=&#34;现代广告系统架构&#34;&gt;现代广告系统架构
 &lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;广告投放平台（DSP, Demand-Side Platform） 广告主通过DSP进行投放，DSP负责竞价，定向，优化等功能&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;广告投放平台&lt;/strong&gt;（&lt;strong&gt;DSP&lt;/strong&gt;, Demand-Side Platform） - &lt;strong&gt;广告主&lt;/strong&gt;通过 &lt;strong&gt;DSP&lt;/strong&gt; 进行投放，&lt;strong&gt;DSP&lt;/strong&gt; 负责竞价、定向、优化等功能&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;供应方平台（SSP, Supply-Side Platform） 媒体方通过SSP管理广告库存，广告库存就是广告位。如果自己开发一个app，想接广告。不需要自己找广告主，直接把广告位卖给SSP就行&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;供应方平台&lt;/strong&gt;（&lt;strong&gt;SSP&lt;/strong&gt;, Supply-Side Platform） - &lt;strong&gt;媒体&lt;/strong&gt;方通过 &lt;strong&gt;SSP&lt;/strong&gt; 管理广告库存，广告库存就是&lt;strong&gt;广告位&lt;/strong&gt;。如果自己开发一个 app，想接广告。不需要自己找&lt;strong&gt;广告主&lt;/strong&gt;，直接把&lt;strong&gt;广告位&lt;/strong&gt;卖给 &lt;strong&gt;SSP&lt;/strong&gt; 就行&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;广告交易市场(Ad Exchange), 一个开发的广告竞价平台，链接DSP和SSP。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;广告交易市场&lt;/strong&gt;（&lt;strong&gt;Ad Exchange&lt;/strong&gt;） - 一个开放的广告竞价平台，连接 &lt;strong&gt;DSP&lt;/strong&gt; 和 &lt;strong&gt;SSP&lt;/strong&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;数据管理平台(DMP, Data Managerment Platform), 收集，分析用户数据，提高广告定向能力等&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;数据管理平台&lt;/strong&gt;（&lt;strong&gt;DMP&lt;/strong&gt;, Data Management Platform） - 收集、分析用户数据，提高广告定向能力等&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;广告监测平台(Ad Monitor), 监测广告投放效果，比如广告投放的曝光量，点击量，转化等，归因分析。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;广告监测平台&lt;/strong&gt;（&lt;strong&gt;Ad Monitor&lt;/strong&gt;） - 监测广告投放效果，比如广告投放的曝光量、点击量、转化等，归因分析&lt;/p&gt;
 &lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;一个广告的完整请求流程&#34;&gt;一个广告的完整请求流程
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Step1: 用户打开应用，就会触发广告请求&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;用户行为，打开 &lt;strong&gt;APP&lt;/strong&gt;/网站，页面中的&lt;strong&gt;广告位&lt;/strong&gt;会自动触发广告展示请求。例如：打开淘宝，触发开屏广告&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Step2: 媒体通过 SSP 提交流量信息到 Ad Exchange&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;媒体&lt;/strong&gt;将广告的基础信息（尺寸、类型、页面内容）和用户匿名标识（&lt;strong&gt;设备ID&lt;/strong&gt;、&lt;strong&gt;Cookie&lt;/strong&gt;）发送给合作的 &lt;strong&gt;SSP&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SSP&lt;/strong&gt; 对信息进行初步处理（过滤垃圾流量，设置&lt;strong&gt;广告位&lt;/strong&gt;最低竞价等），然后将这些信息打包成&amp;quot;&lt;strong&gt;竞价请求&lt;/strong&gt;（&lt;strong&gt;Bid Request&lt;/strong&gt;）&amp;quot;，发送给 &lt;strong&gt;Ad Exchange&lt;/strong&gt;（可能会同时发送给多个 &lt;strong&gt;Ad Exchange&lt;/strong&gt;，以获取更高收益）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Step3: Ad Exchange 分发竞价请求给 DSP&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Ad Exchange&lt;/strong&gt; 收到 &lt;strong&gt;SSP&lt;/strong&gt; 的&lt;strong&gt;竞价请求&lt;/strong&gt;后，会将请求转发给其合作的 &lt;strong&gt;DSP&lt;/strong&gt;（&lt;strong&gt;广告主&lt;/strong&gt;会通过 &lt;strong&gt;DSP&lt;/strong&gt; 参与竞价）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;竞价请求&lt;/strong&gt;包含的关键信息：用户匿名ID、设备类型、地域、&lt;strong&gt;广告位&lt;/strong&gt;尺寸、&lt;strong&gt;媒体&lt;/strong&gt;类型、&lt;strong&gt;SSP&lt;/strong&gt; 设置的底价等&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Step4: DSP 基于用户数据和策略决定是否竞价&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;DSP&lt;/strong&gt; 收到&lt;strong&gt;竞价请求&lt;/strong&gt;后，会在 100 毫秒内完成以下操作：
+&lt;ul&gt;
+&lt;li&gt;调用 &lt;strong&gt;DMP&lt;/strong&gt; 获取用户标签：通过用户匿名ID匹配 &lt;strong&gt;DMP&lt;/strong&gt; 中的数据，获取用户兴趣、消费能力、历史行为等标签&lt;/li&gt;
+&lt;li&gt;匹配&lt;strong&gt;广告主&lt;/strong&gt;需求：根据&lt;strong&gt;广告主&lt;/strong&gt;在 &lt;strong&gt;DSP&lt;/strong&gt; 上设置的定向条件（如&amp;quot;20-25岁男性&amp;quot;、&amp;ldquo;运动达人&amp;rdquo;），判断该用户是否符合目标受众&lt;/li&gt;
+&lt;li&gt;计算出价：如果符合条件，&lt;strong&gt;DSP&lt;/strong&gt; 根据&lt;strong&gt;广告主&lt;/strong&gt;的预算、出价策略（如&amp;quot;每次点击最高出价2元&amp;quot;）、用户价值（是否高潜用户等）计算一个合理的竞价价格&lt;/li&gt;
+&lt;li&gt;返回&lt;strong&gt;竞价响应&lt;/strong&gt;：&lt;strong&gt;DSP&lt;/strong&gt; 将&amp;quot;是否参与竞价&amp;quot;以及&amp;quot;出价金额&amp;quot;通过&amp;quot;&lt;strong&gt;竞价响应&lt;/strong&gt;（&lt;strong&gt;Bid Response&lt;/strong&gt;）&amp;ldquo;返回给 &lt;strong&gt;Ad Exchange&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Step5: Ad Exchange 进行竞价策略，判断获胜者&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Ad Exchange&lt;/strong&gt; 收集所有的 &lt;strong&gt;DSP&lt;/strong&gt; 响应，在 50 毫秒内完成比价：
+&lt;ul&gt;
+&lt;li&gt;筛选出价 &amp;gt; &lt;strong&gt;SSP&lt;/strong&gt; 底价的竞价&lt;/li&gt;
+&lt;li&gt;选择出价最高的 &lt;strong&gt;DSP&lt;/strong&gt; 作为获胜者（部分 &lt;strong&gt;Ad Exchange&lt;/strong&gt; 会结合广告质量评分调整，不完全按照价格）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Ad Exchange&lt;/strong&gt; 会向获胜 &lt;strong&gt;DSP&lt;/strong&gt; 发送&amp;quot;竞价成功通知&amp;rdquo;，同时向其他 &lt;strong&gt;DSP&lt;/strong&gt; 发送&amp;quot;未中标通知&amp;quot;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Step6: 广告素材投放与信息同步&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;获胜的 &lt;strong&gt;DSP&lt;/strong&gt; 返回广告素材：获胜的 &lt;strong&gt;DSP&lt;/strong&gt; 在收到通知后，立即将&lt;strong&gt;广告主&lt;/strong&gt;的素材（如图片、视频、跳转链接）通过 &lt;strong&gt;Ad Exchange&lt;/strong&gt; 转发给 &lt;strong&gt;SSP&lt;/strong&gt;，再由 &lt;strong&gt;SSP&lt;/strong&gt; 传递给&lt;strong&gt;媒体&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;媒体&lt;/strong&gt;展示广告：&lt;strong&gt;媒体&lt;/strong&gt;将广告素材加载到&lt;strong&gt;广告位&lt;/strong&gt;，用户最终看到广告（从用户触发请求到广告展示，全程需 200-300 毫秒内完成，避免影响用户体验）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Step7: 后续数据追踪和结算&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;行为数据回传：如果用户点击/转化（下单/下载）广告，&lt;strong&gt;媒体&lt;/strong&gt;/&lt;strong&gt;SSP&lt;/strong&gt; 会将行为通过 &lt;strong&gt;Ad Exchange&lt;/strong&gt; 回传给获胜的 &lt;strong&gt;DSP&lt;/strong&gt;，&lt;strong&gt;DSP&lt;/strong&gt; 再同步&lt;strong&gt;广告主&lt;/strong&gt;，用于效果监控&lt;/li&gt;
+&lt;li&gt;结算：&lt;strong&gt;Ad Exchange&lt;/strong&gt; 根据竞价结果，在&lt;strong&gt;广告主&lt;/strong&gt;（&lt;strong&gt;DSP&lt;/strong&gt;）和&lt;strong&gt;媒体&lt;/strong&gt;（&lt;strong&gt;SSP&lt;/strong&gt;）之间进行费用结算（通常按 &lt;strong&gt;CPM&lt;/strong&gt;/&lt;strong&gt;CPC&lt;/strong&gt;/&lt;strong&gt;CPI&lt;/strong&gt; 等方式），并抽取一定比例的交易佣金&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;看完上面广告的完整生命周期，再介绍几个专有名词：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;媒体&lt;/strong&gt;（&lt;strong&gt;Publisher&lt;/strong&gt;）：一般是指拥有流量的平台（网站、App），提供&lt;strong&gt;广告位&lt;/strong&gt;（banner、信息流）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SSP&lt;/strong&gt;（Supply-Side Platform，供应方平台）：帮助&lt;strong&gt;媒体&lt;/strong&gt;管理&lt;strong&gt;广告位&lt;/strong&gt;，设置底价，对接 &lt;strong&gt;Ad Exchange&lt;/strong&gt;，最大化流量收益&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Ad Exchange&lt;/strong&gt;（广告交易平台）：连接供需双方的&amp;quot;交易市场&amp;quot;，接收 &lt;strong&gt;SSP&lt;/strong&gt; 的流量请求，向 &lt;strong&gt;DSP&lt;/strong&gt; 发起竞价，最终促成交易&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DSP&lt;/strong&gt;（Demand-Side Platform，需求方平台）：代表&lt;strong&gt;广告主&lt;/strong&gt;参与竞价，根据用户标签和投放策略决定是否出价以及出价金额&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;广告主&lt;/strong&gt;（&lt;strong&gt;Advertiser&lt;/strong&gt;）：需要投放广告的企业主，通过 &lt;strong&gt;DSP&lt;/strong&gt; 平台设置预算、定向条件（如用户年龄、性别、兴趣）等&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DMP&lt;/strong&gt;（Data Management Platform，数据管理平台）：提供用户数据标签（行为、偏好），辅助 &lt;strong&gt;DSP&lt;/strong&gt; 和 &lt;strong&gt;SSP&lt;/strong&gt; 做决策&lt;/li&gt;
 &lt;/ul&gt;
 </description>
         </item>

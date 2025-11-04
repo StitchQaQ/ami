@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Linux on Heyuuuu</title>
+        <link>http://localhost:1313/categories/linux/</link>
+        <description>Recent content in Linux on Heyuuuu</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>© 2024-2025 Heyuuuu</copyright>
+        <lastBuildDate>Thu, 30 Oct 2025 16:55:54 +0800</lastBuildDate><atom:link href="http://localhost:1313/categories/linux/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Linux</title>
+        <link>http://localhost:1313/posts/linux/</link>
+        <pubDate>Thu, 30 Oct 2025 16:55:54 +0800</pubDate>
+        
+        <guid>http://localhost:1313/posts/linux/</guid>
+        <description>&lt;p&gt;grep：“搜索高手”，用于查找文本中的匹配模式
+awk：“数据专家”，用于从结构化文本中提取信息并计算
+sed：“流编辑器”，用于批量修改文本内容
+jq：“JSON 利器”，用于过滤和转换 JSON 数据&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

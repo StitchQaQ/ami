@@ -7,7 +7,23 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>© 2024-2025 Heyuuuu</copyright>
-        <lastBuildDate>Thu, 30 Oct 2025 15:30:00 +0800</lastBuildDate><atom:link href="https://stitchqaq.github.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 30 Oct 2025 18:00:00 +0800</lastBuildDate><atom:link href="https://stitchqaq.github.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>业务知识</title>
+        <link>https://stitchqaq.github.io/categories/%E4%B8%9A%E5%8A%A1%E7%9F%A5%E8%AF%86/</link>
+        <pubDate>Thu, 30 Oct 2025 18:00:00 +0800</pubDate>
+        
+        <guid>https://stitchqaq.github.io/categories/%E4%B8%9A%E5%8A%A1%E7%9F%A5%E8%AF%86/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>工具</title>
+        <link>https://stitchqaq.github.io/categories/%E5%B7%A5%E5%85%B7/</link>
+        <pubDate>Thu, 30 Oct 2025 17:30:00 +0800</pubDate>
+        
+        <guid>https://stitchqaq.github.io/categories/%E5%B7%A5%E5%85%B7/</guid>
+        <description></description>
+        </item>
+        <item>
         <title>Golang</title>
         <link>https://stitchqaq.github.io/categories/golang/</link>
         <pubDate>Thu, 30 Oct 2025 15:30:00 +0800</pubDate>
@@ -37,22 +53,6 @@
         <pubDate>Fri, 06 Jun 2025 15:53:55 +0800</pubDate>
         
         <guid>https://stitchqaq.github.io/categories/%E7%AE%97%E6%B3%95/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>工具</title>
-        <link>https://stitchqaq.github.io/categories/%E5%B7%A5%E5%85%B7/</link>
-        <pubDate>Tue, 03 Jun 2025 14:43:01 +0800</pubDate>
-        
-        <guid>https://stitchqaq.github.io/categories/%E5%B7%A5%E5%85%B7/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>业务知识</title>
-        <link>https://stitchqaq.github.io/categories/%E4%B8%9A%E5%8A%A1%E7%9F%A5%E8%AF%86/</link>
-        <pubDate>Mon, 14 Apr 2025 09:53:08 +0800</pubDate>
-        
-        <guid>https://stitchqaq.github.io/categories/%E4%B8%9A%E5%8A%A1%E7%9F%A5%E8%AF%86/</guid>
         <description></description>
         </item>
         <item>
