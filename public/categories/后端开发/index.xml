@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>后端开发 on Heyuuuu</title>
-        <link>https://stitchqaq.github.io/categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/</link>
+        <link>http://localhost:1313/categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/</link>
         <description>Recent content in 后端开发 on Heyuuuu</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>© 2024-2025 Heyuuuu</copyright>
-        <lastBuildDate>Wed, 30 Jul 2025 20:06:04 +0800</lastBuildDate><atom:link href="https://stitchqaq.github.io/categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 30 Jul 2025 20:06:04 +0800</lastBuildDate><atom:link href="http://localhost:1313/categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Elasticsearch 快速入门</title>
-        <link>https://stitchqaq.github.io/posts/elasticsearch/</link>
+        <link>http://localhost:1313/posts/elasticsearch/</link>
         <pubDate>Wed, 30 Jul 2025 20:06:04 +0800</pubDate>
         
-        <guid>https://stitchqaq.github.io/posts/elasticsearch/</guid>
+        <guid>http://localhost:1313/posts/elasticsearch/</guid>
         <description>&lt;h3 id=&#34;start-elasticsearch-with-docker-localhost&#34;&gt;start elasticsearch with docker localhost
 &lt;/h3&gt;&lt;p&gt;执行&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -1882,10 +1882,10 @@
         </item>
         <item>
         <title>ClickHouse 性能之巅</title>
-        <link>https://stitchqaq.github.io/posts/clickhouse%E6%80%A7%E8%83%BD%E4%B9%8B%E5%B7%85/</link>
+        <link>http://localhost:1313/posts/clickhouse%E6%80%A7%E8%83%BD%E4%B9%8B%E5%B7%85/</link>
         <pubDate>Mon, 24 Mar 2025 09:34:08 +0800</pubDate>
         
-        <guid>https://stitchqaq.github.io/posts/clickhouse%E6%80%A7%E8%83%BD%E4%B9%8B%E5%B7%85/</guid>
+        <guid>http://localhost:1313/posts/clickhouse%E6%80%A7%E8%83%BD%E4%B9%8B%E5%B7%85/</guid>
         <description>&lt;h3 id=&#34;day1&#34;&gt;Day1
 &lt;/h3&gt;&lt;h4 id=&#34;oltp--olap&#34;&gt;OLTP &amp;amp; OLAP
 &lt;/h4&gt;&lt;ul&gt;
@@ -1907,10 +1907,10 @@ OLAP数据库被称为数据仓库(数仓), 它是反范式的。数据冗余度
         </item>
         <item>
         <title>Kafka 入门指南</title>
-        <link>https://stitchqaq.github.io/posts/kafka/</link>
+        <link>http://localhost:1313/posts/kafka/</link>
         <pubDate>Wed, 12 Feb 2025 19:36:38 +0800</pubDate>
         
-        <guid>https://stitchqaq.github.io/posts/kafka/</guid>
+        <guid>http://localhost:1313/posts/kafka/</guid>
         <description>&lt;h4 id=&#34;kafka&#34;&gt;Kafka
 &lt;/h4&gt;&lt;p&gt;分布式的消息引擎系统&lt;/p&gt;
 &lt;h4 id=&#34;名词解释&#34;&gt;名词解释
@@ -1941,10 +1941,10 @@ OLAP数据库被称为数据仓库(数仓), 它是反范式的。数据冗余度
         </item>
         <item>
         <title>Django 常见问题</title>
-        <link>https://stitchqaq.github.io/posts/django/</link>
+        <link>http://localhost:1313/posts/django/</link>
         <pubDate>Wed, 05 Feb 2025 11:09:45 +0800</pubDate>
         
-        <guid>https://stitchqaq.github.io/posts/django/</guid>
+        <guid>http://localhost:1313/posts/django/</guid>
         <description>&lt;h4 id=&#34;什么是orm&#34;&gt;什么是ORM
 &lt;/h4&gt;&lt;p&gt;ORM 即对象关系映射，它将数据库中的表映射为 Python 类，将表中的记录映射为类的实例，通过操作类和实例来操作数据库。优点包括提高开发效率、可移植性强、安全性高（自动处理 SQL 注入）等。&lt;/p&gt;
 &lt;h4 id=&#34;什么是-n1问题&#34;&gt;什么是 N+1问题
@@ -1995,10 +1995,10 @@ OLAP数据库被称为数据仓库(数仓), 它是反范式的。数据冗余度
         </item>
         <item>
         <title>Redis 核心知识</title>
-        <link>https://stitchqaq.github.io/posts/redis/</link>
+        <link>http://localhost:1313/posts/redis/</link>
         <pubDate>Wed, 05 Feb 2025 09:39:00 +0800</pubDate>
         
-        <guid>https://stitchqaq.github.io/posts/redis/</guid>
+        <guid>http://localhost:1313/posts/redis/</guid>
         <description>&lt;h4 id=&#34;数据类型&#34;&gt;数据类型
 &lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;

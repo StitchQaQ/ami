@@ -1,0 +1,78 @@
+syntax = "proto3";
+
+package budget;
+
+option go_package = "dsp-system/pb";
+
+// Budget Service - 预算管理服务
+service BudgetService {
+  // 检查预算
+  rpc CheckBudget(CheckBudgetRequest) returns (CheckBudgetResponse);
+  
+  // 扣减预算
+  rpc DeductBudget(DeductBudgetRequest) returns (DeductBudgetResponse);
+  
+  // 获取预算信息
+  rpc GetBudgetInfo(GetBudgetInfoRequest) returns (GetBudgetInfoResponse);
+  
+  // 退还预算（竞价失败时）
+  rpc RefundBudget(RefundBudgetRequest) returns (RefundBudgetResponse);
+}
+
+// 检查预算请求
+message CheckBudgetRequest {
+  string campaign_id = 1;  // 活动ID
+  double amount = 2;       // 需要的金额
+}
+
+// 检查预算响应
+message CheckBudgetResponse {
+  bool has_budget = 1;     // 是否有足够预算
+  double remaining = 2;    // 剩余预算
+  string message = 3;      // 消息
+}
+
+// 扣减预算请求
+message DeductBudgetRequest {
+  string campaign_id = 1;  // 活动ID
+  double amount = 2;       // 扣减金额
+  string bid_id = 3;       // 竞价ID（用于追踪）
+}
+
+// 扣减预算响应
+message DeductBudgetResponse {
+  bool success = 1;        // 是否成功
+  double remaining = 2;    // 剩余预算
+  string message = 3;      // 消息
+}
+
+// 获取预算信息请求
+message GetBudgetInfoRequest {
+  string campaign_id = 1;  // 活动ID
+}
+
+// 获取预算信息响应
+message GetBudgetInfoResponse {
+  string campaign_id = 1;       // 活动ID
+  double total_budget = 2;      // 总预算
+  double remaining_budget = 3;  // 剩余预算
+  double daily_budget = 4;      // 日预算
+  double daily_spent = 5;       // 今日已消耗
+  string status = 6;            // 状态：active, paused, finished
+}
+
+// 退还预算请求
+message RefundBudgetRequest {
+  string campaign_id = 1;  // 活动ID
+  double amount = 2;       // 退还金额
+  string bid_id = 3;       // 竞价ID
+  string reason = 4;       // 退还原因
+}
+
+// 退还预算响应
+message RefundBudgetResponse {
+  bool success = 1;        // 是否成功
+  double remaining = 2;    // 剩余预算
+  string message = 3;      // 消息
+}
+

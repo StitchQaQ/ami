@@ -23,8 +23,8 @@ c = [i for i in b if i in a]
 ```python
 def find_common_element(arr1, arr2):
     # 先将 数组排序
-    sorted_arr1 = sort(arr1)
-    sorted_arr2 = sort(arr2)
+    sorted_arr1 = sorted(arr1)
+    sorted_arr2 = sorted(arr2)
 
     i = j = 0
     common = []
@@ -46,6 +46,71 @@ def find_common_element(arr1, arr2):
 
 ```
 
+#### Golang中的双指针使用示例
+双指针有以下几种类型，相撞指针（同一个数组从两侧往中间位移，最终相撞）， 同向指针（快慢指针，删除重复项，滑动窗口）， 分离指针（两个指针分别处理两个不同的数组/链表）
+
+- 两数之和。 
+    一个数组中获取相加等于target 的元素位置, 利用的是数组的有序性。前提是需要有序的数组。
+```golang
+
+import (
+    "fmt",
+    "sort"
+)
+
+func twoEle(numbers []int, target int) []int {
+    left, right := 0, len(numbers) - 1
+
+
+    for left < right {
+        sum := numbers[left] + numbers[right]
+        if sum == target {
+            return []int{left+1, right + 1}
+        } else if sum < target {
+            left++
+        } else {
+            right--
+        }
+    }
+    return []int{}
+}
+
+func main() {
+    numbers := []int{2,11,7,15}
+    target := 9
+    sort.Ints(numbers)
+    fmt.Println(twoEle(numbers, target))
+}
+
+```
+
+- 删除一个数组中的重复项
+
+```golang
+
+func removeDuplicates(numbers []int) int {
+    if len(numbers) == 0 {
+        return 0
+    }
+
+    slow := 0
+    for fast := 1; fast < len(numbers); fast++ {
+        if numbers[slow] != numbers[fast] {
+            slow++
+            numbers[slow] = numbers[fast]
+        }
+    }
+    return slow+1
+}
+
+
+func main() {
+    numbers := []int{1,1,2,3,4}
+    length := removeDuplicates(numbers)
+    fmt.Println("有效长度：", length)
+    fmt.Println("有效数组", numbers[:length])
+}
+```
 
 ### 贪心算法
 ``` python

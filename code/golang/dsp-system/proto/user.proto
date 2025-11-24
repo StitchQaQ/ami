@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+package user;
+
+option go_package = "dsp-system/pb";
+
+// User Service - 用户画像服务
+service UserService {
+  // 获取用户画像
+  rpc GetUserProfile(GetUserProfileRequest) returns (GetUserProfileResponse);
+  
+  // 更新用户行为
+  rpc UpdateUserBehavior(UpdateUserBehaviorRequest) returns (UpdateUserBehaviorResponse);
+  
+  // 批量获取用户画像
+  rpc BatchGetUserProfiles(BatchGetUserProfilesRequest) returns (BatchGetUserProfilesResponse);
+}
+
+// 获取用户画像请求
+message GetUserProfileRequest {
+  string user_id = 1;  // 用户ID
+}
+
+// 获取用户画像响应
+message GetUserProfileResponse {
+  string user_id = 1;           // 用户ID
+  repeated string tags = 2;     // 用户标签
+  int32 age = 3;                // 年龄
+  string gender = 4;            // 性别
+  repeated string interests = 5; // 兴趣
+  string city = 6;              // 城市
+  string device_type = 7;       // 设备类型
+}
+
+// 更新用户行为请求
+message UpdateUserBehaviorRequest {
+  string user_id = 1;    // 用户ID
+  string behavior = 2;   // 行为类型：click, view, conversion
+  string ad_id = 3;      // 广告ID
+  int64 timestamp = 4;   // 时间戳
+}
+
+// 更新用户行为响应
+message UpdateUserBehaviorResponse {
+  bool success = 1;   // 是否成功
+  string message = 2; // 消息
+}
+
+// 批量获取用户画像请求
+message BatchGetUserProfilesRequest {
+  repeated string user_ids = 1;  // 用户ID列表
+}
+
+// 批量获取用户画像响应
+message BatchGetUserProfilesResponse {
+  repeated GetUserProfileResponse profiles = 1;  // 用户画像列表
+}
+

@@ -1,0 +1,36 @@
+// 1. 指定语法版本（必须，v3是当前主流）
+syntax = "proto3";
+
+// 2. 指定生成的Go代码存放路径（格式：go_package = "模块路径/目录;包名"）
+// 模块路径需与Go项目的go.mod一致，包名是生成代码的包名
+option go_package = "./pb;pb";
+
+// 3. 定义消息体（类似Go的结构体）
+message User {
+  // 字段格式：类型 字段名 = 标签号;
+  int32    id      = 1;  // 整型（32位），标签号1（唯一，1-15占用字节更少）
+  string   name    = 2;  // 字符串
+  bool     is_vip  = 3;  // 布尔值
+  repeated string tags = 4;  // repeated表示“切片”（Go中的[]string）
+  int64    balance = 5;  // 长整型（64位，存储大数字）
+
+  // 嵌套消息（类似Go的嵌套结构体）
+  message Address {
+    string province = 1;
+    string city     = 2;
+  }
+  Address addr = 6;  // 嵌套结构体字段
+}
+
+// 4. 定义枚举（类似Go的iota枚举）
+enum Gender {
+  GENDER_UNSPECIFIED = 0;  // proto3要求枚举第一个值必须为0（默认值）
+  GENDER_MALE        = 1;
+  GENDER_FEMALE      = 2;
+}
+
+// 5. 引用枚举（在另一个消息体中使用）
+message Profile {
+  Gender gender = 1;
+  string avatar = 2;
+}

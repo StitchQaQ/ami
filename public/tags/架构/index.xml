@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>架构 on Heyuuuu</title>
-        <link>https://stitchqaq.github.io/tags/%E6%9E%B6%E6%9E%84/</link>
+        <link>http://localhost:1313/tags/%E6%9E%B6%E6%9E%84/</link>
         <description>Recent content in 架构 on Heyuuuu</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>© 2024-2025 Heyuuuu</copyright>
-        <lastBuildDate>Fri, 21 Feb 2025 08:46:57 +0800</lastBuildDate><atom:link href="https://stitchqaq.github.io/tags/%E6%9E%B6%E6%9E%84/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 21 Feb 2025 08:46:57 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/%E6%9E%B6%E6%9E%84/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>分布式系统基础</title>
-        <link>https://stitchqaq.github.io/posts/distributed_system/</link>
+        <link>http://localhost:1313/posts/distributed_system/</link>
         <pubDate>Fri, 21 Feb 2025 08:46:57 +0800</pubDate>
         
-        <guid>https://stitchqaq.github.io/posts/distributed_system/</guid>
+        <guid>http://localhost:1313/posts/distributed_system/</guid>
         <description>&lt;h3 id=&#34;名词解释&#34;&gt;名词解释
 &lt;/h3&gt;&lt;h4 id=&#34;cap理论&#34;&gt;CAP理论
 &lt;/h4&gt;&lt;p&gt;该理论指出，一个分布式系统不可能同时满足一下三个特性:&lt;/p&gt;

@@ -2,27 +2,27 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>算法 on Heyuuuu</title>
-        <link>https://stitchqaq.github.io/categories/%E7%AE%97%E6%B3%95/</link>
+        <link>http://localhost:1313/categories/%E7%AE%97%E6%B3%95/</link>
         <description>Recent content in 算法 on Heyuuuu</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>© 2024-2025 Heyuuuu</copyright>
-        <lastBuildDate>Fri, 06 Jun 2025 15:53:55 +0800</lastBuildDate><atom:link href="https://stitchqaq.github.io/categories/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 06 Jun 2025 15:53:55 +0800</lastBuildDate><atom:link href="http://localhost:1313/categories/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>树与哈希表</title>
-        <link>https://stitchqaq.github.io/posts/tree/</link>
+        <link>http://localhost:1313/posts/tree/</link>
         <pubDate>Fri, 06 Jun 2025 15:53:55 +0800</pubDate>
         
-        <guid>https://stitchqaq.github.io/posts/tree/</guid>
+        <guid>http://localhost:1313/posts/tree/</guid>
         <description>&lt;h3 id=&#34;哈希冲突的原因以及解决办法&#34;&gt;哈希冲突的原因以及解决办法
 &lt;/h3&gt;&lt;p&gt;hash算法是一种数据压缩方式，由于算法产生的哈希值的数量是有限的，所以当数据量大时就会出现哈希值不够用的情况，多个数据通过算法的出了相同的哈希值。从而产生了冲突。&lt;/p&gt;
 </description>
         </item>
         <item>
         <title>LeetCode 刷题记录</title>
-        <link>https://stitchqaq.github.io/posts/leecode/</link>
+        <link>http://localhost:1313/posts/leecode/</link>
         <pubDate>Tue, 18 Mar 2025 09:46:23 +0800</pubDate>
         
-        <guid>https://stitchqaq.github.io/posts/leecode/</guid>
+        <guid>http://localhost:1313/posts/leecode/</guid>
         <description>&lt;h3 id=&#34;小镇法官&#34;&gt;小镇法官
 &lt;/h3&gt;&lt;h5 id=&#34;题干&#34;&gt;题干
 &lt;/h5&gt;&lt;p&gt;小镇有 n 个人， 其中有一个人是是小镇法官。如果法官存在，那么：&lt;/p&gt;
@@ -35,7 +35,7 @@
 如果小镇法官存在并确认身份，返回法官编号，否则返回 -1&lt;/p&gt;
 &lt;h5 id=&#34;题解思路&#34;&gt;题解思路
 &lt;/h5&gt;&lt;p&gt;如果使用图解的思路就很好接这个题目
-&lt;img src=&#34;https://stitchqaq.github.io/images/judge.jpg&#34;
+&lt;img src=&#34;http://localhost:1313/images/judge.jpg&#34;
 	
 	
 	

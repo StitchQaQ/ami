@@ -1,0 +1,66 @@
+{
+  "id": "req_test_20240101_001",
+  "test": 0,
+  "tmax": 100,
+  "imp": [
+    {
+      "id": "imp_001",
+      "banner": {
+        "w": 728,
+        "h": 90,
+        "pos": 1
+      },
+      "bidfloor": 2.5,
+      "bidfloorcur": "CNY",
+      "secure": 1,
+      "tagid": "banner_728x90_top"
+    }
+  ],
+  "site": {
+    "id": "site_001",
+    "name": "测试网站",
+    "domain": "test.com",
+    "cat": ["IAB1"],
+    "page": "https://test.com/article/123",
+    "ref": "https://google.com"
+  },
+  "device": {
+    "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+    "geo": {
+      "lat": 39.9042,
+      "lon": 116.4074,
+      "country": "CHN",
+      "region": "BJ",
+      "city": "Beijing"
+    },
+    "dnt": 0,
+    "lmt": 0,
+    "ip": "192.168.1.100",
+    "devicetype": 2,
+    "make": "Apple",
+    "model": "MacBook Pro",
+    "os": "macOS",
+    "osv": "13.0",
+    "w": 1920,
+    "h": 1080,
+    "pxratio": 2.0,
+    "js": 1,
+    "language": "zh-CN",
+    "connectiontype": 2
+  },
+  "user": {
+    "id": "user_test_67890",
+    "yob": 1995,
+    "gender": "M",
+    "keywords": "科技,编程,运动",
+    "geo": {
+      "lat": 39.9042,
+      "lon": 116.4074,
+      "country": "CHN",
+      "city": "Beijing"
+    }
+  },
+  "cur": ["CNY"],
+  "allimps": 0
+}
+

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>业务知识 on Heyuuuu</title>
-        <link>https://stitchqaq.github.io/categories/%E4%B8%9A%E5%8A%A1%E7%9F%A5%E8%AF%86/</link>
+        <link>http://localhost:1313/categories/%E4%B8%9A%E5%8A%A1%E7%9F%A5%E8%AF%86/</link>
         <description>Recent content in 业务知识 on Heyuuuu</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>© 2024-2025 Heyuuuu</copyright>
-        <lastBuildDate>Thu, 30 Oct 2025 18:00:00 +0800</lastBuildDate><atom:link href="https://stitchqaq.github.io/categories/%E4%B8%9A%E5%8A%A1%E7%9F%A5%E8%AF%86/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 30 Oct 2025 18:00:00 +0800</lastBuildDate><atom:link href="http://localhost:1313/categories/%E4%B8%9A%E5%8A%A1%E7%9F%A5%E8%AF%86/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>广告系统基础</title>
-        <link>https://stitchqaq.github.io/posts/advertiser/</link>
+        <link>http://localhost:1313/posts/advertiser/</link>
         <pubDate>Thu, 30 Oct 2025 18:00:00 +0800</pubDate>
         
-        <guid>https://stitchqaq.github.io/posts/advertiser/</guid>
+        <guid>http://localhost:1313/posts/advertiser/</guid>
         <description>&lt;h4 id=&#34;广告的计费模式有哪几种&#34;&gt;广告的计费模式有哪几种
 &lt;/h4&gt;&lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;CPM&lt;/strong&gt; (Cost Per Mile) 千次展示计费&lt;/li&gt;
@@ -93,7 +93,84 @@
 &lt;li&gt;&lt;strong&gt;广告主&lt;/strong&gt;（&lt;strong&gt;Advertiser&lt;/strong&gt;）：需要投放广告的企业主，通过 &lt;strong&gt;DSP&lt;/strong&gt; 平台设置预算、定向条件（如用户年龄、性别、兴趣）等&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;DMP&lt;/strong&gt;（Data Management Platform，数据管理平台）：提供用户数据标签（行为、偏好），辅助 &lt;strong&gt;DSP&lt;/strong&gt; 和 &lt;strong&gt;SSP&lt;/strong&gt; 做决策&lt;/li&gt;
 &lt;/ul&gt;
-</description>
+&lt;h4 id=&#34;bid-request-payload&#34;&gt;Bid Request Payload
+&lt;/h4&gt;&lt;h5 id=&#34;object-request&#34;&gt;Object: Request
+&lt;/h5&gt;&lt;table&gt;
+  &lt;tr&gt;
+    &lt;td&gt;&lt;strong&gt;Attribute&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/strong&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;strong&gt;Type&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/strong&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;strong&gt;Definition&lt;/strong&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;&lt;code&gt;id&lt;/code&gt;&lt;/td&gt;
+    &lt;td&gt;string;&amp;nbsp;required&lt;/td&gt;
+    &lt;td&gt;Unique ID of the bid request; provided by the exchange.&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;&lt;code&gt;test&lt;/code&gt;&lt;/td&gt;
+    &lt;td&gt;integer;&lt;br/&gt;default&amp;nbsp;0&lt;/td&gt;
+    &lt;td&gt;Indicator of test mode in which auctions are not billable, where 0 = live mode, 1 = test mode.&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;&lt;code&gt;tmax&lt;/code&gt;&lt;/td&gt;
+    &lt;td&gt;integer&lt;/td&gt;
+    &lt;td&gt;Maximum time in milliseconds the exchange allows for bids to be received including Internet latency to avoid timeout. This value supersedes any general guidance from the exchange.  If an exchange acts as an intermediary, it should decrease the outbound &lt;code&gt;tmax&lt;/code&gt; value from what it received to account for its latency and the additional internet hop.&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;&lt;code&gt;at&lt;/code&gt;&lt;/td&gt;
+    &lt;td&gt;integer;&lt;br/&gt;default&amp;nbsp;2&lt;/td&gt;
+    &lt;td&gt;Auction type, where 1 = First Price, 2 = Second Price Plus.  Values greater than 500 can be used for exchange-specific auction types.&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;&lt;code&gt;cur&lt;/code&gt;&lt;/td&gt;
+    &lt;td&gt;string&amp;nbsp;array;&lt;br/&gt;default&amp;nbsp;[“USD”]&lt;/td&gt;
+    &lt;td&gt;Array of accepted currencies for bids on this bid request using ISO-4217 alpha codes. Recommended if the exchange accepts multiple currencies. If omitted, the single currency of “USD” is assumed.&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;&lt;code&gt;seat&lt;/code&gt;&lt;/td&gt;
+    &lt;td&gt;string&amp;nbsp;array&lt;/td&gt;
+    &lt;td&gt;Restriction list of buyer seats for bidding on this item.  Knowledge of buyer’s customers and their seat IDs must be coordinated between parties beforehand. Omission implies no restrictions.&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;&lt;code&gt;wseat&lt;/code&gt;&lt;/td&gt;
+    &lt;td&gt;integer;&lt;br/&gt;default&amp;nbsp;1&lt;/td&gt;
+    &lt;td&gt;Flag that determines the restriction interpretation of the &lt;code&gt;seat&lt;/code&gt; array, where 0 = block list, 1 = allow list.&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;&lt;code&gt;cdata&lt;/code&gt;&lt;/td&gt;
+    &lt;td&gt;string&lt;/td&gt;
+    &lt;td&gt;Allows bidder to retrieve data set on its behalf in the exchange’s cookie (refer to &lt;code&gt;cdata&lt;/code&gt; in &lt;a href=&#34;#object_response&#34;&gt;Object: Response&lt;/a&gt;) if supported by the exchange. The string must be in base85 cookie-safe characters.&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;&lt;code&gt;source&lt;/code&gt;&lt;/td&gt;
+    &lt;td&gt;object&lt;/td&gt;
+    &lt;td&gt;A &lt;code&gt;Source&lt;/code&gt; object that provides data about the inventory source and which entity makes the final decision. Refer to &lt;a href=&#34;#object_source&#34;&gt;Object: Source&lt;/a&gt;.&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;&lt;code&gt;item&lt;/code&gt;&lt;/td&gt;
+    &lt;td&gt;object&amp;nbsp;array; required&lt;/td&gt;
+    &lt;td&gt;Array of &lt;code&gt;Item&lt;/code&gt; objects (at least one) that constitute the set of goods being offered for sale. Refer to &lt;a href=&#34;#object_item&#34;&gt;Object: Item&lt;/a&gt;.&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;&lt;code&gt;package&lt;/code&gt;&lt;/td&gt;
+    &lt;td&gt;integer&lt;/td&gt;
+    &lt;td&gt;Flag to indicate if the Exchange can verify that the items offered represent all of the items available in context (e.g., all impressions on a web page, all video spots such as pre/mid/post roll) to support road-blocking, where 0 = no, 1 = yes.&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;&lt;code&gt;context&lt;/code&gt;&lt;/td&gt;
+    &lt;td&gt;object; recommended&lt;/td&gt;
+    &lt;td&gt;Layer-4 domain object structure that provides context for the items being offered conforming to the specification and version referenced in &lt;code&gt;openrtb.domainspec&lt;/code&gt; and &lt;code&gt;openrtb.domainver&lt;/code&gt;. &lt;br /&gt;
+For AdCOM v1.x, the objects allowed here all of which are optional are one of the &lt;code&gt;DistributionChannel&lt;/code&gt; subtypes (i.e., &lt;code&gt;Site&lt;/code&gt;, &lt;code&gt;App&lt;/code&gt;, or &lt;code&gt;Dooh&lt;/code&gt;), &lt;code&gt;User&lt;/code&gt;, &lt;code&gt;Device&lt;/code&gt;, &lt;code&gt;Regs&lt;/code&gt;, &lt;code&gt;Restrictions&lt;/code&gt;, and any objects subordinate to these as specified by AdCOM.&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;&lt;code&gt;ext&lt;/code&gt;&lt;/td&gt;
+    &lt;td&gt;object&lt;/td&gt;
+    &lt;td&gt;Optional exchange-specific extensions.&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+&lt;h4 id=&#34;bid-request-paylaod&#34;&gt;Bid Request Paylaod
+&lt;/h4&gt;&lt;h5 id=&#34;object-request-1&#34;&gt;Object: Request
+&lt;/h5&gt;</description>
         </item>
         
     </channel>

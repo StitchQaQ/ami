@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Golang on Heyuuuu</title>
-        <link>https://stitchqaq.github.io/categories/golang/</link>
+        <link>http://localhost:1313/categories/golang/</link>
         <description>Recent content in Golang on Heyuuuu</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>© 2024-2025 Heyuuuu</copyright>
-        <lastBuildDate>Thu, 30 Oct 2025 15:30:00 +0800</lastBuildDate><atom:link href="https://stitchqaq.github.io/categories/golang/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 30 Oct 2025 15:30:00 +0800</lastBuildDate><atom:link href="http://localhost:1313/categories/golang/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Go语言实战笔记</title>
-        <link>https://stitchqaq.github.io/posts/go/</link>
+        <link>http://localhost:1313/posts/go/</link>
         <pubDate>Thu, 30 Oct 2025 15:30:00 +0800</pubDate>
         
-        <guid>https://stitchqaq.github.io/posts/go/</guid>
+        <guid>http://localhost:1313/posts/go/</guid>
         <description>&lt;blockquote&gt;
 &lt;p&gt;💡 本文记录 Go 语言学习过程中的核心概念和最佳实践，涵盖并发编程、数据结构、指针操作等关键知识点。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;引用类型&#34;&gt;引用类型

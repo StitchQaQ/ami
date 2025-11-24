@@ -2,337 +2,337 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Tags on Heyuuuu</title>
-        <link>https://stitchqaq.github.io/tags/</link>
+        <link>http://localhost:1313/tags/</link>
         <description>Recent content in Tags on Heyuuuu</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>© 2024-2025 Heyuuuu</copyright>
-        <lastBuildDate>Thu, 30 Oct 2025 18:00:00 +0800</lastBuildDate><atom:link href="https://stitchqaq.github.io/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 30 Oct 2025 18:00:00 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>广告</title>
-        <link>https://stitchqaq.github.io/tags/%E5%B9%BF%E5%91%8A/</link>
+        <link>http://localhost:1313/tags/%E5%B9%BF%E5%91%8A/</link>
         <pubDate>Thu, 30 Oct 2025 18:00:00 +0800</pubDate>
         
-        <guid>https://stitchqaq.github.io/tags/%E5%B9%BF%E5%91%8A/</guid>
+        <guid>http://localhost:1313/tags/%E5%B9%BF%E5%91%8A/</guid>
         <description></description>
         </item>
         <item>
         <title>商业模式</title>
-        <link>https://stitchqaq.github.io/tags/%E5%95%86%E4%B8%9A%E6%A8%A1%E5%BC%8F/</link>
+        <link>http://localhost:1313/tags/%E5%95%86%E4%B8%9A%E6%A8%A1%E5%BC%8F/</link>
         <pubDate>Thu, 30 Oct 2025 18:00:00 +0800</pubDate>
         
-        <guid>https://stitchqaq.github.io/tags/%E5%95%86%E4%B8%9A%E6%A8%A1%E5%BC%8F/</guid>
+        <guid>http://localhost:1313/tags/%E5%95%86%E4%B8%9A%E6%A8%A1%E5%BC%8F/</guid>
         <description></description>
         </item>
         <item>
         <title>Linux</title>
-        <link>https://stitchqaq.github.io/tags/linux/</link>
+        <link>http://localhost:1313/tags/linux/</link>
         <pubDate>Thu, 30 Oct 2025 17:30:00 +0800</pubDate>
         
-        <guid>https://stitchqaq.github.io/tags/linux/</guid>
+        <guid>http://localhost:1313/tags/linux/</guid>
         <description></description>
         </item>
         <item>
         <title>命令行</title>
-        <link>https://stitchqaq.github.io/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C/</link>
+        <link>http://localhost:1313/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C/</link>
         <pubDate>Thu, 30 Oct 2025 17:30:00 +0800</pubDate>
         
-        <guid>https://stitchqaq.github.io/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C/</guid>
+        <guid>http://localhost:1313/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C/</guid>
         <description></description>
         </item>
         <item>
         <title>文本处理</title>
-        <link>https://stitchqaq.github.io/tags/%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86/</link>
+        <link>http://localhost:1313/tags/%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86/</link>
         <pubDate>Thu, 30 Oct 2025 17:30:00 +0800</pubDate>
         
-        <guid>https://stitchqaq.github.io/tags/%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86/</guid>
+        <guid>http://localhost:1313/tags/%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86/</guid>
         <description></description>
         </item>
         <item>
         <title>Docker</title>
-        <link>https://stitchqaq.github.io/tags/docker/</link>
+        <link>http://localhost:1313/tags/docker/</link>
         <pubDate>Wed, 17 Sep 2025 11:36:54 +0800</pubDate>
         
-        <guid>https://stitchqaq.github.io/tags/docker/</guid>
+        <guid>http://localhost:1313/tags/docker/</guid>
         <description></description>
         </item>
         <item>
         <title>容器化</title>
-        <link>https://stitchqaq.github.io/tags/%E5%AE%B9%E5%99%A8%E5%8C%96/</link>
+        <link>http://localhost:1313/tags/%E5%AE%B9%E5%99%A8%E5%8C%96/</link>
         <pubDate>Wed, 17 Sep 2025 11:36:54 +0800</pubDate>
         
-        <guid>https://stitchqaq.github.io/tags/%E5%AE%B9%E5%99%A8%E5%8C%96/</guid>
+        <guid>http://localhost:1313/tags/%E5%AE%B9%E5%99%A8%E5%8C%96/</guid>
         <description></description>
         </item>
         <item>
         <title>Elasticsearch</title>
-        <link>https://stitchqaq.github.io/tags/elasticsearch/</link>
+        <link>http://localhost:1313/tags/elasticsearch/</link>
         <pubDate>Wed, 30 Jul 2025 20:06:04 +0800</pubDate>
         
-        <guid>https://stitchqaq.github.io/tags/elasticsearch/</guid>
+        <guid>http://localhost:1313/tags/elasticsearch/</guid>
         <description></description>
         </item>
         <item>
         <title>搜索引擎</title>
-        <link>https://stitchqaq.github.io/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/</link>
+        <link>http://localhost:1313/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/</link>
         <pubDate>Wed, 30 Jul 2025 20:06:04 +0800</pubDate>
         
-        <guid>https://stitchqaq.github.io/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/</guid>
+        <guid>http://localhost:1313/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/</guid>
         <description></description>
         </item>
         <item>
         <title>哈希表</title>
-        <link>https://stitchqaq.github.io/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/</link>
+        <link>http://localhost:1313/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/</link>
         <pubDate>Fri, 06 Jun 2025 15:53:55 +0800</pubDate>
         
-        <guid>https://stitchqaq.github.io/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/</guid>
+        <guid>http://localhost:1313/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/</guid>
         <description></description>
         </item>
         <item>
         <title>树</title>
-        <link>https://stitchqaq.github.io/tags/%E6%A0%91/</link>
+        <link>http://localhost:1313/tags/%E6%A0%91/</link>
         <pubDate>Fri, 06 Jun 2025 15:53:55 +0800</pubDate>
         
-        <guid>https://stitchqaq.github.io/tags/%E6%A0%91/</guid>
+        <guid>http://localhost:1313/tags/%E6%A0%91/</guid>
         <description></description>
         </item>
         <item>
         <title>数据结构</title>
-        <link>https://stitchqaq.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
+        <link>http://localhost:1313/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
         <pubDate>Fri, 06 Jun 2025 15:53:55 +0800</pubDate>
         
-        <guid>https://stitchqaq.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</guid>
+        <guid>http://localhost:1313/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</guid>
         <description></description>
         </item>
         <item>
         <title>Curl</title>
-        <link>https://stitchqaq.github.io/tags/curl/</link>
+        <link>http://localhost:1313/tags/curl/</link>
         <pubDate>Tue, 03 Jun 2025 14:43:01 +0800</pubDate>
         
-        <guid>https://stitchqaq.github.io/tags/curl/</guid>
+        <guid>http://localhost:1313/tags/curl/</guid>
         <description></description>
         </item>
         <item>
         <title>TCP</title>
-        <link>https://stitchqaq.github.io/tags/tcp/</link>
+        <link>http://localhost:1313/tags/tcp/</link>
         <pubDate>Wed, 26 Mar 2025 17:17:34 +0800</pubDate>
         
-        <guid>https://stitchqaq.github.io/tags/tcp/</guid>
+        <guid>http://localhost:1313/tags/tcp/</guid>
         <description></description>
         </item>
         <item>
         <title>UDP</title>
-        <link>https://stitchqaq.github.io/tags/udp/</link>
+        <link>http://localhost:1313/tags/udp/</link>
         <pubDate>Wed, 26 Mar 2025 17:17:34 +0800</pubDate>
         
-        <guid>https://stitchqaq.github.io/tags/udp/</guid>
+        <guid>http://localhost:1313/tags/udp/</guid>
         <description></description>
         </item>
         <item>
         <title>网络</title>
-        <link>https://stitchqaq.github.io/tags/%E7%BD%91%E7%BB%9C/</link>
+        <link>http://localhost:1313/tags/%E7%BD%91%E7%BB%9C/</link>
         <pubDate>Wed, 26 Mar 2025 17:17:34 +0800</pubDate>
         
-        <guid>https://stitchqaq.github.io/tags/%E7%BD%91%E7%BB%9C/</guid>
+        <guid>http://localhost:1313/tags/%E7%BD%91%E7%BB%9C/</guid>
         <description></description>
         </item>
         <item>
         <title>Python</title>
-        <link>https://stitchqaq.github.io/tags/python/</link>
+        <link>http://localhost:1313/tags/python/</link>
         <pubDate>Mon, 24 Mar 2025 11:43:50 +0800</pubDate>
         
-        <guid>https://stitchqaq.github.io/tags/python/</guid>
+        <guid>http://localhost:1313/tags/python/</guid>
         <description></description>
         </item>
         <item>
         <title>UV</title>
-        <link>https://stitchqaq.github.io/tags/uv/</link>
+        <link>http://localhost:1313/tags/uv/</link>
         <pubDate>Mon, 24 Mar 2025 11:43:50 +0800</pubDate>
         
-        <guid>https://stitchqaq.github.io/tags/uv/</guid>
+        <guid>http://localhost:1313/tags/uv/</guid>
         <description></description>
         </item>
         <item>
         <title>工具</title>
-        <link>https://stitchqaq.github.io/tags/%E5%B7%A5%E5%85%B7/</link>
+        <link>http://localhost:1313/tags/%E5%B7%A5%E5%85%B7/</link>
         <pubDate>Mon, 24 Mar 2025 11:43:50 +0800</pubDate>
         
-        <guid>https://stitchqaq.github.io/tags/%E5%B7%A5%E5%85%B7/</guid>
+        <guid>http://localhost:1313/tags/%E5%B7%A5%E5%85%B7/</guid>
         <description></description>
         </item>
         <item>
         <title>ClickHouse</title>
-        <link>https://stitchqaq.github.io/tags/clickhouse/</link>
+        <link>http://localhost:1313/tags/clickhouse/</link>
         <pubDate>Mon, 24 Mar 2025 09:34:08 +0800</pubDate>
         
-        <guid>https://stitchqaq.github.io/tags/clickhouse/</guid>
+        <guid>http://localhost:1313/tags/clickhouse/</guid>
         <description></description>
         </item>
         <item>
         <title>书单</title>
-        <link>https://stitchqaq.github.io/tags/%E4%B9%A6%E5%8D%95/</link>
+        <link>http://localhost:1313/tags/%E4%B9%A6%E5%8D%95/</link>
         <pubDate>Mon, 24 Mar 2025 09:34:08 +0800</pubDate>
         
-        <guid>https://stitchqaq.github.io/tags/%E4%B9%A6%E5%8D%95/</guid>
+        <guid>http://localhost:1313/tags/%E4%B9%A6%E5%8D%95/</guid>
         <description></description>
         </item>
         <item>
         <title>数据库</title>
-        <link>https://stitchqaq.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
+        <link>http://localhost:1313/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
         <pubDate>Mon, 24 Mar 2025 09:34:08 +0800</pubDate>
         
-        <guid>https://stitchqaq.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</guid>
+        <guid>http://localhost:1313/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</guid>
         <description></description>
         </item>
         <item>
         <title>LeetCode</title>
-        <link>https://stitchqaq.github.io/tags/leetcode/</link>
+        <link>http://localhost:1313/tags/leetcode/</link>
         <pubDate>Tue, 18 Mar 2025 09:46:23 +0800</pubDate>
         
-        <guid>https://stitchqaq.github.io/tags/leetcode/</guid>
+        <guid>http://localhost:1313/tags/leetcode/</guid>
         <description></description>
         </item>
         <item>
         <title>算法</title>
-        <link>https://stitchqaq.github.io/tags/%E7%AE%97%E6%B3%95/</link>
+        <link>http://localhost:1313/tags/%E7%AE%97%E6%B3%95/</link>
         <pubDate>Tue, 18 Mar 2025 09:46:23 +0800</pubDate>
         
-        <guid>https://stitchqaq.github.io/tags/%E7%AE%97%E6%B3%95/</guid>
+        <guid>http://localhost:1313/tags/%E7%AE%97%E6%B3%95/</guid>
         <description></description>
         </item>
         <item>
         <title>分布式系统</title>
-        <link>https://stitchqaq.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/</link>
+        <link>http://localhost:1313/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/</link>
         <pubDate>Fri, 21 Feb 2025 08:46:57 +0800</pubDate>
         
-        <guid>https://stitchqaq.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/</guid>
+        <guid>http://localhost:1313/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/</guid>
         <description></description>
         </item>
         <item>
         <title>架构</title>
-        <link>https://stitchqaq.github.io/tags/%E6%9E%B6%E6%9E%84/</link>
+        <link>http://localhost:1313/tags/%E6%9E%B6%E6%9E%84/</link>
         <pubDate>Fri, 21 Feb 2025 08:46:57 +0800</pubDate>
         
-        <guid>https://stitchqaq.github.io/tags/%E6%9E%B6%E6%9E%84/</guid>
+        <guid>http://localhost:1313/tags/%E6%9E%B6%E6%9E%84/</guid>
         <description></description>
         </item>
         <item>
         <title>设计模式</title>
-        <link>https://stitchqaq.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
+        <link>http://localhost:1313/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
         <pubDate>Fri, 14 Feb 2025 09:32:22 +0800</pubDate>
         
-        <guid>https://stitchqaq.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</guid>
+        <guid>http://localhost:1313/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</guid>
         <description></description>
         </item>
         <item>
         <title>Kafka</title>
-        <link>https://stitchqaq.github.io/tags/kafka/</link>
+        <link>http://localhost:1313/tags/kafka/</link>
         <pubDate>Wed, 12 Feb 2025 19:36:38 +0800</pubDate>
         
-        <guid>https://stitchqaq.github.io/tags/kafka/</guid>
+        <guid>http://localhost:1313/tags/kafka/</guid>
         <description></description>
         </item>
         <item>
         <title>消息队列</title>
-        <link>https://stitchqaq.github.io/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/</link>
+        <link>http://localhost:1313/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/</link>
         <pubDate>Wed, 12 Feb 2025 19:36:38 +0800</pubDate>
         
-        <guid>https://stitchqaq.github.io/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/</guid>
+        <guid>http://localhost:1313/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/</guid>
         <description></description>
         </item>
         <item>
         <title>Hugo</title>
-        <link>https://stitchqaq.github.io/tags/hugo/</link>
+        <link>http://localhost:1313/tags/hugo/</link>
         <pubDate>Sat, 08 Feb 2025 17:06:08 +0800</pubDate>
         
-        <guid>https://stitchqaq.github.io/tags/hugo/</guid>
+        <guid>http://localhost:1313/tags/hugo/</guid>
         <description></description>
         </item>
         <item>
         <title>博客</title>
-        <link>https://stitchqaq.github.io/tags/%E5%8D%9A%E5%AE%A2/</link>
+        <link>http://localhost:1313/tags/%E5%8D%9A%E5%AE%A2/</link>
         <pubDate>Sat, 08 Feb 2025 17:06:08 +0800</pubDate>
         
-        <guid>https://stitchqaq.github.io/tags/%E5%8D%9A%E5%AE%A2/</guid>
+        <guid>http://localhost:1313/tags/%E5%8D%9A%E5%AE%A2/</guid>
         <description></description>
         </item>
         <item>
         <title>面试</title>
-        <link>https://stitchqaq.github.io/tags/%E9%9D%A2%E8%AF%95/</link>
+        <link>http://localhost:1313/tags/%E9%9D%A2%E8%AF%95/</link>
         <pubDate>Sat, 08 Feb 2025 16:55:54 +0800</pubDate>
         
-        <guid>https://stitchqaq.github.io/tags/%E9%9D%A2%E8%AF%95/</guid>
+        <guid>http://localhost:1313/tags/%E9%9D%A2%E8%AF%95/</guid>
         <description></description>
         </item>
         <item>
         <title>Django</title>
-        <link>https://stitchqaq.github.io/tags/django/</link>
+        <link>http://localhost:1313/tags/django/</link>
         <pubDate>Wed, 05 Feb 2025 11:09:45 +0800</pubDate>
         
-        <guid>https://stitchqaq.github.io/tags/django/</guid>
+        <guid>http://localhost:1313/tags/django/</guid>
         <description></description>
         </item>
         <item>
         <title>单例模式</title>
-        <link>https://stitchqaq.github.io/tags/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</link>
+        <link>http://localhost:1313/tags/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</link>
         <pubDate>Wed, 05 Feb 2025 10:00:19 +0800</pubDate>
         
-        <guid>https://stitchqaq.github.io/tags/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</guid>
+        <guid>http://localhost:1313/tags/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</guid>
         <description></description>
         </item>
         <item>
         <title>工厂模式</title>
-        <link>https://stitchqaq.github.io/tags/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</link>
+        <link>http://localhost:1313/tags/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</link>
         <pubDate>Wed, 05 Feb 2025 10:00:19 +0800</pubDate>
         
-        <guid>https://stitchqaq.github.io/tags/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</guid>
+        <guid>http://localhost:1313/tags/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</guid>
         <description></description>
         </item>
         <item>
         <title>Redis</title>
-        <link>https://stitchqaq.github.io/tags/redis/</link>
+        <link>http://localhost:1313/tags/redis/</link>
         <pubDate>Wed, 05 Feb 2025 09:39:00 +0800</pubDate>
         
-        <guid>https://stitchqaq.github.io/tags/redis/</guid>
+        <guid>http://localhost:1313/tags/redis/</guid>
         <description></description>
         </item>
         <item>
         <title>迭代器</title>
-        <link>https://stitchqaq.github.io/tags/%E8%BF%AD%E4%BB%A3%E5%99%A8/</link>
+        <link>http://localhost:1313/tags/%E8%BF%AD%E4%BB%A3%E5%99%A8/</link>
         <pubDate>Wed, 15 Jan 2025 11:30:03 +0000</pubDate>
         
-        <guid>https://stitchqaq.github.io/tags/%E8%BF%AD%E4%BB%A3%E5%99%A8/</guid>
+        <guid>http://localhost:1313/tags/%E8%BF%AD%E4%BB%A3%E5%99%A8/</guid>
         <description></description>
         </item>
         <item>
         <title>歌单</title>
-        <link>https://stitchqaq.github.io/tags/%E6%AD%8C%E5%8D%95/</link>
+        <link>http://localhost:1313/tags/%E6%AD%8C%E5%8D%95/</link>
         <pubDate>Wed, 15 Jan 2025 11:30:03 +0000</pubDate>
         
-        <guid>https://stitchqaq.github.io/tags/%E6%AD%8C%E5%8D%95/</guid>
+        <guid>http://localhost:1313/tags/%E6%AD%8C%E5%8D%95/</guid>
         <description></description>
         </item>
         <item>
         <title>生成器</title>
-        <link>https://stitchqaq.github.io/tags/%E7%94%9F%E6%88%90%E5%99%A8/</link>
+        <link>http://localhost:1313/tags/%E7%94%9F%E6%88%90%E5%99%A8/</link>
         <pubDate>Wed, 15 Jan 2025 11:30:03 +0000</pubDate>
         
-        <guid>https://stitchqaq.github.io/tags/%E7%94%9F%E6%88%90%E5%99%A8/</guid>
+        <guid>http://localhost:1313/tags/%E7%94%9F%E6%88%90%E5%99%A8/</guid>
         <description></description>
         </item>
         <item>
         <title>音乐</title>
-        <link>https://stitchqaq.github.io/tags/%E9%9F%B3%E4%B9%90/</link>
+        <link>http://localhost:1313/tags/%E9%9F%B3%E4%B9%90/</link>
         <pubDate>Wed, 15 Jan 2025 11:30:03 +0000</pubDate>
         
-        <guid>https://stitchqaq.github.io/tags/%E9%9F%B3%E4%B9%90/</guid>
+        <guid>http://localhost:1313/tags/%E9%9F%B3%E4%B9%90/</guid>
         <description></description>
         </item>
         <item>
         <title>装饰器</title>
-        <link>https://stitchqaq.github.io/tags/%E8%A3%85%E9%A5%B0%E5%99%A8/</link>
+        <link>http://localhost:1313/tags/%E8%A3%85%E9%A5%B0%E5%99%A8/</link>
         <pubDate>Wed, 15 Jan 2025 11:30:03 +0000</pubDate>
         
-        <guid>https://stitchqaq.github.io/tags/%E8%A3%85%E9%A5%B0%E5%99%A8/</guid>
+        <guid>http://localhost:1313/tags/%E8%A3%85%E9%A5%B0%E5%99%A8/</guid>
         <description></description>
         </item>
         

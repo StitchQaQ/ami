@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>书单 on Heyuuuu</title>
-        <link>https://stitchqaq.github.io/tags/%E4%B9%A6%E5%8D%95/</link>
+        <link>http://localhost:1313/tags/%E4%B9%A6%E5%8D%95/</link>
         <description>Recent content in 书单 on Heyuuuu</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>© 2024-2025 Heyuuuu</copyright>
-        <lastBuildDate>Mon, 24 Mar 2025 09:34:08 +0800</lastBuildDate><atom:link href="https://stitchqaq.github.io/tags/%E4%B9%A6%E5%8D%95/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 24 Mar 2025 09:34:08 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/%E4%B9%A6%E5%8D%95/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>ClickHouse 性能之巅</title>
-        <link>https://stitchqaq.github.io/posts/clickhouse%E6%80%A7%E8%83%BD%E4%B9%8B%E5%B7%85/</link>
+        <link>http://localhost:1313/posts/clickhouse%E6%80%A7%E8%83%BD%E4%B9%8B%E5%B7%85/</link>
         <pubDate>Mon, 24 Mar 2025 09:34:08 +0800</pubDate>
         
-        <guid>https://stitchqaq.github.io/posts/clickhouse%E6%80%A7%E8%83%BD%E4%B9%8B%E5%B7%85/</guid>
+        <guid>http://localhost:1313/posts/clickhouse%E6%80%A7%E8%83%BD%E4%B9%8B%E5%B7%85/</guid>
         <description>&lt;h3 id=&#34;day1&#34;&gt;Day1
 &lt;/h3&gt;&lt;h4 id=&#34;oltp--olap&#34;&gt;OLTP &amp;amp; OLAP
 &lt;/h4&gt;&lt;ul&gt;
@@ -34,10 +34,10 @@ OLAP数据库被称为数据仓库(数仓), 它是反范式的。数据冗余度
         </item>
         <item>
         <title>《设计模式之美》读书笔记</title>
-        <link>https://stitchqaq.github.io/posts/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%BE%8E/</link>
+        <link>http://localhost:1313/posts/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%BE%8E/</link>
         <pubDate>Fri, 14 Feb 2025 09:32:22 +0800</pubDate>
         
-        <guid>https://stitchqaq.github.io/posts/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%BE%8E/</guid>
+        <guid>http://localhost:1313/posts/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%BE%8E/</guid>
         <description>&lt;h4 id=&#34;面向对象&#34;&gt;面向对象
 &lt;/h4&gt;&lt;p&gt;面向对象编程是因为其具有丰富的特性(封装，抽象，继承，多态)，可以实现很多复杂的设计思路。&lt;/p&gt;
 &lt;h4 id=&#34;设计原则&#34;&gt;设计原则
@@ -93,7 +93,7 @@ OLAP数据库被称为数据仓库(数仓), 它是反范式的。数据冗余度
 &lt;/h4&gt;&lt;p&gt;为了避免过度设计，程序初期不应该运用太复杂的设计模式，保留很多扩展性插槽。但是后期业务逻辑复杂度变高，就要不断的去重构，优化自身的代码。
 可以分成两部分，
 大重构是整体结构，设计模式的替换之类的重构。小重构包括函数重命名，逻辑优化之类的小规模低层次的优化。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://stitchqaq.github.io/images/design_pattern.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/design_pattern.jpg&#34;
 	
 	
 	
@@ -129,7 +129,7 @@ OLAP数据库被称为数据仓库(数仓), 它是反范式的。数据冗余度
 &lt;li&gt;Vistor: 观察者模式。 表示一个作用于某对象结构中的各元素操作。 它使你可以在不改变各元素的类的前提下定义作用于这些元素的新操作。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;创建型模式与对象的创建有关；结构型模式处理类或对象的组合；行为型模式对类或对象怎么交互和怎么分配职责进行描述。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://stitchqaq.github.io/images/dp_category.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/dp_category.jpg&#34;
 	
 	
 	
