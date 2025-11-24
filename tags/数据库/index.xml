@@ -7,35 +7,10 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>© 2024-2025 Heyuuuu</copyright>
-        <lastBuildDate>Mon, 24 Mar 2025 09:34:08 +0800</lastBuildDate><atom:link href="https://stitchqaq.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>ClickHouse 性能之巅</title>
-        <link>https://stitchqaq.github.io/posts/clickhouse%E6%80%A7%E8%83%BD%E4%B9%8B%E5%B7%85/</link>
-        <pubDate>Mon, 24 Mar 2025 09:34:08 +0800</pubDate>
-        
-        <guid>https://stitchqaq.github.io/posts/clickhouse%E6%80%A7%E8%83%BD%E4%B9%8B%E5%B7%85/</guid>
-        <description>&lt;h3 id=&#34;day1&#34;&gt;Day1
-&lt;/h3&gt;&lt;h4 id=&#34;oltp--olap&#34;&gt;OLTP &amp;amp; OLAP
-&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;OLTP, OnLine Transaction Process 联机事务处理 (MySQL, PostgreSQL, Oracle)
-OLTP使用的是高反式的表。好处是数据结构不容易，事务处理速度快&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;OLAP, OnLine Analyse Process 联机分析处理(Hive, HBase, ClickHouse)
-OLAP数据库被称为数据仓库(数仓), 它是反范式的。数据冗余度很高，正因为如此。它被用做数据分析，因为单个宽表就包含了很多字段，不需要进行连表(JOIN)查询。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&#34;第零范式&#34;&gt;第零范式
-&lt;/h4&gt;&lt;p&gt;不遵循第一范式，都被称之为第零范式，即字段中可以存储json或者文档&lt;/p&gt;
-&lt;h4 id=&#34;第一范式&#34;&gt;第一范式
-&lt;/h4&gt;&lt;p&gt;指数据表中的每个属性都不可再拆分。&lt;/p&gt;
-&lt;h3 id=&#34;day2&#34;&gt;Day2
-&lt;/h3&gt;</description>
-        </item>
-        <item>
+        <lastBuildDate>Mon, 24 Nov 2025 18:00:00 +0800</lastBuildDate><atom:link href="https://stitchqaq.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Redis 核心知识</title>
         <link>https://stitchqaq.github.io/posts/redis/</link>
-        <pubDate>Wed, 05 Feb 2025 09:39:00 +0800</pubDate>
+        <pubDate>Mon, 24 Nov 2025 18:00:00 +0800</pubDate>
         
         <guid>https://stitchqaq.github.io/posts/redis/</guid>
         <description>&lt;h4 id=&#34;数据类型&#34;&gt;数据类型
@@ -61,7 +36,7 @@ OLAP数据库被称为数据仓库(数仓), 它是反范式的。数据冗余度
 &lt;li&gt;
 &lt;p&gt;常见命令:
 LPUSH RPUSH LPOP RPOP LINDEX LRANGE LTRIM 等
-是一个有序，可以重复的线性数据接口，基于双向链表，支持快速的插入和删除操作。&lt;/p&gt;
+是一个有序，可以重复的线性数据结构，基于双向链表，支持快速的插入和删除操作。&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;LPUSH key value [value &amp;hellip;]：将一个或多个值插入到列表的头部。&lt;/li&gt;
 &lt;li&gt;RPUSH key value [value &amp;hellip;]：将一个或多个值插入到列表的尾部。&lt;/li&gt;
@@ -93,7 +68,7 @@ LPUSH RPUSH LPOP RPOP LINDEX LRANGE LTRIM 等
 &lt;ul&gt;
 &lt;li&gt;常见命令:
 SADD SMEMBERS SREM SISMEMBER SCARD 等
-是一个无序，不重复的集合数据接口，基于哈希表实现，支持快速的插入、删除和查找操作。
+是一个无序，不重复的集合数结构，基于哈希表实现，支持快速的插入、删除和查找操作。
 &lt;ol&gt;
 &lt;li&gt;SADD key member [member&amp;hellip;]：向集合中添加一个或多个成员。&lt;/li&gt;
 &lt;/ol&gt;
@@ -140,7 +115,123 @@ SADD SMEMBERS SREM SISMEMBER SCARD 等
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
+&lt;h3 id=&#34;redis的几种集群方式&#34;&gt;Redis的几种集群方式
+&lt;/h3&gt;&lt;h5 id=&#34;主从复制master-slave--基础高可用&#34;&gt;主从复制（Master-Slave) &amp;ndash; 基础高可用
+&lt;/h5&gt;&lt;p&gt;1个主节点 + N个从节点。
+从节点通过 replicaof 命令（旧版是 slaveof） 跟随主及诶单。主节点将携操作同步到所有从节点（异步复制，主节点写入成功后理解返回客户端，无需等待从节点同步完成）
+主节点负责【写操作】, SET DEL等， 从节点负责读操作 GET LRANGE。 客户端需要手动区分读写请求的目标节点
+主节点故障后，需要手动将一个从节点升级为新的主节点（无自动故障转移）， 原主节点回复后需要手动调整为从节点
+核心特点：
+- 优点：简单，支持读写分离，提供读并发，数据备份
+- 缺点：没有自动故障转移，不支持数据分片（所有节点存储全量数据，无法突破单节点内存上限），写操作仍集中在主节点。&lt;/p&gt;
+&lt;h5 id=&#34;哨兵模式sentinel-自动高可用方案&#34;&gt;哨兵模式（Sentinel）&amp;ndash; 自动高可用方案
+&lt;/h5&gt;&lt;p&gt;主从复制集群 + 3个以上哨兵节点（Sentinel）
+哨兵的核心作用：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;监控： 实时检测主从节点的健康状态&lt;/li&gt;
+&lt;li&gt;自动故障转移： 当主节点故障时，哨兵集群通过投票机制（超过半数哨兵同意）自动将一个从节点升级为新的主节点，同时更新其他从节点的主节点指向，客户端通过哨兵获取新的主节点地址（无需手动调整）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;数据同步： 沿用主从复制的异步同步机制。
+客户端接入： 客户端连接哨兵集群（而非直接连接主从节点）， 哨兵返回当前可用的主节点地址。客户端基于改地址发起写请求，读请求仍需手动路由到从节点。
+核心特点：
+- 优点： 自动故障转移（无需手动介入，故障转移时间几秒内）
+- 缺点： 不支持分片（所有节点存储全量数据，内存上限仍受单点节点限制）， 写操作集中在主节点（并发写能力有限），哨兵集群需要单独部署（增加运维成本）&lt;/p&gt;
+&lt;h5 id=&#34;分片集群redis-cluster--海量数据高并发方案&#34;&gt;分片集群（Redis Cluster） &amp;ndash; 海量数据高并发方案
+&lt;/h5&gt;&lt;p&gt;3个及以上主节点（每个主节点对应 1-N 个从节点）， 所有节点共同组成集群
+核心机制：
+数据分片： 通过16384个哈希槽（Hash Slot）分配数据，每个主节点负责一部分哈希槽（如3主节点分别负责 0～5461、 5462～10922、 10923～16384）， 数据按Key的哈希值映射到对应槽，仅存储在负责该槽的主节点上（突破单节点内存上限）
+路由转发： 客户端连接任意节点，节点计算Key对应的槽，若自身不负责则返回重定向响应，客户端缓存槽与节点的映射关系（后续直接访问该节点）
+自动故障转移，主节点故障时，其从节点自动升级成新的主节点。接管哈希槽（高可用保障）
+水平扩展，新增节点时，通过哈希槽迁移将部分数据迁移至新节点。
+核心特点：
+- 优点，支持数据分片，支持水平扩展，自动故障转移，并发能力线性提升。
+- 缺点： 实现复杂度高于前两种（需要配置集群拓扑，哈希槽分配）、不支持跨槽多键操作（如 MSET 多键不在同一槽会报错，需通过哈希标签规避），运维成本较高（监控集群状态，哈希槽迁移）&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;对比维度&lt;/th&gt;
+          &lt;th&gt;主从复制（Master-Slave）&lt;/th&gt;
+          &lt;th&gt;哨兵模式（Sentinel）&lt;/th&gt;
+          &lt;th&gt;分片集群（Redis Cluster）&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;核心目标&lt;/td&gt;
+          &lt;td&gt;数据备份 + 读写分离&lt;/td&gt;
+          &lt;td&gt;自动高可用 + 读写分离&lt;/td&gt;
+          &lt;td&gt;海量数据 + 高并发 + 高可用&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;数据存储方式&lt;/td&gt;
+          &lt;td&gt;所有节点存储全量数据&lt;/td&gt;
+          &lt;td&gt;所有节点存储全量数据&lt;/td&gt;
+          &lt;td&gt;数据分片存储（每个节点存部分数据）&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;高可用（故障转移）&lt;/td&gt;
+          &lt;td&gt;手动故障转移&lt;/td&gt;
+          &lt;td&gt;自动故障转移&lt;/td&gt;
+          &lt;td&gt;自动故障转移&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;并发能力&lt;/td&gt;
+          &lt;td&gt;读并发提升，写并发受限&lt;/td&gt;
+          &lt;td&gt;读并发提升，写并发受限&lt;/td&gt;
+          &lt;td&gt;读写并发线性提升（多主多从）&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;水平扩展（扩容）&lt;/td&gt;
+          &lt;td&gt;不支持（无法突破内存上限）&lt;/td&gt;
+          &lt;td&gt;不支持（无法突破内存上限）&lt;/td&gt;
+          &lt;td&gt;支持（新增节点迁移哈希槽）&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;复杂度（部署 + 运维）&lt;/td&gt;
+          &lt;td&gt;低&lt;/td&gt;
+          &lt;td&gt;中&lt;/td&gt;
+          &lt;td&gt;高&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;跨键操作支持&lt;/td&gt;
+          &lt;td&gt;支持（全量数据）&lt;/td&gt;
+          &lt;td&gt;支持（全量数据）&lt;/td&gt;
+          &lt;td&gt;仅支持同槽多键操作&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;适用数据量&lt;/td&gt;
+          &lt;td&gt;中小数据量（单节点可容纳）&lt;/td&gt;
+          &lt;td&gt;中小数据量（单节点可容纳）&lt;/td&gt;
+          &lt;td&gt;海量数据（单节点无法容纳）&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 </description>
+        </item>
+        <item>
+        <title>ClickHouse 性能之巅</title>
+        <link>https://stitchqaq.github.io/posts/clickhouse%E6%80%A7%E8%83%BD%E4%B9%8B%E5%B7%85/</link>
+        <pubDate>Mon, 24 Mar 2025 09:34:08 +0800</pubDate>
+        
+        <guid>https://stitchqaq.github.io/posts/clickhouse%E6%80%A7%E8%83%BD%E4%B9%8B%E5%B7%85/</guid>
+        <description>&lt;h3 id=&#34;day1&#34;&gt;Day1
+&lt;/h3&gt;&lt;h4 id=&#34;oltp--olap&#34;&gt;OLTP &amp;amp; OLAP
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;OLTP, OnLine Transaction Process 联机事务处理 (MySQL, PostgreSQL, Oracle)
+OLTP使用的是高反式的表。好处是数据结构不容易，事务处理速度快&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;OLAP, OnLine Analyse Process 联机分析处理(Hive, HBase, ClickHouse)
+OLAP数据库被称为数据仓库(数仓), 它是反范式的。数据冗余度很高，正因为如此。它被用做数据分析，因为单个宽表就包含了很多字段，不需要进行连表(JOIN)查询。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;第零范式&#34;&gt;第零范式
+&lt;/h4&gt;&lt;p&gt;不遵循第一范式，都被称之为第零范式，即字段中可以存储json或者文档&lt;/p&gt;
+&lt;h4 id=&#34;第一范式&#34;&gt;第一范式
+&lt;/h4&gt;&lt;p&gt;指数据表中的每个属性都不可再拆分。&lt;/p&gt;
+&lt;h3 id=&#34;day2&#34;&gt;Day2
+&lt;/h3&gt;</description>
         </item>
         
     </channel>
