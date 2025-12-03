@@ -2,10 +2,203 @@
 date = '2025-02-13T10:20:34+08:00'
 draft = false
 title = 'Go语言实战笔记'
-lastmod = '2025-10-30T15:30:00+08:00'
+lastmod = '2025-12-03T15:30:00+08:00'
 categories = ["Golang"]
 toc = true
 +++
+
+
+
+## Golang计算一个字符串中不重复的最长的值是多少
+
+解题思路是有一个滑动窗口，首先声明一个map，记录字符和下标，遇到重复的更新下标。 声明一个left， 表示滑动窗口的左边界，如果重复的下标大于左边界，用这个下标更新左边界。然后计算当前下标就是右边界。 左右边界计算最大值，当这个差值比count大，就更新count。最终输出的就是不重复的最大值
+
+```golang
+
+func countMaxLen(s string) int {
+	hashmap := make(map[rune]int)
+	left, count := 0, 0
+
+	for i, char := range s {
+		if leftIdx, ok := hashmap[char]; ok && leftIdx >= left {
+			left = leftIdx + 1
+		}
+		hashmap[char] = i
+
+		//
+		curLen := i - left + 1
+		if curLen > count {
+			count = curLen
+		}
+	}
+
+	return count
+
+}
+
+```
+
+
+## Golang生成斐波那契函数
+
+```golang
+
+func main() {
+	
+	for num := range Fib(10) {
+		fmt.Printf("%d ", num)
+	}
+
+	fmt.Println()
+
+	// 调用Fib2
+	ctx, cancel := context.WithCancel(context.Background())
+	defer cancel()
+
+	go func() {
+		time.Sleep(5 * time.Second)
+		cancel()
+	}()
+
+	for num := range Fib2(ctx) {
+		fmt.Printf("%d ", num)
+	}
+
+}
+
+func Fib(n int) <-chan int {
+
+    ch := make(chan int)
+    a, b := 0,1
+
+    go func () {
+        defer close(ch)
+
+        for i := 0; i < n; i++ {
+            ch <- a
+            a, b = b, a+b
+        }
+
+    }()
+
+    return ch
+}
+
+func Fib2(ctx context.Context) <-chan int {
+	ch := make(chan int, 5)
+	a, b := 0, 1
+
+	go func() {
+		defer close(ch)
+
+		for {
+			select {
+			case <-ctx.Done():
+				fmt.Println("终止")
+				return
+			case ch <- a:
+				a, b = b, a+b
+				time.Sleep(500 * time.Millisecond)
+			}
+		}
+
+	}()
+
+	return ch
+}
+
+
+```
+
+## 一个简单的Golang编程小题。
+#### 题目：写一个函数，校验字符串中的括号是否合法。
+
+#### 参考
+```golang
+
+package main
+
+import (
+	"errors"
+	"fmt"
+)
+
+func main() {
+	fmt.Println("Hello, 世界")
+
+	testCases := []string{
+		"()[]{}<>",         // 合法：四种括号正常匹配
+		"([]){<()>}",       // 合法：嵌套匹配
+		"(()",              // 非法：左括号未匹配
+		"())",              // 非法：右括号多余
+		"([)]",             // 非法：括号交叉不匹配
+		"{[<]}",            // 合法：嵌套顺序正确
+		"a(b)c[d]e{f}g<h>", // 合法：含其他字符
+		"",                 // 合法：空字符串
+		"<{[(])}>",         // 非法：交叉嵌套
+		"北京(迦游)网络[科技]{有限公司}<测试>", // 合法：含中文+括号
+	}
+
+	for _, tc := range testCases {
+		valid, err := IsValidString(tc)
+		if valid {
+			fmt.Printf("字符串「%s」→ 括号合法\n", tc)
+
+		} else {
+			fmt.Printf("字符串「%s」→ 括号非法：%v\n", tc, err)
+		}
+	}
+}
+
+func IsValidString(s string) (bool, error) {
+
+	bucketMap := map[rune]rune{
+		'}': '{',
+		']': '[',
+		'>': '<',
+		')': '(',
+	}
+
+	leftBucketMap := map[rune]bool{
+		'{': true,
+		'<': true,
+		'[': true,
+		'(': true,
+	}
+
+	var stack []rune
+	for i, char := range s {
+		// 如果是左括号，写入栈
+		if leftBucketMap[char] {
+			stack = append(stack, char)
+			continue
+		}
+
+		// 如果是右括号， -> 校验
+		if targetLeft, ok := bucketMap[char]; ok {
+			// 如果是空栈，没有对应的左括号。报错
+			if len(stack) == 0 {
+				return false, errors.New(fmt.Sprintf("位置: %d，字符「%c」没有对应的括号", i, char))
+			}
+
+			//
+			top := stack[len(stack)-1]
+			if targetLeft != top {
+				return false, errors.New(fmt.Sprintf("位置: %d，字符「%c」栈顶的括号与之对应不上", i, char))
+			}
+
+			stack = stack[:len(stack)-1]
+			continue
+		}
+	}
+
+	return true, nil
+}
+
+
+```
+
+
 
 > 💡 本文记录 Go 语言学习过程中的核心概念和最佳实践，涵盖并发编程、数据结构、指针操作等关键知识点。
 
@@ -147,6 +340,10 @@ func generateInteger() func() int {
             cnt++
         }
     }{}
+
+    return func() int {
+        return <-ch
+    }
 }
 
 func main() {

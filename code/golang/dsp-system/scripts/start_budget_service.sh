@@ -15,3 +15,4 @@ go build -o build/budget_service grpc_server/budget_service.go
 ./build/budget_service
 
 
+

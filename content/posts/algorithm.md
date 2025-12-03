@@ -3,8 +3,58 @@ date = '2025-11-04T15:07:11+08:00'
 draft = true
 title = '一些简单的算法记录'
 tags = ["双指针算法", "贪心算法"]
-lastmod = '2025-11-04T18:00:00+08:00'
+lastmod = '2025-12-03T18:00:00+08:00'
 +++
+
+### Leecode 两数相加
+
+#### 题目： 给出两个链表，相同下表的节点数字相加，大于10，往后进1
+
+```golang
+
+    type ListNode struct {
+        Val int
+        Next *ListNode
+    }
+
+    func twoListNodeSum(l1, l2 ListNode) (head *ListNode) {
+        // 定义这个是为了让tail始终指向最后一个元素。防止每次在链表尾部追加元素都要遍历一边完成的链表，从 o(n*2) 复杂度 => o(n+1)
+        var tail *ListNode
+
+        carry := 0
+
+        for l1 != nil || l2 != nil {
+            n1, n2 := 0, 0
+
+            if l1 != nil {
+                n1 = l1.Val
+                l1 = l1.Next
+            }
+
+            if l2 != nil {
+                n2 = l2.Val
+                l2 = l2.Next
+            }
+
+            sum := n1 + n2 + carry
+            sum, carry = sum%10, sum/10
+
+            if head == nil {
+                head = tail
+                tail = &ListNode{Val: sum}
+            } else {
+                tail.Next = &ListNode{Val: sum}
+                tail = tail.Next
+            }
+        }
+        if carry > 0 {
+            tail.Next = &ListNode{Val:sum}
+        }
+
+        return
+    }
+
+```
 
 
 ### 双指针
@@ -58,6 +108,8 @@ import (
     "sort"
 )
 
+
+// 先排序，利用slice的有序性 + 双指针
 func twoEle(numbers []int, target int) []int {
     left, right := 0, len(numbers) - 1
 
@@ -74,6 +126,27 @@ func twoEle(numbers []int, target int) []int {
     }
     return []int{}
 }
+
+
+// 不排序，利用 hashMap 
+func twoSum(nums []int, target int) []int {
+    // 先定义一个map，用来存储nums元素中每个 target - 该元素 = 需要的值，以及对应的下标
+    var targetMap map[int]int
+
+    for i, num := range nums {
+        targetNum := target - num
+        if targetNumIdx, ok := targetMap[targetNum]; ok {
+            return [i, targetNumIdx]
+        } else {
+            targetMap[targetNum] = i
+        }
+    }
+
+    // 没有符合的
+    return []int{}
+}
+
+
 
 func main() {
     numbers := []int{2,11,7,15}

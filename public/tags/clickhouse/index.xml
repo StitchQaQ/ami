@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>ClickHouse on Heyuuuu</title>
-        <link>http://localhost:1313/tags/clickhouse/</link>
+        <link>https://stitchqaq.github.io/tags/clickhouse/</link>
         <description>Recent content in ClickHouse on Heyuuuu</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>© 2024-2025 Heyuuuu</copyright>
-        <lastBuildDate>Mon, 24 Mar 2025 09:34:08 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/clickhouse/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 24 Mar 2025 09:34:08 +0800</lastBuildDate><atom:link href="https://stitchqaq.github.io/tags/clickhouse/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>ClickHouse 性能之巅</title>
-        <link>http://localhost:1313/posts/clickhouse%E6%80%A7%E8%83%BD%E4%B9%8B%E5%B7%85/</link>
+        <link>https://stitchqaq.github.io/posts/clickhouse%E6%80%A7%E8%83%BD%E4%B9%8B%E5%B7%85/</link>
         <pubDate>Mon, 24 Mar 2025 09:34:08 +0800</pubDate>
         
-        <guid>http://localhost:1313/posts/clickhouse%E6%80%A7%E8%83%BD%E4%B9%8B%E5%B7%85/</guid>
+        <guid>https://stitchqaq.github.io/posts/clickhouse%E6%80%A7%E8%83%BD%E4%B9%8B%E5%B7%85/</guid>
         <description>&lt;h3 id=&#34;day1&#34;&gt;Day1
 &lt;/h3&gt;&lt;h4 id=&#34;oltp--olap&#34;&gt;OLTP &amp;amp; OLAP
 &lt;/h4&gt;&lt;ul&gt;

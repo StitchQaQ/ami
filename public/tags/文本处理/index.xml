@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>文本处理 on Heyuuuu</title>
-        <link>http://localhost:1313/tags/%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86/</link>
+        <link>https://stitchqaq.github.io/tags/%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86/</link>
         <description>Recent content in 文本处理 on Heyuuuu</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>© 2024-2025 Heyuuuu</copyright>
-        <lastBuildDate>Thu, 30 Oct 2025 17:30:00 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 30 Oct 2025 17:30:00 +0800</lastBuildDate><atom:link href="https://stitchqaq.github.io/tags/%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Linux 文本处理四大神器：grep、awk、sed、jq</title>
-        <link>http://localhost:1313/posts/linux/</link>
+        <link>https://stitchqaq.github.io/posts/linux/</link>
         <pubDate>Thu, 30 Oct 2025 17:30:00 +0800</pubDate>
         
-        <guid>http://localhost:1313/posts/linux/</guid>
+        <guid>https://stitchqaq.github.io/posts/linux/</guid>
         <description>&lt;h2 id=&#34;-概述&#34;&gt;📚 概述
 &lt;/h2&gt;&lt;p&gt;在 Linux 系统中，文本处理是日常运维和开发的核心技能。掌握这四大神器，能让你的工作效率提升 10 倍！&lt;/p&gt;
 &lt;ul&gt;

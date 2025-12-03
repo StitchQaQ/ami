@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>业务知识 on Heyuuuu</title>
-        <link>http://localhost:1313/categories/%E4%B8%9A%E5%8A%A1%E7%9F%A5%E8%AF%86/</link>
+        <link>https://stitchqaq.github.io/categories/%E4%B8%9A%E5%8A%A1%E7%9F%A5%E8%AF%86/</link>
         <description>Recent content in 业务知识 on Heyuuuu</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>© 2024-2025 Heyuuuu</copyright>
-        <lastBuildDate>Thu, 30 Oct 2025 18:00:00 +0800</lastBuildDate><atom:link href="http://localhost:1313/categories/%E4%B8%9A%E5%8A%A1%E7%9F%A5%E8%AF%86/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 30 Oct 2025 18:00:00 +0800</lastBuildDate><atom:link href="https://stitchqaq.github.io/categories/%E4%B8%9A%E5%8A%A1%E7%9F%A5%E8%AF%86/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>广告系统基础</title>
-        <link>http://localhost:1313/posts/advertiser/</link>
+        <link>https://stitchqaq.github.io/posts/advertiser/</link>
         <pubDate>Thu, 30 Oct 2025 18:00:00 +0800</pubDate>
         
-        <guid>http://localhost:1313/posts/advertiser/</guid>
+        <guid>https://stitchqaq.github.io/posts/advertiser/</guid>
         <description>&lt;h4 id=&#34;广告的计费模式有哪几种&#34;&gt;广告的计费模式有哪几种
 &lt;/h4&gt;&lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;CPM&lt;/strong&gt; (Cost Per Mile) 千次展示计费&lt;/li&gt;

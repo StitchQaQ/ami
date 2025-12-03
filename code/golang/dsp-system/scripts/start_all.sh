@@ -60,3 +60,4 @@ echo "  ./scripts/stop_all.sh"
 echo ""
 
 
+

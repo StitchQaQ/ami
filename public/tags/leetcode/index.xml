@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>LeetCode on Heyuuuu</title>
-        <link>http://localhost:1313/tags/leetcode/</link>
+        <link>https://stitchqaq.github.io/tags/leetcode/</link>
         <description>Recent content in LeetCode on Heyuuuu</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>© 2024-2025 Heyuuuu</copyright>
-        <lastBuildDate>Tue, 18 Mar 2025 09:46:23 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/leetcode/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 18 Mar 2025 09:46:23 +0800</lastBuildDate><atom:link href="https://stitchqaq.github.io/tags/leetcode/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>LeetCode 刷题记录</title>
-        <link>http://localhost:1313/posts/leecode/</link>
+        <link>https://stitchqaq.github.io/posts/leecode/</link>
         <pubDate>Tue, 18 Mar 2025 09:46:23 +0800</pubDate>
         
-        <guid>http://localhost:1313/posts/leecode/</guid>
+        <guid>https://stitchqaq.github.io/posts/leecode/</guid>
         <description>&lt;h3 id=&#34;小镇法官&#34;&gt;小镇法官
 &lt;/h3&gt;&lt;h5 id=&#34;题干&#34;&gt;题干
 &lt;/h5&gt;&lt;p&gt;小镇有 n 个人， 其中有一个人是是小镇法官。如果法官存在，那么：&lt;/p&gt;
@@ -25,7 +25,7 @@
 如果小镇法官存在并确认身份，返回法官编号，否则返回 -1&lt;/p&gt;
 &lt;h5 id=&#34;题解思路&#34;&gt;题解思路
 &lt;/h5&gt;&lt;p&gt;如果使用图解的思路就很好接这个题目
-&lt;img src=&#34;http://localhost:1313/images/judge.jpg&#34;
+&lt;img src=&#34;https://stitchqaq.github.io/images/judge.jpg&#34;
 	
 	
 	
