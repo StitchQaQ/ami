@@ -2,10 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://stitchqaq.github.io/categories/</loc>
-    <lastmod>2025-11-24T18:00:00+08:00</lastmod>
-  </url><url>
     <loc>https://stitchqaq.github.io/posts/</loc>
+    <lastmod>2025-12-03T18:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://stitchqaq.github.io/categories/</loc>
+    <lastmod>2025-12-03T15:30:00+08:00</lastmod>
+  </url><url>
+    <loc>https://stitchqaq.github.io/categories/golang/</loc>
+    <lastmod>2025-12-03T15:30:00+08:00</lastmod>
+  </url><url>
+    <loc>https://stitchqaq.github.io/posts/go/</loc>
+    <lastmod>2025-12-03T15:30:00+08:00</lastmod>
+  </url><url>
+    <loc>https://stitchqaq.github.io/tags/mysql/</loc>
     <lastmod>2025-11-24T18:00:00+08:00</lastmod>
   </url><url>
     <loc>https://stitchqaq.github.io/tags/redis/</loc>
@@ -20,17 +29,29 @@
     <loc>https://stitchqaq.github.io/categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/</loc>
     <lastmod>2025-11-24T18:00:00+08:00</lastmod>
   </url><url>
+    <loc>https://stitchqaq.github.io/tags/%E7%95%99%E5%AD%98/</loc>
+    <lastmod>2025-11-24T18:00:00+08:00</lastmod>
+  </url><url>
     <loc>https://stitchqaq.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
     <lastmod>2025-11-24T18:00:00+08:00</lastmod>
   </url><url>
-    <loc>https://stitchqaq.github.io/tags/mysql/</loc>
-    <lastmod>2025-11-18T10:31:44+08:00</lastmod>
-  </url><url>
-    <loc>https://stitchqaq.github.io/tags/%E7%95%99%E5%AD%98/</loc>
-    <lastmod>2025-11-18T10:31:44+08:00</lastmod>
-  </url><url>
     <loc>https://stitchqaq.github.io/posts/mysql_execrcise/</loc>
-    <lastmod>2025-11-18T10:31:44+08:00</lastmod>
+    <lastmod>2025-11-24T18:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://stitchqaq.github.io/tags/tcp/</loc>
+    <lastmod>2025-11-24T17:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://stitchqaq.github.io/posts/tcp_udp/</loc>
+    <lastmod>2025-11-24T17:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://stitchqaq.github.io/tags/udp/</loc>
+    <lastmod>2025-11-24T17:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://stitchqaq.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</loc>
+    <lastmod>2025-11-24T17:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://stitchqaq.github.io/tags/%E7%BD%91%E7%BB%9C/</loc>
+    <lastmod>2025-11-24T17:00:00+08:00</lastmod>
   </url><url>
     <loc>https://stitchqaq.github.io/tags/%E5%B9%BF%E5%91%8A/</loc>
     <lastmod>2025-10-30T18:00:00+08:00</lastmod>
@@ -58,12 +79,6 @@
   </url><url>
     <loc>https://stitchqaq.github.io/tags/%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86/</loc>
     <lastmod>2025-10-30T17:30:00+08:00</lastmod>
-  </url><url>
-    <loc>https://stitchqaq.github.io/categories/golang/</loc>
-    <lastmod>2025-10-30T15:30:00+08:00</lastmod>
-  </url><url>
-    <loc>https://stitchqaq.github.io/posts/go/</loc>
-    <lastmod>2025-10-30T15:30:00+08:00</lastmod>
   </url><url>
     <loc>https://stitchqaq.github.io/tags/docker/</loc>
     <lastmod>2025-09-17T11:36:54+08:00</lastmod>
@@ -106,21 +121,6 @@
   </url><url>
     <loc>https://stitchqaq.github.io/posts/curl/</loc>
     <lastmod>2025-06-03T14:43:01+08:00</lastmod>
-  </url><url>
-    <loc>https://stitchqaq.github.io/tags/tcp/</loc>
-    <lastmod>2025-03-26T17:17:34+08:00</lastmod>
-  </url><url>
-    <loc>https://stitchqaq.github.io/posts/tcp_udp/</loc>
-    <lastmod>2025-03-26T17:17:34+08:00</lastmod>
-  </url><url>
-    <loc>https://stitchqaq.github.io/tags/udp/</loc>
-    <lastmod>2025-03-26T17:17:34+08:00</lastmod>
-  </url><url>
-    <loc>https://stitchqaq.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</loc>
-    <lastmod>2025-03-26T17:17:34+08:00</lastmod>
-  </url><url>
-    <loc>https://stitchqaq.github.io/tags/%E7%BD%91%E7%BB%9C/</loc>
-    <lastmod>2025-03-26T17:17:34+08:00</lastmod>
   </url><url>
     <loc>https://stitchqaq.github.io/categories/python/</loc>
     <lastmod>2025-03-24T11:43:50+08:00</lastmod>

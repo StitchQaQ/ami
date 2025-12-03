@@ -1,4 +1,4 @@
-<!doctype html><html lang=zh-cn dir=ltr><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><meta name=description content=" 💡 本文记录 Go 语言学习过程中的核心概念和最佳实践，涵盖并发编程、数据结构、指针操作等关键知识点。\n引用类型 通道(channel)、 映射(map)、 切片(slice)\n"><title>Go语言实战笔记</title><link rel=canonical href=https://stitchqaq.github.io/posts/go/><link rel=stylesheet href=/scss/style.min.6a692fd055deae459f2a9767f57f3855ba80cafd5041317f24f7360f6ca47cdf.css><meta property='og:title' content="Go语言实战笔记"><meta property='og:description' content=" 💡 本文记录 Go 语言学习过程中的核心概念和最佳实践，涵盖并发编程、数据结构、指针操作等关键知识点。\n引用类型 通道(channel)、 映射(map)、 切片(slice)\n"><meta property='og:url' content='https://stitchqaq.github.io/posts/go/'><meta property='og:site_name' content='Heyuuuu'><meta property='og:type' content='article'><meta property='article:section' content='Posts'><meta property='article:published_time' content='2025-10-30T15:30:00+08:00'><meta property='article:modified_time' content='2025-10-30T15:30:00+08:00'><meta name=twitter:title content="Go语言实战笔记"><meta name=twitter:description content=" 💡 本文记录 Go 语言学习过程中的核心概念和最佳实践，涵盖并发编程、数据结构、指针操作等关键知识点。\n引用类型 通道(channel)、 映射(map)、 切片(slice)\n"><link rel="shortcut icon" href=/favicon.ico></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label=切换菜单>
+<!doctype html><html lang=zh-cn dir=ltr><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><meta name=description content="Golang计算一个字符串中不重复的最长的值是多少 解题思路是有一个滑动窗口，首先声明一个map，记录字符和下标，遇到重复的更新下标。 声明一个left， 表示滑动窗口的左边界，如果重复的下标大于左边界，用这个下标更新左边界。然后计算当前下标就是右边界。 左右边界计算最大值，当这个差值比count大，就更新count。最终输出的就是不重复的最大值\n"><title>Go语言实战笔记</title><link rel=canonical href=https://stitchqaq.github.io/posts/go/><link rel=stylesheet href=/scss/style.min.6a692fd055deae459f2a9767f57f3855ba80cafd5041317f24f7360f6ca47cdf.css><meta property='og:title' content="Go语言实战笔记"><meta property='og:description' content="Golang计算一个字符串中不重复的最长的值是多少 解题思路是有一个滑动窗口，首先声明一个map，记录字符和下标，遇到重复的更新下标。 声明一个left， 表示滑动窗口的左边界，如果重复的下标大于左边界，用这个下标更新左边界。然后计算当前下标就是右边界。 左右边界计算最大值，当这个差值比count大，就更新count。最终输出的就是不重复的最大值\n"><meta property='og:url' content='https://stitchqaq.github.io/posts/go/'><meta property='og:site_name' content='Heyuuuu'><meta property='og:type' content='article'><meta property='article:section' content='Posts'><meta property='article:published_time' content='2025-12-03T15:30:00+08:00'><meta property='article:modified_time' content='2025-12-03T15:30:00+08:00'><meta name=twitter:title content="Go语言实战笔记"><meta name=twitter:description content="Golang计算一个字符串中不重复的最长的值是多少 解题思路是有一个滑动窗口，首先声明一个map，记录字符和下标，遇到重复的更新下标。 声明一个left， 表示滑动窗口的左边界，如果重复的下标大于左边界，用这个下标更新左边界。然后计算当前下标就是右边界。 左右边界计算最大值，当这个差值比count大，就更新count。最终输出的就是不重复的最大值\n"><link rel="shortcut icon" href=/favicon.ico></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label=切换菜单>
 <span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/img/avatar_hu_21945a193e0ed1f7.jpg width=300 height=300 class=site-logo loading=lazy alt=Avatar>
 </a><span class=emoji>👋</span></figure><div class=site-meta><h1 class=site-name><a href=/>Heyuuuu</a></h1><h2 class=site-description>不要傻笑</h2></div></header><ol class=menu-social><li><a href=https://github.com/heyuuuu77 target=_blank title=GitHub rel=me><svg class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li><li><a href=/index.xml target=_blank title=RSS rel=me><svg class="icon icon-tabler icon-tabler-rss" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="5" cy="19" r="1"/><path d="M4 4a16 16 0 0116 16"/><path d="M4 11a9 9 0 019 9"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/><svg class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
 <span>首页</span></a></li><li><a href=/posts/><span>文章</span></a></li><li><a href=/categories/><svg class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg>
@@ -7,9 +7,337 @@
 <span>归档</span></a></li><li><a href=/search/><svg class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
 <span>搜索</span></a></li><li class=menu-bottom-section><ol class=menu><li id=dark-mode-toggle><svg class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
 <svg class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
-<span>暗色模式</span></li></ol></li></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">目录</h2><div class=widget--toc><nav id=TableOfContents><ol><li><a href=#引用类型>引用类型</a></li><li><a href=#sync-包>sync 包</a><ol><li><a href=#命名规范>命名规范</a></li></ol></li><li><a href=#最佳实践>最佳实践</a><ol><li><a href=#接收者类型选择>接收者类型选择</a></li><li><a href=#接口类型的方法调用规则>接口类型的方法调用规则</a></li></ol></li><li><a href=#go-命令>GO 命令</a><ol><li><a href=#go-vet>go vet</a></li><li><a href=#go-fmt>go fmt</a></li><li><a href=#go-doc>go doc</a></li></ol></li><li><a href=#数组切片映射>数组、切片、映射</a></li><li><a href=#指针>指针</a></li><li><a href=#channel>Channel</a><ol><li><a href=#无缓冲通道>无缓冲通道</a></li><li><a href=#使用-channel-监控协程完成>使用 Channel 监控协程完成</a></li></ol></li></ol></nav></div></section></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/golang/>Golang</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/posts/go/>Go语言实战笔记</a></h2></div><footer class=article-time><div><svg class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
-<time class=article-time--published>2025-10-30</time></div><div><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
-<time class=article-time--reading>阅读时长: 5 分钟</time></div></footer></div></header><section class=article-content><blockquote><p>💡 本文记录 Go 语言学习过程中的核心概念和最佳实践，涵盖并发编程、数据结构、指针操作等关键知识点。</p></blockquote><h2 id=引用类型>引用类型</h2><p>通道(channel)、 映射(map)、 切片(slice)</p><blockquote><p>⚠️ <strong>提示</strong>：引用类型在传递时传递的是引用，修改会影响原始数据。</p></blockquote><h2 id=sync-包>sync 包</h2><p>sync 包提供同步 goroutine 的功能。 在Go语言中， main终止则代表了程序终止， main函数终止前还会关闭所有之前启动且运行的 goroutine。
+<span>暗色模式</span></li></ol></li></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">目录</h2><div class=widget--toc><nav id=TableOfContents><ol><li><a href=#golang计算一个字符串中不重复的最长的值是多少>Golang计算一个字符串中不重复的最长的值是多少</a></li><li><a href=#golang生成斐波那契函数>Golang生成斐波那契函数</a></li><li><a href=#一个简单的golang编程小题>一个简单的Golang编程小题。</a><ol><li><ol><li><a href=#题目写一个函数校验字符串中的括号是否合法>题目：写一个函数，校验字符串中的括号是否合法。</a></li><li><a href=#参考>参考</a></li></ol></li></ol></li><li><a href=#引用类型>引用类型</a></li><li><a href=#sync-包>sync 包</a><ol><li><a href=#命名规范>命名规范</a></li></ol></li><li><a href=#最佳实践>最佳实践</a><ol><li><a href=#接收者类型选择>接收者类型选择</a></li><li><a href=#接口类型的方法调用规则>接口类型的方法调用规则</a></li></ol></li><li><a href=#go-命令>GO 命令</a><ol><li><a href=#go-vet>go vet</a></li><li><a href=#go-fmt>go fmt</a></li><li><a href=#go-doc>go doc</a></li></ol></li><li><a href=#数组切片映射>数组、切片、映射</a></li><li><a href=#指针>指针</a></li><li><a href=#channel>Channel</a><ol><li><a href=#无缓冲通道>无缓冲通道</a></li><li><a href=#使用-channel-监控协程完成>使用 Channel 监控协程完成</a></li></ol></li></ol></nav></div></section></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/golang/>Golang</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/posts/go/>Go语言实战笔记</a></h2></div><footer class=article-time><div><svg class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>2025-12-03</time></div><div><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>阅读时长: 7 分钟</time></div></footer></div></header><section class=article-content><h2 id=golang计算一个字符串中不重复的最长的值是多少>Golang计算一个字符串中不重复的最长的值是多少</h2><p>解题思路是有一个滑动窗口，首先声明一个map，记录字符和下标，遇到重复的更新下标。 声明一个left， 表示滑动窗口的左边界，如果重复的下标大于左边界，用这个下标更新左边界。然后计算当前下标就是右边界。 左右边界计算最大值，当这个差值比count大，就更新count。最终输出的就是不重复的最大值</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-golang data-lang=golang><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kd>func</span><span class=w> </span><span class=nf>countMaxLen</span><span class=p>(</span><span class=nx>s</span><span class=w> </span><span class=kt>string</span><span class=p>)</span><span class=w> </span><span class=kt>int</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=nx>hashmap</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=nb>make</span><span class=p>(</span><span class=kd>map</span><span class=p>[</span><span class=kt>rune</span><span class=p>]</span><span class=kt>int</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=nx>left</span><span class=p>,</span><span class=w> </span><span class=nx>count</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=mi>0</span><span class=p>,</span><span class=w> </span><span class=mi>0</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=k>for</span><span class=w> </span><span class=nx>i</span><span class=p>,</span><span class=w> </span><span class=nx>char</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=k>range</span><span class=w> </span><span class=nx>s</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>		</span><span class=k>if</span><span class=w> </span><span class=nx>leftIdx</span><span class=p>,</span><span class=w> </span><span class=nx>ok</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=nx>hashmap</span><span class=p>[</span><span class=nx>char</span><span class=p>];</span><span class=w> </span><span class=nx>ok</span><span class=w> </span><span class=o>&amp;&amp;</span><span class=w> </span><span class=nx>leftIdx</span><span class=w> </span><span class=o>&gt;=</span><span class=w> </span><span class=nx>left</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>			</span><span class=nx>left</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=nx>leftIdx</span><span class=w> </span><span class=o>+</span><span class=w> </span><span class=mi>1</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>		</span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>		</span><span class=nx>hashmap</span><span class=p>[</span><span class=nx>char</span><span class=p>]</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=nx>i</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>		</span><span class=c1>//
+</span></span></span><span class=line><span class=cl><span class=c1>		curLen := i - left + 1</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>		</span><span class=k>if</span><span class=w> </span><span class=nx>curLen</span><span class=w> </span><span class=p>&gt;</span><span class=w> </span><span class=nx>count</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>			</span><span class=nx>count</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=nx>curLen</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>		</span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=k>return</span><span class=w> </span><span class=nx>count</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><h2 id=golang生成斐波那契函数>Golang生成斐波那契函数</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span><span class=lnt>60
+</span><span class=lnt>61
+</span><span class=lnt>62
+</span><span class=lnt>63
+</span><span class=lnt>64
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-golang data-lang=golang><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kd>func</span><span class=w> </span><span class=nf>main</span><span class=p>()</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>	
+</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=k>for</span><span class=w> </span><span class=nx>num</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=k>range</span><span class=w> </span><span class=nf>Fib</span><span class=p>(</span><span class=mi>10</span><span class=p>)</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>		</span><span class=nx>fmt</span><span class=p>.</span><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;%d &#34;</span><span class=p>,</span><span class=w> </span><span class=nx>num</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>()</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=c1>// 调用Fib2</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=nx>ctx</span><span class=p>,</span><span class=w> </span><span class=nx>cancel</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=nx>context</span><span class=p>.</span><span class=nf>WithCancel</span><span class=p>(</span><span class=nx>context</span><span class=p>.</span><span class=nf>Background</span><span class=p>())</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=k>defer</span><span class=w> </span><span class=nf>cancel</span><span class=p>()</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=k>go</span><span class=w> </span><span class=kd>func</span><span class=p>()</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>		</span><span class=nx>time</span><span class=p>.</span><span class=nf>Sleep</span><span class=p>(</span><span class=mi>5</span><span class=w> </span><span class=o>*</span><span class=w> </span><span class=nx>time</span><span class=p>.</span><span class=nx>Second</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>		</span><span class=nf>cancel</span><span class=p>()</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=p>}()</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=k>for</span><span class=w> </span><span class=nx>num</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=k>range</span><span class=w> </span><span class=nf>Fib2</span><span class=p>(</span><span class=nx>ctx</span><span class=p>)</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>		</span><span class=nx>fmt</span><span class=p>.</span><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;%d &#34;</span><span class=p>,</span><span class=w> </span><span class=nx>num</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kd>func</span><span class=w> </span><span class=nf>Fib</span><span class=p>(</span><span class=nx>n</span><span class=w> </span><span class=kt>int</span><span class=p>)</span><span class=w> </span><span class=o>&lt;-</span><span class=kd>chan</span><span class=w> </span><span class=kt>int</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>ch</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=nb>make</span><span class=p>(</span><span class=kd>chan</span><span class=w> </span><span class=kt>int</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>a</span><span class=p>,</span><span class=w> </span><span class=nx>b</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=mi>0</span><span class=p>,</span><span class=mi>1</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>go</span><span class=w> </span><span class=kd>func</span><span class=w> </span><span class=p>()</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=k>defer</span><span class=w> </span><span class=nb>close</span><span class=p>(</span><span class=nx>ch</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=k>for</span><span class=w> </span><span class=nx>i</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=mi>0</span><span class=p>;</span><span class=w> </span><span class=nx>i</span><span class=w> </span><span class=p>&lt;</span><span class=w> </span><span class=nx>n</span><span class=p>;</span><span class=w> </span><span class=nx>i</span><span class=o>++</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=nx>ch</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=nx>a</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=nx>a</span><span class=p>,</span><span class=w> </span><span class=nx>b</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=nx>b</span><span class=p>,</span><span class=w> </span><span class=nx>a</span><span class=o>+</span><span class=nx>b</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}()</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>return</span><span class=w> </span><span class=nx>ch</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kd>func</span><span class=w> </span><span class=nf>Fib2</span><span class=p>(</span><span class=nx>ctx</span><span class=w> </span><span class=nx>context</span><span class=p>.</span><span class=nx>Context</span><span class=p>)</span><span class=w> </span><span class=o>&lt;-</span><span class=kd>chan</span><span class=w> </span><span class=kt>int</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=nx>ch</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=nb>make</span><span class=p>(</span><span class=kd>chan</span><span class=w> </span><span class=kt>int</span><span class=p>,</span><span class=w> </span><span class=mi>5</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=nx>a</span><span class=p>,</span><span class=w> </span><span class=nx>b</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=mi>0</span><span class=p>,</span><span class=w> </span><span class=mi>1</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=k>go</span><span class=w> </span><span class=kd>func</span><span class=p>()</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>		</span><span class=k>defer</span><span class=w> </span><span class=nb>close</span><span class=p>(</span><span class=nx>ch</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>		</span><span class=k>for</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>			</span><span class=k>select</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>			</span><span class=k>case</span><span class=w> </span><span class=o>&lt;-</span><span class=nx>ctx</span><span class=p>.</span><span class=nf>Done</span><span class=p>():</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>				</span><span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=s>&#34;终止&#34;</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>				</span><span class=k>return</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>			</span><span class=k>case</span><span class=w> </span><span class=nx>ch</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=nx>a</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>				</span><span class=nx>a</span><span class=p>,</span><span class=w> </span><span class=nx>b</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=nx>b</span><span class=p>,</span><span class=w> </span><span class=nx>a</span><span class=o>+</span><span class=nx>b</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>				</span><span class=nx>time</span><span class=p>.</span><span class=nf>Sleep</span><span class=p>(</span><span class=mi>500</span><span class=w> </span><span class=o>*</span><span class=w> </span><span class=nx>time</span><span class=p>.</span><span class=nx>Millisecond</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>			</span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>		</span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=p>}()</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=k>return</span><span class=w> </span><span class=nx>ch</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><h2 id=一个简单的golang编程小题>一个简单的Golang编程小题。</h2><h4 id=题目写一个函数校验字符串中的括号是否合法>题目：写一个函数，校验字符串中的括号是否合法。</h4><h4 id=参考>参考</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span><span class=lnt>60
+</span><span class=lnt>61
+</span><span class=lnt>62
+</span><span class=lnt>63
+</span><span class=lnt>64
+</span><span class=lnt>65
+</span><span class=lnt>66
+</span><span class=lnt>67
+</span><span class=lnt>68
+</span><span class=lnt>69
+</span><span class=lnt>70
+</span><span class=lnt>71
+</span><span class=lnt>72
+</span><span class=lnt>73
+</span><span class=lnt>74
+</span><span class=lnt>75
+</span><span class=lnt>76
+</span><span class=lnt>77
+</span><span class=lnt>78
+</span><span class=lnt>79
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-golang data-lang=golang><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kn>package</span><span class=w> </span><span class=nx>main</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kn>import</span><span class=w> </span><span class=p>(</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=s>&#34;errors&#34;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=s>&#34;fmt&#34;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kd>func</span><span class=w> </span><span class=nf>main</span><span class=p>()</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=s>&#34;Hello, 世界&#34;</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=nx>testCases</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=p>[]</span><span class=kt>string</span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>		</span><span class=s>&#34;()[]{}&lt;&gt;&#34;</span><span class=p>,</span><span class=w>         </span><span class=c1>// 合法：四种括号正常匹配</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>		</span><span class=s>&#34;([]){&lt;()&gt;}&#34;</span><span class=p>,</span><span class=w>       </span><span class=c1>// 合法：嵌套匹配</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>		</span><span class=s>&#34;(()&#34;</span><span class=p>,</span><span class=w>              </span><span class=c1>// 非法：左括号未匹配</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>		</span><span class=s>&#34;())&#34;</span><span class=p>,</span><span class=w>              </span><span class=c1>// 非法：右括号多余</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>		</span><span class=s>&#34;([)]&#34;</span><span class=p>,</span><span class=w>             </span><span class=c1>// 非法：括号交叉不匹配</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>		</span><span class=s>&#34;{[&lt;]}&#34;</span><span class=p>,</span><span class=w>            </span><span class=c1>// 合法：嵌套顺序正确</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>		</span><span class=s>&#34;a(b)c[d]e{f}g&lt;h&gt;&#34;</span><span class=p>,</span><span class=w> </span><span class=c1>// 合法：含其他字符</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>		</span><span class=s>&#34;&#34;</span><span class=p>,</span><span class=w>                 </span><span class=c1>// 合法：空字符串</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>		</span><span class=s>&#34;&lt;{[(])}&gt;&#34;</span><span class=p>,</span><span class=w>         </span><span class=c1>// 非法：交叉嵌套</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>		</span><span class=s>&#34;北京(迦游)网络[科技]{有限公司}&lt;测试&gt;&#34;</span><span class=p>,</span><span class=w> </span><span class=c1>// 合法：含中文+括号</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=k>for</span><span class=w> </span><span class=nx>_</span><span class=p>,</span><span class=w> </span><span class=nx>tc</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=k>range</span><span class=w> </span><span class=nx>testCases</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>		</span><span class=nx>valid</span><span class=p>,</span><span class=w> </span><span class=nx>err</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=nf>IsValidString</span><span class=p>(</span><span class=nx>tc</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>		</span><span class=k>if</span><span class=w> </span><span class=nx>valid</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>			</span><span class=nx>fmt</span><span class=p>.</span><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;字符串「%s」→ 括号合法\n&#34;</span><span class=p>,</span><span class=w> </span><span class=nx>tc</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>		</span><span class=p>}</span><span class=w> </span><span class=k>else</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>			</span><span class=nx>fmt</span><span class=p>.</span><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;字符串「%s」→ 括号非法：%v\n&#34;</span><span class=p>,</span><span class=w> </span><span class=nx>tc</span><span class=p>,</span><span class=w> </span><span class=nx>err</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>		</span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kd>func</span><span class=w> </span><span class=nf>IsValidString</span><span class=p>(</span><span class=nx>s</span><span class=w> </span><span class=kt>string</span><span class=p>)</span><span class=w> </span><span class=p>(</span><span class=kt>bool</span><span class=p>,</span><span class=w> </span><span class=kt>error</span><span class=p>)</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=nx>bucketMap</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=kd>map</span><span class=p>[</span><span class=kt>rune</span><span class=p>]</span><span class=kt>rune</span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>		</span><span class=sc>&#39;}&#39;</span><span class=p>:</span><span class=w> </span><span class=sc>&#39;{&#39;</span><span class=p>,</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>		</span><span class=sc>&#39;]&#39;</span><span class=p>:</span><span class=w> </span><span class=sc>&#39;[&#39;</span><span class=p>,</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>		</span><span class=sc>&#39;&gt;&#39;</span><span class=p>:</span><span class=w> </span><span class=sc>&#39;&lt;&#39;</span><span class=p>,</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>		</span><span class=sc>&#39;)&#39;</span><span class=p>:</span><span class=w> </span><span class=sc>&#39;(&#39;</span><span class=p>,</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=nx>leftBucketMap</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=kd>map</span><span class=p>[</span><span class=kt>rune</span><span class=p>]</span><span class=kt>bool</span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>		</span><span class=sc>&#39;{&#39;</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=p>,</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>		</span><span class=sc>&#39;&lt;&#39;</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=p>,</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>		</span><span class=sc>&#39;[&#39;</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=p>,</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>		</span><span class=sc>&#39;(&#39;</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=p>,</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=kd>var</span><span class=w> </span><span class=nx>stack</span><span class=w> </span><span class=p>[]</span><span class=kt>rune</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=k>for</span><span class=w> </span><span class=nx>i</span><span class=p>,</span><span class=w> </span><span class=nx>char</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=k>range</span><span class=w> </span><span class=nx>s</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>		</span><span class=c1>// 如果是左括号，写入栈</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>		</span><span class=k>if</span><span class=w> </span><span class=nx>leftBucketMap</span><span class=p>[</span><span class=nx>char</span><span class=p>]</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>			</span><span class=nx>stack</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=nb>append</span><span class=p>(</span><span class=nx>stack</span><span class=p>,</span><span class=w> </span><span class=nx>char</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>			</span><span class=k>continue</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>		</span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>		</span><span class=c1>// 如果是右括号， -&gt; 校验</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>		</span><span class=k>if</span><span class=w> </span><span class=nx>targetLeft</span><span class=p>,</span><span class=w> </span><span class=nx>ok</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=nx>bucketMap</span><span class=p>[</span><span class=nx>char</span><span class=p>];</span><span class=w> </span><span class=nx>ok</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>			</span><span class=c1>// 如果是空栈，没有对应的左括号。报错</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>			</span><span class=k>if</span><span class=w> </span><span class=nb>len</span><span class=p>(</span><span class=nx>stack</span><span class=p>)</span><span class=w> </span><span class=o>==</span><span class=w> </span><span class=mi>0</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>				</span><span class=k>return</span><span class=w> </span><span class=kc>false</span><span class=p>,</span><span class=w> </span><span class=nx>errors</span><span class=p>.</span><span class=nf>New</span><span class=p>(</span><span class=nx>fmt</span><span class=p>.</span><span class=nf>Sprintf</span><span class=p>(</span><span class=s>&#34;位置: %d，字符「%c」没有对应的括号&#34;</span><span class=p>,</span><span class=w> </span><span class=nx>i</span><span class=p>,</span><span class=w> </span><span class=nx>char</span><span class=p>))</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>			</span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>			</span><span class=c1>//
+</span></span></span><span class=line><span class=cl><span class=c1>			top := stack[len(stack)-1]</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>			</span><span class=k>if</span><span class=w> </span><span class=nx>targetLeft</span><span class=w> </span><span class=o>!=</span><span class=w> </span><span class=nx>top</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>				</span><span class=k>return</span><span class=w> </span><span class=kc>false</span><span class=p>,</span><span class=w> </span><span class=nx>errors</span><span class=p>.</span><span class=nf>New</span><span class=p>(</span><span class=nx>fmt</span><span class=p>.</span><span class=nf>Sprintf</span><span class=p>(</span><span class=s>&#34;位置: %d，字符「%c」栈顶的括号与之对应不上&#34;</span><span class=p>,</span><span class=w> </span><span class=nx>i</span><span class=p>,</span><span class=w> </span><span class=nx>char</span><span class=p>))</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>			</span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>			</span><span class=nx>stack</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=nx>stack</span><span class=p>[:</span><span class=nb>len</span><span class=p>(</span><span class=nx>stack</span><span class=p>)</span><span class=o>-</span><span class=mi>1</span><span class=p>]</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>			</span><span class=k>continue</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>		</span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=k>return</span><span class=w> </span><span class=kc>true</span><span class=p>,</span><span class=w> </span><span class=kc>nil</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><blockquote><p>💡 本文记录 Go 语言学习过程中的核心概念和最佳实践，涵盖并发编程、数据结构、指针操作等关键知识点。</p></blockquote><h2 id=引用类型>引用类型</h2><p>通道(channel)、 映射(map)、 切片(slice)</p><blockquote><p>⚠️ <strong>提示</strong>：引用类型在传递时传递的是引用，修改会影响原始数据。</p></blockquote><h2 id=sync-包>sync 包</h2><p>sync 包提供同步 goroutine 的功能。 在Go语言中， main终止则代表了程序终止， main函数终止前还会关闭所有之前启动且运行的 goroutine。
 并发写程序时，最佳做法是 在main函数返回前，清理并终止所有之前启动的 goroutine。编写启动和终止都清晰的程序，减少bug，防止资源异常。</p><p>sync 包的 WaitGroup 会跟踪所有启动的 goroutine。 WaitGroup 是一个计数信号量，用来统计每个 goroutine 是否完成了工作。
 具体做法是: 将 WaitGroup 的变量值设置为要启动的 goroutine 数量。 每个 goroutine 完成工作后， 递减 WaitGroup 变量的计数值。
 当这个值为0，就知道所有的 goroutine 都完成了工作。</p><blockquote><p>💡 <strong>最佳实践</strong>：使用 <code>defer wg.Done()</code> 确保 goroutine 完成时一定会调用 Done，避免程序永久阻塞。</p></blockquote><h3 id=命名规范>命名规范</h3><ol><li>命名接口时，如果接口内就一个方法，需要以 er 结尾。 如 Matcher。 如果接口类型内部声明了多个方法，其名字需要与其行为关联</li></ol><h2 id=最佳实践>最佳实践</h2><h3 id=接收者类型选择>接收者类型选择</h3><p>如果声明函数的时候带有接收者，则意味着声明了一个方法。这个方法会和指定的接收者类型绑定在一起。
@@ -112,6 +440,10 @@
 </span><span class=lnt>18
 </span><span class=lnt>19
 </span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
 </span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-golang data-lang=golang><span class=line><span class=cl><span class=c1>// 示例： 创建一个生成器</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w></span><span class=kd>func</span><span class=w> </span><span class=nf>generateInteger</span><span class=p>()</span><span class=w> </span><span class=kd>func</span><span class=p>()</span><span class=w> </span><span class=kt>int</span><span class=w> </span><span class=p>{</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>ch</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=nb>make</span><span class=p>(</span><span class=kd>chan</span><span class=w> </span><span class=kt>int</span><span class=p>)</span><span class=w>
@@ -123,6 +455,10 @@
 </span></span></span><span class=line><span class=cl><span class=w>            </span><span class=nx>cnt</span><span class=o>++</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w>        </span><span class=p>}</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}{}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>return</span><span class=w> </span><span class=kd>func</span><span class=p>()</span><span class=w> </span><span class=kt>int</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=k>return</span><span class=w> </span><span class=o>&lt;-</span><span class=nx>ch</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w></span><span class=kd>func</span><span class=w> </span><span class=nf>main</span><span class=p>()</span><span class=w> </span><span class=p>{</span><span class=w>
